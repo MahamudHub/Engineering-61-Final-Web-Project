@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class GmailLogin {
+public class GmailPage {
     
     WebDriver webDriver = new ChromeDriver();
     By email = new By.ById("identifierId");
@@ -12,11 +12,11 @@ public class GmailLogin {
     By password = new By.ByName("password");
     By passwordNext = new By.ByCssSelector("#passwordNext > div > button");
 
-    public GmailLogin(WebDriver webDriver) {
+    public GmailPage(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
 
-    public GmailLogin goToLoginPage() {
+    public GmailPage goToLoginPage() {
         webDriver.manage().window().maximize();
         webDriver.get("http://mail.google.com/mail?hl=en-GB");
         return this;

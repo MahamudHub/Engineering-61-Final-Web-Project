@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class GmailTest {
     WebDriver webDriver = new ChromeDriver();
-    GmailLogin gmailLogin = new GmailLogin(webDriver);
+    GmailPage gmailLogin = new GmailPage(webDriver);
 
     @Test
     public void LoggingIn() {
