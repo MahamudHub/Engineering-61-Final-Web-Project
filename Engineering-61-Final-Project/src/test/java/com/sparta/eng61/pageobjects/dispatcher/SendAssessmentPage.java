@@ -5,9 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
 public class SendAssessmentPage {
+    private Properties properties = new Properties();
+
     WebDriver webDriver;
     By assessment = new By.ById("assessment");
     By sendPsychometricCheckbox = new By.ById("checkbox");
@@ -16,6 +21,9 @@ public class SendAssessmentPage {
     By recruiterEmail = new By.ById("recruiter_email");
     By submit = new By.ById("submit");
     By pageTitle = new By.ById("page_title");
+    By pageHeader = new By.ById("page_header");
+    By sentInfo = new By.ByClassName("lead");
+
 
     public SendAssessmentPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -23,8 +31,33 @@ public class SendAssessmentPage {
         webDriver.get("https://eng61.spartaglobal.academy/");
     }
 
+    private void propertiesAccess() {
+        try {
+            properties.load(new FileReader("src/test/resources/SendAssessment.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public String getPageTitleName() {
         return webDriver.findElement(pageTitle).getText();
+    }
+
+    //After submit "Assessment Sent"
+    public String getPageHeader() {
+        return webDriver.findElement(pageHeader).getText();
+    }
+
+    public String getSentInfo() {
+        return webDriver.findElement(sentInfo).getText();
+    }
+
+    public boolean isSentInfoIncludeName() {
+        return getSentInfo().contains(properties.getProperty("candidateName"));
+    }
+
+    public boolean isSentInfoIncludeEmail() {
+        return getSentInfo().contains(properties.getProperty("candidateEmail"));
     }
 
     //--------------------Placeholder--------------------//
@@ -61,7 +94,7 @@ public class SendAssessmentPage {
         return dropdown.toString();
     }
 
-    public String getPsychometricAssessment () {
+    public String getPsychometricAssessment() {
         Select dropdown = new Select(webDriver.findElement(assessment));
         dropdown.selectByVisibleText("Psychometric Assessment");
         return dropdown.toString();
@@ -78,18 +111,26 @@ public class SendAssessmentPage {
     }
 
     public void enterCandidateName() {
-        webDriver.findElement(candidateName).sendKeys("Mohamed");
+        webDriver.findElement(candidateName).sendKeys(properties.getProperty("candidateName"));
     }
 
     public void enterCandidateEmail() {
-        webDriver.findElement(candidateEmail).sendKeys("engcandidate61@gmail.com");
+        webDriver.findElement(candidateEmail).sendKeys(properties.getProperty("candidateEmail"));
     }
 
     public void enterRecruiterEmail() {
-        webDriver.findElement(recruiterEmail).sendKeys("engineeringsixtyone@gmail.com");
+        webDriver.findElement(recruiterEmail).sendKeys(properties.getProperty("recruiterEmail"));
     }
 
     public void clickSubmit() {
         webDriver.findElement(submit).click();
+    }
+
+    public void enterFields() {
+        selectAssessment();
+        enterCandidateName();
+        enterCandidateEmail();
+        enterRecruiterEmail();
+        clickSubmit();
     }
 }
