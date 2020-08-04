@@ -14,12 +14,12 @@ public class SendAssessmentPage {
     private Properties properties = new Properties();
 
     WebDriver webDriver;
-    By assessment = new By.ById("assessment");
+    By assessmentChoices = new By.ById("assessment");
     By sendPsychometricCheckbox = new By.ById("checkbox");
-    By candidateName = new By.ById("candidate_name");
-    By candidateEmail = new By.ById("candidate_email");
-    By recruiterEmail = new By.ById("recruiter_email");
-    By submit = new By.ById("submit");
+    By candidateNameField = new By.ById("candidate_name");
+    By candidateEmailField = new By.ById("candidate_email");
+    By recruiterEmailField = new By.ById("recruiter_email");
+    By submitButton = new By.ById("submit");
     By pageTitle = new By.ById("page_title");
     By pageHeader = new By.ById("page_header");
     By sentInfo = new By.ByClassName("lead");
@@ -63,19 +63,19 @@ public class SendAssessmentPage {
     //--------------------Placeholder--------------------//
 
     public boolean isCandidateNamePlaceholderCorrect() {
-        String firstName = webDriver.findElement(candidateName).getAttribute("placeholder");
+        String firstName = webDriver.findElement(candidateNameField).getAttribute("placeholder");
         String text = "Enter candidate name";
         return firstName.contains(text);
     }
 
     public boolean isCandidateEmailPlaceholderCorrect() {
-        String firstName = webDriver.findElement(candidateEmail).getAttribute("placeholder");
+        String firstName = webDriver.findElement(candidateEmailField).getAttribute("placeholder");
         String text = "Enter candidate e-mail";
         return firstName.contains(text);
     }
 
     public boolean isRecruiterEmailPlaceholderCorrect() {
-        String firstName = webDriver.findElement(recruiterEmail).getAttribute("placeholder");
+        String firstName = webDriver.findElement(recruiterEmailField).getAttribute("placeholder");
         String text = "Enter recruiter e-mail";
         return firstName.contains(text);
     }
@@ -83,19 +83,19 @@ public class SendAssessmentPage {
     //--------------------Assessment choices--------------------//
 
     public int getNumberOfAssessmentChoices() {
-        WebElement select = webDriver.findElement(assessment);
+        WebElement select = webDriver.findElement(assessmentChoices);
         List<WebElement> options = select.findElements(By.tagName("option"));
         return options.size();
     }
 
     public String getAssessmentChoice(String option) {
-        Select dropdown = new Select(webDriver.findElement(assessment));
+        Select dropdown = new Select(webDriver.findElement(assessmentChoices));
         dropdown.selectByVisibleText(option);
         return dropdown.toString();
     }
 
     public String getPsychometricAssessment() {
-        Select dropdown = new Select(webDriver.findElement(assessment));
+        Select dropdown = new Select(webDriver.findElement(assessmentChoices));
         dropdown.selectByVisibleText("Psychometric Assessment");
         return dropdown.toString();
     }
@@ -106,24 +106,24 @@ public class SendAssessmentPage {
 
     //--------------------Entering the fields & click --------------------//
     public void selectAssessment() {
-        Select dropdown = new Select(webDriver.findElement(assessment));
+        Select dropdown = new Select(webDriver.findElement(assessmentChoices));
         dropdown.selectByValue("psychometric");
     }
 
     public void enterCandidateName() {
-        webDriver.findElement(candidateName).sendKeys(properties.getProperty("candidateName"));
+        webDriver.findElement(candidateNameField).sendKeys(properties.getProperty("candidateName"));
     }
 
     public void enterCandidateEmail() {
-        webDriver.findElement(candidateEmail).sendKeys(properties.getProperty("candidateEmail"));
+        webDriver.findElement(candidateEmailField).sendKeys(properties.getProperty("candidateEmail"));
     }
 
     public void enterRecruiterEmail() {
-        webDriver.findElement(recruiterEmail).sendKeys(properties.getProperty("recruiterEmail"));
+        webDriver.findElement(recruiterEmailField).sendKeys(properties.getProperty("recruiterEmail"));
     }
 
     public void clickSubmit() {
-        webDriver.findElement(submit).click();
+        webDriver.findElement(submitButton).click();
     }
 
     public void enterFields() {
