@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class GmailPage {
     
-    WebDriver webDriver = new ChromeDriver();
+    WebDriver webDriver;
     By email = new By.ById("identifierId");
     By emailNext = new By.ByCssSelector("#identifierNext > div > button");
     By password = new By.ByName("password");
@@ -40,9 +40,10 @@ public class GmailPage {
     }
 
     public void emailLogin() {
-        enterEmail();
-        clickEmailNext();
-        enterPassword();
-        clickPasswordNext();
+            goToLoginPage();
+            enterEmail();
+            clickEmailNext();
+            enterPassword();
+            clickPasswordNext();
     }
 }
