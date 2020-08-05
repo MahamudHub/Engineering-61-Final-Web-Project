@@ -1,0 +1,37 @@
+package com.sparta.eng61;
+
+import com.sparta.eng61.pageobjects.dispatcher.ResultsPage;
+import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ResultsTest {
+    WebDriver webDriver = new ChromeDriver();
+    ResultsPage resultsPage = new ResultsPage(webDriver);
+
+    @Test
+    public void titleTest() {
+        Assertions.assertEquals("Results", resultsPage.getPageTitleName());
+    }
+
+    @Test
+    public void candidateNameTest() {
+        Assertions.assertEquals("Manish", resultsPage.getCandidateName());
+    }
+
+    @Test
+    public void candidateEmailTest() {
+        Assertions.assertEquals("Manish", resultsPage.getCandidateEmail());
+    }
+
+    @Test
+    public void candidateScoreTest() {
+        Assertions.assertEquals("Manish", resultsPage.getCandidateScore());
+    }
+
+    @Test
+    public void updateTextTest() {
+        Assertions.assertEquals("Manish", resultsPage.getUpdateButtonTest());
+    }
+}
