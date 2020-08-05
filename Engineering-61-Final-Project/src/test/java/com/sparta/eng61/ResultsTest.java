@@ -22,16 +22,16 @@ public class ResultsTest {
 
     @Test
     public void candidateEmailTest() {
-        Assertions.assertEquals("Manish", resultsPage.getCandidateEmail());
+        Assertions.assertEquals("engcandidate61@gmail.com", resultsPage.getCandidateEmail());
     }
 
     @Test
     public void candidateScoreTest() {
-        Assertions.assertEquals("Manish", resultsPage.getCandidateScore());
+        Assertions.assertEquals("86", resultsPage.getCandidateScore());
     }
 
     @Test
     public void updateTextTest() {
-        Assertions.assertEquals("Manish", resultsPage.getUpdateButtonTest());
+        Assertions.assertEquals("Update", resultsPage.getUpdateButtonTest());
     }
 }
