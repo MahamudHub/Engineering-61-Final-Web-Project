@@ -31,6 +31,21 @@ public class ResultsTest {
     }
 
     @Test
+    public void candidateNRScoreTest() {
+        Assertions.assertEquals("100", resultsPage.getCandidateNR());
+    }
+
+    @Test
+    public void candidateLRScoreTest() {
+        Assertions.assertEquals("100", resultsPage.getCandidateLR());
+    }
+
+    @Test
+    public void candidateVandCRScoreTest() {
+        Assertions.assertEquals("100", resultsPage.getCandidateVandCR());
+    }
+
+    @Test
     public void updateTextTest() {
         Assertions.assertEquals("Update", resultsPage.getUpdateButtonTest());
     }
