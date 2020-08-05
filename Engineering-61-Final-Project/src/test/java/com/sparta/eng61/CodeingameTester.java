@@ -17,8 +17,7 @@ public class CodeingameTester {
 
     @Test
     public void testing(){
-        startPage.goToStartPage();
-        startPage.clickStartButton();
+        startPage.goToStartPage().clickStartButton();
     }
 
     @Test
