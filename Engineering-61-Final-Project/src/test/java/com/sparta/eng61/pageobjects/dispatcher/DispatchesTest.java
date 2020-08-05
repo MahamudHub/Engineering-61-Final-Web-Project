@@ -16,6 +16,17 @@ public class DispatchesTest {
         dispatchesPage.openDispatchesPage();
     }
     @Test
+    public void clickResultsLink(){
+        openDispatches();
+        dispatchesPage.clickResults();
+    }
+    @Test
+    public void clickPollsLink(){
+        openDispatches();
+        dispatchesPage.clickPolls();
+    }
+
+    @Test
     public void candidateName(){
         openDispatches();
         Assertions.assertEquals("Sam",dispatchesPage.getCandName());

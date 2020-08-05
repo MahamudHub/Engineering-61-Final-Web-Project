@@ -6,6 +6,10 @@ import org.openqa.selenium.WebDriver;
 public class DispatchesPage {
     WebDriver webDriver;
     By logOutLink = new By.ById("logout_link");
+    By dispatchesLink = new By.ByLinkText("Dispatches");
+    By resultsLink = new By.ByLinkText("Results");
+    By pollsLink = new By.ByLinkText("Polls");
+
     By candidateName = new By.ByCssSelector("tbody > tr:nth-child(1) > th");
     By candidateEmail = new By.ByCssSelector("tr:nth-child(1) > td:nth-child(2)");
     By recruiterEmail = new By.ByCssSelector("tr:nth-child(1) > td:nth-child(3)");
@@ -14,6 +18,8 @@ public class DispatchesPage {
     By timeSent = new By.ByCssSelector("tr:nth-child(1) > td:nth-child(6)");
     By complete = new By.ByCssSelector("tr:nth-child(1) > td:nth-child(7)");
     By expired = new By.ByCssSelector("tr:nth-child(1) > td:nth-child(8)");
+
+
 
     public DispatchesPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -30,6 +36,19 @@ public class DispatchesPage {
         openDispatchesPage();
         loggingOut();
     }
+    public void clickDispatches(){
+        webDriver.findElement(dispatchesLink).click();
+    }
+    public void clickResults(){
+        webDriver.findElement(resultsLink).click();
+    }
+    public void clickPolls(){
+        webDriver.findElement(pollsLink).click();
+    }
+
+
+
+
     public String getCandName(){
         String candName = webDriver.findElement(candidateName).getText();
         return candName;
