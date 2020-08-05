@@ -12,7 +12,7 @@ import java.util.List;
 public class StartPage {
 
     WebDriver webDriver;
-    By startButton = new By.ByTagName("button");
+    By startButton = new By.ByCssSelector("*[data-test=AssessmentTile-TileButton]");
     By termsButton = new By.ByClassName("c0134");
     By confirmStart = new By.ByClassName("c0129 c0131");
 
@@ -21,41 +21,29 @@ public class StartPage {
     }
 
 
-    public StartPage goToStartPage(){
+    public StartPage goToStartPage() {
+        webDriver.get(" https://www.codingame.com/evaluate?id=3943771a523a9f3f7ef66d8b60545428ef336de");
         webDriver.manage().window().maximize();
-        webDriver.get("https://www.codingame.com/evaluate/?id=39423207b45553a48499f30dfd16b00a97578aa");
         return this;
     }
 
-    public void clickStartButton(){
-        List<WebElement> elements = webDriver.findElements(By.tagName("button"));
-        System.out.println(elements.get(0).getText());
-        elements.get(0).click();
+    public void clickStartButton() {
+        webDriver.findElement(startButton).click();
     }
 
-    public void clickTermsBox(){
+    public void clickTermsBox() {
         webDriver.findElement(termsButton).click();
     }
 
-    public void confirmStartTest(){
+    public void confirmStartTest() {
         webDriver.findElement(confirmStart).click();
     }
 
-    public TestPage beginTest(){
-        goToStartPage();
-        clickStartButton();
-        clickTermsBox();
-        confirmStartTest();
-        return new TestPage(webDriver);
-    }
-
-
-
-
-
-
-
-
-
-
+//    public TestPage beginTest() {
+//        goToStartPage();
+//        clickStartButton();
+//        clickTermsBox();
+//        confirmStartTest();
+//        return new TestPage(webDriver);
+//    }
 }
