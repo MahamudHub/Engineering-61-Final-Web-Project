@@ -5,11 +5,13 @@ import org.openqa.selenium.WebDriver;
 
 public class DispatchesPage {
     WebDriver webDriver;
+    //-------Links identifiers in dispatches page----------
     By logOutLink = new By.ById("logout_link");
     By dispatchesLink = new By.ByLinkText("Dispatches");
     By resultsLink = new By.ByLinkText("Results");
     By pollsLink = new By.ByLinkText("Polls");
 
+    //---------Fields identifiers in dispatches page -----------------------
     By candidateName = new By.ByCssSelector("tbody > tr:nth-child(1) > th");
     By candidateEmail = new By.ByCssSelector("tr:nth-child(1) > td:nth-child(2)");
     By recruiterEmail = new By.ByCssSelector("tr:nth-child(1) > td:nth-child(3)");
@@ -32,7 +34,8 @@ public class DispatchesPage {
     public void loggingOut(){
         webDriver.findElement(logOutLink).click();
     }
-    public void LogoutfromPolls(){
+    //==========TESTING METHODS==============
+    public void LogoutfromDispatches(){
         openDispatchesPage();
         loggingOut();
     }
@@ -46,9 +49,59 @@ public class DispatchesPage {
         webDriver.findElement(pollsLink).click();
     }
 
+    //-------Field headers------
+    public boolean nameheader(){
+        boolean name = webDriver.getPageSource().contains("Name");
+        return name;
+    }
+    public boolean candidateEmailheader(){
+        boolean CandidateEmail = webDriver.getPageSource().contains("Email");
+        return CandidateEmail;
+    }
+    public boolean recruiterheader(){
+        boolean RecruiterEmail = webDriver.getPageSource().contains("Recruiter");
+        return RecruiterEmail;
+    }
+    public boolean AssessmentTypeheader(){
+        boolean AssessmentType = webDriver.getPageSource().contains("Assessment");
+        return AssessmentType;
+    }
+    public boolean testIdheader(){
+        boolean Testid = webDriver.getPageSource().contains("Test Id");
+        return Testid;
+    }
+    public boolean timeSentheader(){
+        boolean Timesent = webDriver.getPageSource().contains("Time Sent");
+        return Timesent;
+    }
+    public boolean completeheader(){
+        boolean Complete = webDriver.getPageSource().contains("Complete");
+        return Complete;
+    }
+    public boolean expiredheader(){
+        boolean Expired = webDriver.getPageSource().contains("Expired");
+        return Expired;
+    }
+
+    public boolean fieldHeaders(){
+        boolean allFileds = false;
+        if(nameheader()&&
+        candidateEmailheader()&&
+        recruiterheader()&&
+        AssessmentTypeheader()&&
+        testIdheader()&&
+        testIdheader()&&
+        timeSentheader()&&
+        completeheader()&&
+        expiredheader()){
+            return true;
+        }
+            return allFileds;
+    }
 
 
 
+    //-------Fields-------
     public String getCandName(){
         String candName = webDriver.findElement(candidateName).getText();
         return candName;

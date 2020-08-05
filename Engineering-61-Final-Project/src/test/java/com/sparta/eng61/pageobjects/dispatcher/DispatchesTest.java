@@ -15,6 +15,17 @@ public class DispatchesTest {
         loginforDispatches.submitRightCredentials();
         dispatchesPage.openDispatchesPage();
     }
+
+    @Test
+    public void openandLogoutDispatches(){
+        openDispatches();
+        dispatchesPage.loggingOut();
+    }
+    @Test
+    public void clickDispatchesLink(){
+        openDispatches();
+        dispatchesPage.clickDispatches();
+    }
     @Test
     public void clickResultsLink(){
         openDispatches();
@@ -25,7 +36,11 @@ public class DispatchesTest {
         openDispatches();
         dispatchesPage.clickPolls();
     }
-
+    @Test
+    public void filedHeaders(){
+        openDispatches();
+        Assertions.assertEquals(true, dispatchesPage.fieldHeaders());
+    }
     @Test
     public void candidateName(){
         openDispatches();
