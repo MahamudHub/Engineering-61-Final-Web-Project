@@ -17,14 +17,15 @@ public class CodeingameTester {
 
     @Test
     public void testing(){
-        startPage.goToStartPage().clickStartButton();
+        startPage.doTest();
     }
 
-    @Test
-    public void ksjd(){
-            webDriver.get(" https://www.codingame.com/evaluate?id=3943771a523a9f3f7ef66d8b60545428ef336de");
-            webDriver.manage().window().maximize();
-            webDriver.findElement(By.cssSelector("*[data-test=\"AssessmentTile-TileButton\"]")).click();
-    }
-    }
+
+//    @Test
+//    public void ksjd(){
+//            webDriver.get(" https://www.codingame.com/evaluate?id=3943771a523a9f3f7ef66d8b60545428ef336de");
+//            webDriver.manage().window().maximize();
+//            webDriver.findElement(By.cssSelector("*[data-test=\"AssessmentTile-TileButton\"]")).click();
+//    }
+  }
 
