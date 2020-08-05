@@ -1,7 +1,6 @@
 package com.sparta.eng61;
 
 import com.sparta.eng61.pageobjects.dispatcher.PollsPage;
-import com.sparta.eng61.pageobjects.dispatcher.ResultsPage;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
