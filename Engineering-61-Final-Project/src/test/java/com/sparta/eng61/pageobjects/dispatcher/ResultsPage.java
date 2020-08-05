@@ -34,6 +34,10 @@ public class ResultsPage {
         return webDriver.findElement(candidateScore).getText();
     }
 
+    public String getUpdateButtonTest() {
+        return webDriver.findElement(updateButton).getText();
+    }
+
     public void clickUpdate() {
         webDriver.findElement(updateButton).click();
     }
