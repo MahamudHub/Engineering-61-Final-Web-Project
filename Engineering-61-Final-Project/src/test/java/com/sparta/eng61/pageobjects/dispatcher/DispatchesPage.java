@@ -77,6 +77,7 @@ public class DispatchesPage {
     public boolean completeheader(){
         boolean Complete = webDriver.getPageSource().contains("Complete");
         return Complete;
+
     }
     public boolean expiredheader(){
         boolean Expired = webDriver.getPageSource().contains("Expired");

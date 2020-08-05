@@ -40,6 +40,7 @@ public class DispatchesTest {
     public void filedHeaders(){
         openDispatches();
         Assertions.assertEquals(true, dispatchesPage.fieldHeaders());
+
     }
     @Test
     public void candidateName(){
