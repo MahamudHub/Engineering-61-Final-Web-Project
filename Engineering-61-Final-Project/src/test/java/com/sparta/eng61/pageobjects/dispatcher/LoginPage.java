@@ -113,14 +113,14 @@ public void propertiesAccess() {
 
 
     //------------------login directs to new page-------------------
-    public SendAssessmentPage login(){
-        openLoginPage();
-        enterUsername();
-        enterPassword();
-        clickSubmitButton();
-        return new SendAssessmentPage(webDriver);
-    }
-
+//    public SendAssessmentPage login(){
+//        openLoginPage();
+//        enterUsername();
+//        enterPassword();
+//        clickSubmitButton();
+//        return new SendAssessmentPage(webDriver);
+//    }
+//
 
 
 }
