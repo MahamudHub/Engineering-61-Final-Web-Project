@@ -10,7 +10,7 @@ public class GmailPage {
     By emailNext = new By.ByCssSelector("#identifierNext > div > button");
     By password = new By.ByName("password");
     By passwordNext = new By.ByCssSelector("#passwordNext > div > button");
-    By selectEmail = new By.ByCssSelector("#\\3A 2t .yP");
+    By selectEmail = new By.ByXPath("(//span[@name='Sparta Global'])[2]");
     By assessmentLink = new By.ByPartialLinkText("https://www.codingame.com/");
 
     public GmailPage(WebDriver webDriver) {
