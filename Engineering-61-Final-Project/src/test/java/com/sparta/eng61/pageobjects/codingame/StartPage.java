@@ -8,32 +8,46 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.internal.MouseAction;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class StartPage {
 
     WebDriver webDriver;
-    //   By startButton = new By.ByCssSelector("*[data-test=\"AssessmentTile-TileButton\"]");
-    By startButton = new By.ByXPath("//div[@id='root']/div/div/div/div[2]/div/div/button");
+    By startButton = new By.ByCssSelector("*[data-test=\"AssessmentTile-TileButton\"]");
+//  By startButton = new By.ByXPath("//div[@id='root']/div/div/div/div[2]/div/div/button");
 //  By startButton = new By.ByCssSelector(".c0132");
+//  By startButton = new By.ByName("Start");
 //  By termsButton = new By.ByClassName("c0134");
     By termsButton = new By.ByCssSelector(".c0148 > label");
 //  By confirmStart = new By.ByClassName("c0129 c0131");
-//  By confirmStart = new By.ByClassName("*[data-test=\"accept\"]");
-    By confirmStart = new By.ByClassName(".c0140");
+    By confirmStart = new By.ByCssSelector("*[data-test=\"accept\"]");
+//  By confirmStart = new By.ByClassName(".c0140");
     By firstQuestion = new By.ByCssSelector("*[data-test=\"TocQuestionButton\"]");
-    By firstClick = new By.ByCssSelector(".c01156:nth-child(3) label");
-    By firstNext = new By.ByCssSelector(".c01168");
-    By secondQuestion = new By.ByCssSelector(".c0160:nth-child(2)");
-    By secondClick = new By.ByCssSelector(".c01156:nth-child(2) label");
-    By secondNext = new By.ByCssSelector(".c01166");
-    By thirdQuestion = new By.ByCssSelector(".c0160:nth-child(3)");
-    By thirdClick = new By.ByCssSelector(".c01156:nth-child(1) label");
-    By thirdNext = new By.ByCssSelector(".c01166");
-    By fourthQuestion = new By.ByCssSelector(".c0160:nth-child(4)");
-    By fourthClick = new By.ByCssSelector(".c01156:nth-child(1) label");
-    By fourthNext = new By.ByCssSelector(".c01166");
+//    By firstClick = new By.ByCssSelector(".c01116:nth-child(2) label");
+    By firstClick = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label[2]/span/label");
+//    By firstNext = new By.ByCssSelector(".c01126");
+    By firstNext = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/button/span");
+//    By secondQuestion = new By.ByCssSelector(".c0120:nth-child(2)");
+    By secondQuestion = new By.ByXPath("//*[@id=\"root\"]/div[1]/div/div[2]/div[2]/div[2]");
+//    By secondClick = new By.ByCssSelector(".c01116:nth-child(2)");
+    By secondClick = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label[2]");
+//    By secondNext = new By.ByCssSelector(".c01126");
+    By secondNext = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/button/span");
+//    By thirdQuestion = new By.ByCssSelector(".c0120:nth-child(3)");
+    By thirdQuestion = new By.ByXPath("//*[@id=\"root\"]/div[1]/div/div[2]/div[2]/div[3]");
+//    By thirdClick = new By.ByCssSelector(".c01118 > .c01108");
+    By thirdClick = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label/span/label");
+//    By thirdNext = new By.ByCssSelector(".c01126");
+    By thirdNext = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/button/span");
+//    By fourthQuestion = new By.ByCssSelector(".c01118 label");
+    By fourthQuestion = new By.ByXPath("//*[@id=\"root\"]/div[1]/div/div[2]/div[2]/div[4]");
+//    By fourthClick = new By.ByCssSelector(".c01116:nth-child(1) label");
+    By fourthClick = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label");
+//    By fourthNext = new By.ByCssSelector(".c01122");
+    By fourthNext = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/button/span");
     By submitTest = new By.ByCssSelector("*[data-test=\"SubmitTest\"]");
-    By confirmSubmit = new By.ByCssSelector(".c01110:nth-child(2)");
+//    By confirmSubmit = new By.ByCssSelector(".c0170:nth-child(2)");
+    By confirmSubmit = new By.ByXPath("//button[2]");
 
     public StartPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -42,11 +56,12 @@ public class StartPage {
 
     public StartPage goToStartPage() {
         webDriver.manage().window().maximize();
-        webDriver.get(" https://www.codingame.com/evaluate/?id=39447702eefe67422fdae9ea19f1dd4801f00f1");
+        webDriver.get(" https://www.codingame.com/evaluate/?id=3946114fcea2daf42e0d75116c8cb1de83f8f30");
         return this;
     }
 
     public void clickStartButton() {
+        webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(startButton).click();
     }
 
@@ -55,14 +70,17 @@ public class StartPage {
     }
 
     public void confirmStartTest() {
+        webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(confirmStart).click();
     }
 
     public void answerFirstQ() {
+        webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(firstQuestion).click();
     }
 
     public void clickFirstQ() {
+        webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(firstClick).click();
     }
 
@@ -71,10 +89,12 @@ public class StartPage {
     }
 
     public void answerSecondQ() {
+        webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(secondQuestion).click();
     }
 
     public void clickSecondQ() {
+        webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(secondClick).click();
     }
 
@@ -83,10 +103,12 @@ public class StartPage {
     }
 
     public void answerThirdQ() {
+        webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(thirdQuestion).click();
     }
 
     public void clickThirdQ() {
+        webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(thirdClick).click();
     }
 
@@ -95,10 +117,12 @@ public class StartPage {
     }
 
     public void answerFourthQ() {
+        webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(fourthQuestion).click();
     }
 
     public void clickFourthQ() {
+        webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(fourthClick).click();
     }
 
@@ -107,10 +131,12 @@ public class StartPage {
     }
 
     public void submitAnswers() {
+        webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(submitTest).click();
     }
 
     public void confirmAnswers() {
+        webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(confirmSubmit).click();
     }
 
