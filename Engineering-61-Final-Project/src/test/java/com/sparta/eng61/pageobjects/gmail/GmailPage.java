@@ -2,15 +2,16 @@ package com.sparta.eng61.pageobjects.gmail;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class GmailPage {
     
     WebDriver webDriver;
-    By email = new By.ById("identifierId");
+    By emailAddress = new By.ById("identifierId");
     By emailNext = new By.ByCssSelector("#identifierNext > div > button");
-    By password = new By.ByName("password");
+    By password = new By.ByXPath("/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input");
     By passwordNext = new By.ByCssSelector("#passwordNext > div > button");
+    By selectEmail = new By.ByCssSelector("#\\3A 2t .yP");
+    By assessmentLink = new By.ByPartialLinkText("https://www.codingame.com/");
 
     public GmailPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -24,7 +25,7 @@ public class GmailPage {
 
 
     public void enterEmail() {
-        webDriver.findElement(email).sendKeys("engcandidate61@gmail.com");
+        webDriver.findElement(emailAddress).sendKeys("engcandidate61@gmail.com");
     }
 
     public void clickEmailNext() {
@@ -39,11 +40,23 @@ public class GmailPage {
         webDriver.findElement(passwordNext).click();
     }
 
-    public void emailLogin() {
-            goToLoginPage();
-            enterEmail();
-            clickEmailNext();
-            enterPassword();
-            clickPasswordNext();
+
+
+    public void accessEmail(){
+        webDriver.findElement(selectEmail).click();
+    }
+
+    public void clickLink(){
+        webDriver.findElement(assessmentLink).click();
+    }
+
+    public void accessAssessmentLinkFromEmail() {
+        goToLoginPage();
+        enterEmail();
+        clickEmailNext();
+        enterPassword();
+        clickPasswordNext();
+        accessEmail();
+        clickLink();
     }
 }

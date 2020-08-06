@@ -10,6 +10,6 @@ public class GmailTest {
 
     @Test
     public void LoggingIn() {
-        gmailLogin.emailLogin();
+        gmailLogin.accessAssessmentLinkFromEmail();
     }
 }
