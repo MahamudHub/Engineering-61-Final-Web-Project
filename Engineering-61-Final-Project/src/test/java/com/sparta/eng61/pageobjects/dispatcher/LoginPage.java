@@ -16,14 +16,14 @@ public class LoginPage {
     By password = new By.ByName("password");
     By submit = new By.ByName("submit");
 
-public void propertiesAccess() {
-    try {
-        String path = "src\\test\\resources\\login.properties";
-        properties.load(new FileReader(path));
-    } catch (IOException e) {
-        e.printStackTrace();
+    public void propertiesAccess() {
+        try {
+            String path = "src\\test\\resources\\login.properties";
+            properties.load(new FileReader(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-}
     public LoginPage(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
@@ -35,7 +35,7 @@ public void propertiesAccess() {
 
     //right credentials
     public void enterUsername () {
-          webDriver.findElement(username).sendKeys("admin");
+        webDriver.findElement(username).sendKeys("admin");
 //        System.out.println(properties.getProperty("username").getClass());
 //        webDriver.findElement(username).sendKeys(properties.getProperty("username"));
     }
@@ -113,14 +113,14 @@ public void propertiesAccess() {
 
 
     //------------------login directs to new page-------------------
-    public SendAssessmentPage login(){
-        openLoginPage();
-        enterUsername();
-        enterPassword();
-        clickSubmitButton();
-        return new SendAssessmentPage(webDriver);
-    }
-
+//    public SendAssessmentPage login(){
+//        openLoginPage();
+//        enterUsername();
+//        enterPassword();
+//        clickSubmitButton();
+//        return new SendAssessmentPage(webDriver);
+//    }
+//
 
 
 }
