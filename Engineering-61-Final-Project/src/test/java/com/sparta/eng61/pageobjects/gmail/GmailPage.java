@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class GmailPage {
-    
+
     WebDriver webDriver;
     By emailAddress = new By.ById("identifierId");
     By emailNext = new By.ByCssSelector("#identifierNext > div > button");
@@ -33,6 +33,11 @@ public class GmailPage {
     }
 
     public void enterPassword() {
+        try {
+            webDriver.wait(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         webDriver.findElement(password).sendKeys("Engsixty1");
     }
 
@@ -41,29 +46,21 @@ public class GmailPage {
     }
 
 
-
-    public void accessEmail(){
+    public void accessEmail() {
         webDriver.findElement(selectEmail).click();
     }
 
-    public void clickLink(){
+    public void clickLink() {
         webDriver.findElement(assessmentLink).click();
     }
 
     public void accessAssessmentLinkFromEmail() {
-
-        //try {
-            goToLoginPage();
-            enterEmail();
-            clickEmailNext();
-            //webDriver.wait(100);
-            enterPassword();
-            clickPasswordNext();
-            accessEmail();
-            clickLink();
-        //} catch (InterruptedException e) {
-            //e.printStackTrace();
-        }
-
+        goToLoginPage();
+        enterEmail();
+        clickEmailNext();
+        enterPassword();
+        clickPasswordNext();
+        accessEmail();
+        clickLink();
     }
-//}
+}
