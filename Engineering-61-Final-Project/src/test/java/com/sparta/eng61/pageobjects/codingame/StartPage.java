@@ -12,11 +12,13 @@ import java.util.List;
 public class StartPage {
 
     WebDriver webDriver;
-    By startButton = new By.ByCssSelector("*[data-test=\"AssessmentTile-TileButton\"]");
-//  By termsButton = new By.ByClassName("c0134");
+//    By startButton = new By.ByCssSelector("*[data-test=\"AssessmentTile-TileButton\"]");
+    By startButton = new By.ByCssSelector(".c0132");
+    //  By termsButton = new By.ByClassName("c0134");
     By termsButton = new By.ByCssSelector(".c0148 > label");
 //  By confirmStart = new By.ByClassName("c0129 c0131");
-    By confirmStart = new By.ByClassName("*[data-test=\"accept\"]");
+//  By confirmStart = new By.ByClassName("*[data-test=\"accept\"]");
+    By confirmStart = new By.ByClassName(".c0140");
     By firstQuestion = new By.ByCssSelector("*[data-test=\"TocQuestionButton\"]");
     By firstClick = new By.ByCssSelector(".c01156:nth-child(3) label");
     By firstNext = new By.ByCssSelector(".c01168");
