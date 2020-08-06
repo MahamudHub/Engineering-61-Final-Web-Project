@@ -2,6 +2,10 @@ package com.sparta.eng61.pageobjects.gmail;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 public class GmailPage {
 
@@ -29,15 +33,11 @@ public class GmailPage {
     }
 
     public void clickEmailNext() {
-        webDriver.findElement(emailNext).click();
+            webDriver.findElement(emailNext).click();
+        webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
     }
 
     public void enterPassword() {
-        try {
-            webDriver.findElement(password).wait(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         webDriver.findElement(password).sendKeys("Engsixty1");
     }
 
