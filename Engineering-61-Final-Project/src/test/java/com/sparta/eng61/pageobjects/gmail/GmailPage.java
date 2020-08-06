@@ -8,7 +8,7 @@ public class GmailPage {
     WebDriver webDriver;
     By emailAddress = new By.ById("identifierId");
     By emailNext = new By.ByCssSelector("#identifierNext > div > button");
-    By password = new By.ByXPath("/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input");
+    By password = new By.ByName("password");
     By passwordNext = new By.ByCssSelector("#passwordNext > div > button");
     By selectEmail = new By.ByXPath("(//span[@name='Sparta Global'])[2]");
     By assessmentLink = new By.ByPartialLinkText("https://www.codingame.com/");
