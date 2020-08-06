@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Properties;
 
 public class SendAssessmentPage {
-    private Properties properties = new Properties();
+     Properties properties = new Properties();
 
     WebDriver webDriver;
     By assessmentChoices = new By.ById("assessment");
@@ -31,12 +31,18 @@ public class SendAssessmentPage {
         webDriver.get("https://eng61.spartaglobal.academy/");
     }
 
-    private void propertiesAccess() {
+    public void propertiesAccess() {
         try {
-            properties.load(new FileReader("src/test/resources/SendAssessment.properties"));
+            properties.load(new FileReader("src/test/resources/sendassessment.properties"));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getName(){
+
+        return properties.getProperty("candidateName");
     }
 
     public String getPageTitleName() {
@@ -111,15 +117,18 @@ public class SendAssessmentPage {
     }
 
     public void enterCandidateName() {
-        webDriver.findElement(candidateNameField).sendKeys(properties.getProperty("candidateName"));
+        //webDriver.findElement(candidateNameField).sendKeys(properties.getProperty("candidateName"));
+        webDriver.findElement(candidateNameField).sendKeys("Mohamed");
     }
 
     public void enterCandidateEmail() {
-        webDriver.findElement(candidateEmailField).sendKeys(properties.getProperty("candidateEmail"));
+        //webDriver.findElement(candidateEmailField).sendKeys(properties.getProperty("candidateEmail"));
+        webDriver.findElement(candidateEmailField).sendKeys("engcandidate61@gmail.com");
     }
 
     public void enterRecruiterEmail() {
-        webDriver.findElement(recruiterEmailField).sendKeys(properties.getProperty("recruiterEmail"));
+        //webDriver.findElement(recruiterEmailField).sendKeys(properties.getProperty("recruiterEmail"));
+        webDriver.findElement(recruiterEmailField).sendKeys("engineeringsixtyone@gmail.com");
     }
 
     public void clickSubmit() {

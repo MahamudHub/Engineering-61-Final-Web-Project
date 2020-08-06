@@ -6,14 +6,18 @@ import org.openqa.selenium.WebDriver;
 public class PollsPage {
     WebDriver webDriver;
     By pageTitle = new By.ById("login_title");
-    By pollTime = new By.ByCssSelector("css=tbody > .d-flex:nth-child(1) > .col-3:nth-child(1)");
-    By assessmentStatus = new By.ByCssSelector("css=tbody > .d-flex:nth-child(1) > .col-3:nth-child(2)");
-    By candidateEmail = new By.ByCssSelector("css=tbody > .d-flex:nth-child(1) > .col-3:nth-child(3)");
-    By testId = new By.ByCssSelector("css=tbody > .d-flex:nth-child(1) > .col-3:nth-child(4)");
+    By pollTime = new By.ByCssSelector("tbody > .d-flex:nth-child(1) > .col-3:nth-child(1)");
+    By assessmentStatus = new By.ByCssSelector("tbody > .d-flex:nth-child(1) > .col-3:nth-child(2)");
+    By candidateEmail = new By.ByCssSelector("tbody > .d-flex:nth-child(1) > .col-3:nth-child(3)");
+    By testId = new By.ByCssSelector("tbody > .d-flex:nth-child(1) > .col-3:nth-child(4)");
 
     public PollsPage(WebDriver webDriver) {
         this.webDriver = webDriver;
         webDriver.manage().window().maximize();
+
+    }
+
+    public void openResultsPage() {
         webDriver.get("https://eng61.spartaglobal.academy/polls");
     }
 

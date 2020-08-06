@@ -8,16 +8,20 @@ public class ResultsPage {
     WebDriver webDriver;
     By pageTitle = new By.ById("login_title");
     By updateButton = new By.ByClassName("btn btn-secondary submit");
-    By candidateName = new By.ByClassName("col-2");
-    By candidateEmail = new By.ByClassName("col-3");
-    By candidateScore = new By.ByClassName("col-1 font-weight-bold dark");
-    By candidateNR = new By.ByCssSelector("css=tbody .col-1:nth-child(6)");
-    By candidateLR = new By.ByCssSelector("css=tbody .col-1:nth-child(7)");
-    By candidateVandCR = new By.ByCssSelector("css=tbody .col-2:nth-child(8)");
+    By candidateName = new By.ByCssSelector(".table:nth-child(4) > tbody .col-2:nth-child(1)");
+    By candidateEmail = new By.ByCssSelector(".table:nth-child(4) > tbody .col-3");
+    By candidateScore = new By.ByCssSelector(".dark");
+    By candidateNR = new By.ByCssSelector("tbody .col-1:nth-child(5)");
+    By candidateLR = new By.ByCssSelector("tbody .col-1:nth-child(7)");
+    By candidateVandCR = new By.ByCssSelector("tbody .col-2:nth-child(8)");
 
     public ResultsPage(WebDriver webDriver) {
         this.webDriver = webDriver;
         webDriver.manage().window().maximize();
+
+    }
+
+    public void openResultsPage(){
         webDriver.get("https://eng61.spartaglobal.academy/results");
     }
 
