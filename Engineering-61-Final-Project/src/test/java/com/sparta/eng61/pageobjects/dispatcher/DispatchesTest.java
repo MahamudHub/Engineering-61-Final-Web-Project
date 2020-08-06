@@ -37,6 +37,11 @@ public class DispatchesTest {
         dispatchesPage.clickPolls();
     }
     @Test
+    public void clickLogoLink(){
+        openDispatches();
+        dispatchesPage.clickLogo();
+    }
+    @Test
     public void filedHeaders(){
         openDispatches();
         Assertions.assertEquals(true, dispatchesPage.fieldHeaders());
