@@ -1,9 +1,4 @@
 Feature: Being able to login
-  Scenario: Having 2 text boxes to fill
-      Given
-      When I fill in both boxes
-      Then I should be able to click the Login button
-
 
   Scenario: Two Correct credentials
     Given I enter the correct username
@@ -18,8 +13,7 @@ Feature: Being able to login
       Then I will not see the Send Assessment Page
 
   Scenario:  No credentials
-    Given I dont enter the correct username
-    And I dont enter the wrong password
+    Given I do not enter my credentials
     When I click the LOGIN button
     Then I will not see the Send Assessment Page
 

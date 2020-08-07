@@ -5,6 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -25,6 +26,7 @@ public class loginstepdefs {
     }
     @Then("I will see the Send Assessment Page")
     public void iWillSeeTheSendAssessmentPage() {
+        //Assertions.assertEquals("https://eng61.spartaglobal.academy/",loginPage.openLoginPage().login().openSendAssessPage().getURL());
     }
 
     @Given("I enter the wrong username")
@@ -39,13 +41,11 @@ public class loginstepdefs {
 
     @Then("I will not see the Send Assessment Page")
     public void iWillNotSeeTheSendAssessmentPage() {
+      //  Assertions.assertFalse("https://eng61.spartaglobal.academy/",loginPage.openLoginPage().login().openSendAssessPage().getURL());
     }
 
-    @Given("I dont enter the correct username")
-    public void iDontEnterTheCorrectUsername() {
-    }
-
-    @And("I dont enter the wrong password")
-    public void iDontEnterTheWrongPassword() {
+    @Given("I do not enter my credentials")
+    public void iDoNotEnterMyCredentials() {
+        
     }
 }
