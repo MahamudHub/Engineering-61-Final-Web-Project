@@ -1,5 +1,6 @@
 package com.sparta.eng61.pageobjects.dispatcher;
 
+import com.sparta.eng61.propertiesloader.PropertiesFileLoader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,15 +16,8 @@ public class LoginPage {
     By username  =  new By.ByName("username");
     By password = new By.ByName("password");
     By submit = new By.ByName("submit");
+    PropertiesFileLoader propertiesFileLoader = new PropertiesFileLoader();
 
-    public void propertiesAccess() {
-        try {
-            String path = "src\\test\\resources\\login.properties";
-            properties.load(new FileReader(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
     public LoginPage(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
@@ -35,12 +29,11 @@ public class LoginPage {
 
     //right credentials
     public void enterUsername () {
-        webDriver.findElement(username).sendKeys("admin");
-//        System.out.println(properties.getProperty("username").getClass());
-//        webDriver.findElement(username).sendKeys(properties.getProperty("username"));
+        webDriver.findElement(username).sendKeys(propertiesFileLoader.getUsername());
+
     }
     public void enterPassword () {
-        webDriver.findElement(password).sendKeys("!Eng61");
+        webDriver.findElement(password).sendKeys(propertiesFileLoader.getPassword());
 //        webDriver.findElement(password).sendKeys(properties.getProperty("password"));
     }
 
