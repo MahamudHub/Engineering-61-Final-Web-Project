@@ -1,17 +1,14 @@
 package com.sparta.eng61.pageobjects.dispatcher;
 
+import com.sparta.eng61.propertiesloader.PropertiesFileLoader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
-import java.util.Properties;
 
 public class SendAssessmentPage {
-     Properties properties = new Properties();
+    PropertiesFileLoader properties = new PropertiesFileLoader();
 
     WebDriver webDriver;
     By assessmentChoices = new By.ById("assessment");
@@ -25,24 +22,11 @@ public class SendAssessmentPage {
     By sentInfo = new By.ByClassName("lead");
 
 
+
     public SendAssessmentPage(WebDriver webDriver) {
         this.webDriver = webDriver;
         webDriver.manage().window().maximize();
         webDriver.get("https://eng61.spartaglobal.academy/");
-    }
-
-    public void propertiesAccess() {
-        try {
-            properties.load(new FileReader("src/test/resources/sendassessment.properties"));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String getName(){
-
-        return properties.getProperty("candidateName");
     }
 
     public String getPageTitleName() {
@@ -59,11 +43,11 @@ public class SendAssessmentPage {
     }
 
     public boolean isSentInfoIncludeName() {
-        return getSentInfo().contains(properties.getProperty("candidateName"));
+        return getSentInfo().contains(properties.getCandidateName());
     }
 
     public boolean isSentInfoIncludeEmail() {
-        return getSentInfo().contains(properties.getProperty("candidateEmail"));
+        return getSentInfo().contains(properties.getCandidateEmail());
     }
 
     //--------------------Placeholder--------------------//
@@ -117,18 +101,15 @@ public class SendAssessmentPage {
     }
 
     public void enterCandidateName() {
-        //webDriver.findElement(candidateNameField).sendKeys(properties.getProperty("candidateName"));
-        webDriver.findElement(candidateNameField).sendKeys("Mohamed");
+        webDriver.findElement(candidateNameField).sendKeys(properties.getCandidateName());
     }
 
     public void enterCandidateEmail() {
-        //webDriver.findElement(candidateEmailField).sendKeys(properties.getProperty("candidateEmail"));
-        webDriver.findElement(candidateEmailField).sendKeys("engcandidate61@gmail.com");
+        webDriver.findElement(candidateEmailField).sendKeys(properties.getCandidateEmail());
     }
 
     public void enterRecruiterEmail() {
-        //webDriver.findElement(recruiterEmailField).sendKeys(properties.getProperty("recruiterEmail"));
-        webDriver.findElement(recruiterEmailField).sendKeys("engineeringsixtyone@gmail.com");
+        webDriver.findElement(recruiterEmailField).sendKeys(properties.getRecruiterEmail());
     }
 
     public void clickSubmit() {
