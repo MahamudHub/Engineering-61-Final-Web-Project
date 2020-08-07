@@ -28,19 +28,19 @@ public class StartPage {
 //    By firstNext = new By.ByCssSelector(".c01126");
     By firstNext = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/button/span");
 //    By secondQuestion = new By.ByCssSelector(".c0120:nth-child(2)");
-    By secondQuestion = new By.ByXPath("//*[@id=\"root\"]/div[1]/div/div[2]/div[2]/div[2]");
+    By secondQuestion = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div[2]/div[8]/span/button");
 //    By secondClick = new By.ByCssSelector(".c01116:nth-child(2)");
     By secondClick = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label[2]");
 //    By secondNext = new By.ByCssSelector(".c01126");
     By secondNext = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/button/span");
 //    By thirdQuestion = new By.ByCssSelector(".c0120:nth-child(3)");
-    By thirdQuestion = new By.ByXPath("//*[@id=\"root\"]/div[1]/div/div[2]/div[2]/div[3]");
+    By thirdQuestion = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div[3]/div[8]/span/button");
 //    By thirdClick = new By.ByCssSelector(".c01118 > .c01108");
     By thirdClick = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label/span/label");
 //    By thirdNext = new By.ByCssSelector(".c01126");
     By thirdNext = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/button/span");
 //    By fourthQuestion = new By.ByCssSelector(".c01118 label");
-    By fourthQuestion = new By.ByXPath("//*[@id=\"root\"]/div[1]/div/div[2]/div[2]/div[4]");
+    By fourthQuestion = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div[4]/div[8]/span/button");
 //    By fourthClick = new By.ByCssSelector(".c01116:nth-child(1) label");
     By fourthClick = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label");
 //    By fourthNext = new By.ByCssSelector(".c01122");
@@ -56,7 +56,7 @@ public class StartPage {
 
     public StartPage goToStartPage() {
         webDriver.manage().window().maximize();
-        webDriver.get(" https://www.codingame.com/evaluate/?id=3946114fcea2daf42e0d75116c8cb1de83f8f30");
+        webDriver.get(" https://www.codingame.com/evaluate/?id=3947221b09528245452aeb36152ff118369dc82");
         return this;
     }
 
