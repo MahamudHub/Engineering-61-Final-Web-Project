@@ -8,7 +8,7 @@ public class PropertiesFileLoader {
     Properties properties = new Properties();
 
 
-    public void loadPropertiesFile() {
+    private void loadPropertiesFile() {
         try {
             properties.load(new FileReader("src/test/resources/credentials.properties"));
         } catch (IOException e) {
@@ -17,30 +17,37 @@ public class PropertiesFileLoader {
     }
 
     public String getUsername(){
+        loadPropertiesFile();
         return properties.getProperty("username");
     }
 
     public String getPassword(){
+        loadPropertiesFile();
         return properties.getProperty("password");
     }
 
     public String getCandidateName(){
+        loadPropertiesFile();
         return properties.getProperty("candidatename");
     }
 
     public String getCandidateEmail(){
+        loadPropertiesFile();
         return properties.getProperty("candidateemail");
     }
 
     public String getCandidatePassword(){
+        loadPropertiesFile();
         return properties.getProperty("candidatepassword");
     }
 
     public String getRecruiterEmail(){
+        loadPropertiesFile();
         return properties.getProperty("recruiteremail");
     }
 
     public String getRecruiterPassword(){
+        loadPropertiesFile();
         return properties.getProperty("recruiterpassword");
     }
 }
