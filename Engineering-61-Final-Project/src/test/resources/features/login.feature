@@ -1,4 +1,10 @@
 Feature: Being able to login
+  Scenario: Having 2 text boxes to fill
+      Given
+      When I fill in both boxes
+      Then I should be able to click the Login button
+
+
   Scenario: Two Correct credentials
     Given I enter the correct username
     And I enter the correct password
