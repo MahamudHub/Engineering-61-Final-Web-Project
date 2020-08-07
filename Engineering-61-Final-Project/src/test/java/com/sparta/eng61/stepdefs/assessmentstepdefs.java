@@ -54,5 +54,6 @@ public class assessmentstepdefs {
     @Then("I should see only a Psychometric test under Assessment type")
     public void iShouldSeeOnlyAPsychometricTestUnderAssessmentType() {
         Assertions.assertEquals("Psychometric",dispatchesPage.getAssessmentType());
+
     }
 }
