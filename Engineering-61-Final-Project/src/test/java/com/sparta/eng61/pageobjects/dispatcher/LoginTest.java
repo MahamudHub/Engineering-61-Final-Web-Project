@@ -83,5 +83,12 @@ public class LoginTest {
         loginPage.submitonlyPassword();
         Assertions.assertEquals(true, loginPage.errorMessage());
     }
+    //-----------Testing logo link-----------
+    @Test
+    public void clickLogoLink(){
+        loginPage.openLoginPage();
+        loginPage.clickLogoLink();
+        Assertions.assertEquals(true, loginPage.tokenErrorMessage());
+    }
 
 }

@@ -16,6 +16,7 @@ public class LoginPage {
     By username  =  new By.ByName("username");
     By password = new By.ByName("password");
     By submit = new By.ByName("submit");
+    By logoLink = new By.ByClassName("logoHeader");
     PropertiesFileLoader propertiesFileLoader = new PropertiesFileLoader();
 
     public LoginPage(WebDriver webDriver) {
@@ -30,21 +31,17 @@ public class LoginPage {
     //right credentials
     public void enterUsername () {
         webDriver.findElement(username).sendKeys(propertiesFileLoader.getUsername());
-
     }
     public void enterPassword () {
         webDriver.findElement(password).sendKeys(propertiesFileLoader.getPassword());
-//        webDriver.findElement(password).sendKeys(properties.getProperty("password"));
     }
 
     //wrong credentials
     public void enterWrongUsername () {
         webDriver.findElement(username).sendKeys("admi");
-//        webDriver.findElement(username).sendKeys(properties.getProperty("incorrectUsername"));
     }
     public void enterWrongPassword () {
         webDriver.findElement(password).sendKeys("!Eng6");
-        //webDriver.findElement(password).sendKeys(properties.getProperty("incorrectPassword"));
     }
 
     //submit button
@@ -52,10 +49,17 @@ public class LoginPage {
         webDriver.findElement(submit).click();
     }
 
+    //logo header Link
+    public void clickLogoLink(){
+        webDriver.findElement(logoLink).click();
+    }
     //error message if wrong credentials input
     public boolean errorMessage () {
-        boolean errorExists = webDriver.getPageSource().contains("Incorrect password, please try to login again!");
-        return errorExists;
+        return webDriver.getPageSource().contains("Incorrect password, please try to login again!");
+    }
+    //no token
+    public boolean tokenErrorMessage(){
+        return webDriver.getPageSource().contains("No token provided, please login to access this page!");
     }
 
     //======Testing methods========
@@ -106,14 +110,14 @@ public class LoginPage {
 
 
     //------------------login directs to new page-------------------
-//    public SendAssessmentPage login(){
-//        openLoginPage();
-//        enterUsername();
-//        enterPassword();
-//        clickSubmitButton();
-//        return new SendAssessmentPage(webDriver);
-//    }
-//
+    public SendAssessmentPage login(){
+        openLoginPage();
+        enterUsername();
+        enterPassword();
+        clickSubmitButton();
+        return new SendAssessmentPage(webDriver);
+    }
+
 
 
 }
