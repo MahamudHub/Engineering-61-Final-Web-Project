@@ -10,6 +10,7 @@ public class DispatchesPage {
     By dispatchesLink = new By.ByLinkText("Dispatches");
     By resultsLink = new By.ByLinkText("Results");
     By pollsLink = new By.ByLinkText("Polls");
+    By sendAssessmentLink = new By.ByClassName("logoHeader");
 
     //---------Fields identifiers in dispatches page -----------------------
     By candidateName = new By.ByCssSelector("tbody > tr:nth-child(1) > th");
@@ -48,7 +49,9 @@ public class DispatchesPage {
     public void clickPolls(){
         webDriver.findElement(pollsLink).click();
     }
-
+    public void clickLogo(){
+        webDriver.findElement(sendAssessmentLink).click();
+    }
     //-------Field headers------
     public boolean nameheader(){
         boolean name = webDriver.getPageSource().contains("Name");
