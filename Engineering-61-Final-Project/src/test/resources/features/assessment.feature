@@ -14,7 +14,7 @@ Feature: Assessment Type details
   Scenario: Just Psychometric test
     Given The recruiter chooses a Psychometric test
     When I go to the Dispatches page
-    Then I should see only one a Psychometric test under Assessment type
+    Then I should see only a Psychometric test under Assessment type
 
 #  Scenario: No test chosen
 #    Given The recruiter does not choose a test
