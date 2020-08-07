@@ -1,6 +1,5 @@
 package com.sparta.eng61.stepdefs;
 
-import com.sparta.eng61.pageobjects.dispatcher.DispatchesPage;
 import com.sparta.eng61.pageobjects.dispatcher.LoginPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -13,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class assessmentstepdefs {
     WebDriver webDriver = new ChromeDriver();
     LoginPage loginPage = new LoginPage(webDriver);
-    DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
+    //DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
 //    SendAssessment sendAssessment = new SendAssessment(webDriver);
     @Given("The recruiter chooses a test")
     public void theRecruiterChoosesATest() {
@@ -28,7 +27,7 @@ public class assessmentstepdefs {
     @When("I go to the Dispatches page")
     public void iGoToTheDispatchesPage() {
         loginPage.submitRightCredentials();
-        dispatchesPage.openDispatchesPage();
+        //dispatchesPage.openDispatchesPage();
     }
 
     @Then("I should see both test types under Assessment type")
@@ -53,7 +52,7 @@ public class assessmentstepdefs {
 
     @Then("I should see only a Psychometric test under Assessment type")
     public void iShouldSeeOnlyAPsychometricTestUnderAssessmentType() {
-        Assertions.assertEquals("Psychometric",dispatchesPage.getAssessmentType());
+       // Assertions.assertEquals("Psychometric",dispatchesPage.getAssessmentType());
 
     }
 }
