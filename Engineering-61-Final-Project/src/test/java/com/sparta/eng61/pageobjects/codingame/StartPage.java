@@ -56,7 +56,7 @@ public class StartPage {
 
     public StartPage goToStartPage() {
         webDriver.manage().window().maximize();
-        webDriver.get(" https://www.codingame.com/evaluate/?id=3947221b09528245452aeb36152ff118369dc82");
+        webDriver.get(" https://www.codingame.com/evaluate/?id=3947363c706360530d52c981bdf27c794a47bac");
         return this;
     }
 

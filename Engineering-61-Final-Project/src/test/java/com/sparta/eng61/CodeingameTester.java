@@ -16,16 +16,15 @@ public class CodeingameTester {
     StartPage startPage = new StartPage(webDriver);
 
     @Test
-    public void testing(){
+    public void doAssessment() {
         startPage.doTest();
     }
 
 
 //    @Test
-//    public void ksjd(){
-//            webDriver.get(" https://www.codingame.com/evaluate?id=3943771a523a9f3f7ef66d8b60545428ef336de");
-//            webDriver.manage().window().maximize();
-//            webDriver.findElement(By.cssSelector("*[data-test=\"AssessmentTile-TileButton\"]")).click();
+//    public void titleTest() {
+//        doAssessment();
+//        Assertions.assertEquals();
 //    }
   }
 
