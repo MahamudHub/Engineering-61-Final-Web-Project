@@ -13,6 +13,7 @@ public class LogoutPage {
         webDriver.manage().window();
         webDriver.get("https://eng61.spartaglobal.academy/login?loggedout=true");
         return this;
+
     }
     public boolean successfulLogout () {
         boolean successLogout = webDriver.getPageSource().contains("You have successfully signed out!");
