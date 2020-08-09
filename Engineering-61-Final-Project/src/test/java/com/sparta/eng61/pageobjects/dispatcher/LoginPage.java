@@ -3,16 +3,10 @@ package com.sparta.eng61.pageobjects.dispatcher;
 import com.sparta.eng61.propertiesloader.PropertiesFileLoader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Properties;
 
 public class LoginPage {
     WebDriver webDriver;
 
-    private Properties properties = new Properties();
     By username  =  new By.ByName("username");
     By password = new By.ByName("password");
     By submit = new By.ByName("submit");
@@ -55,11 +49,11 @@ public class LoginPage {
         webDriver.findElement(logoLink).click();
     }
     //error message if wrong credentials input
-    public boolean errorMessage () {
+    public boolean isLoginErrorMessageCorrect () {
         return webDriver.getPageSource().contains("Incorrect password, please try to login again!");
     }
     //no token
-    public boolean tokenErrorMessage(){
+    public boolean isTokenErrorMessageCorrect(){
         return webDriver.getPageSource().contains("No token provided, please login to access this page!");
     }
 
@@ -68,33 +62,34 @@ public class LoginPage {
     //-------------Blank username or password---------------
 
     //submitting username but no password
-    public void submitonlyUsername () {
+    public void enterLoginUsername() {
         openLoginPage();
         enterUsername();
         clickSubmitButton();
     }
     //submitting no username but right password
-    public void submitonlyPassword () {
+    public void enterLoginPassword() {
         openLoginPage();
         enterPassword();
         clickSubmitButton();
     }
     //submitting no username and no password
-    public void submitNoInfo () {
+    public void enterNoInfo () {
         openLoginPage();
         clickSubmitButton();
     }
 
     //------------------Correct username and password-------------
-    public void submitRightCredentials () {
+    public void enterRightLoginCredentials() {
         openLoginPage();
         enterUsername();
         enterPassword();
         clickSubmitButton();
     }
 
+
     //---------------submitting wrong username and right password------------
-    public void submitWrongUsername () {
+    public void enterWrongLoginUsername () {
         openLoginPage();
         enterWrongUsername();
         enterPassword();
@@ -102,7 +97,7 @@ public class LoginPage {
     }
 
     //-----------------submitting right username and wrong password-----------
-    public void submitWrongPassword () {
+    public void enterWrongLoginPassword () {
         openLoginPage();
         enterUsername();
         enterWrongPassword();
