@@ -16,12 +16,15 @@ public class SendAssessmentPage {
     By candidateNameField = new By.ById("candidate_name");
     By candidateEmailField = new By.ById("candidate_email");
     By recruiterEmailField = new By.ById("recruiter_email");
-
+    By logOutLink = new By.ById("logout_link");
+    By dispatchesLink = new By.ByLinkText("Dispatches");
+    By resultsLink = new By.ByLinkText("Results");
+    By pollsLink = new By.ByLinkText("Polls");
+    By sendAssessmentLink = new By.ByClassName("logoHeader");
     By submitButton = new By.ById("submit");
     By pageTitle = new By.ById("page_title");
     By pageHeader = new By.ById("page_header");
     By sentInfo = new By.ByClassName("lead");
-    By logOutLink = new By.ById("logout_link");
 
 
     public SendAssessmentPage(WebDriver webDriver) {
@@ -46,6 +49,19 @@ public class SendAssessmentPage {
     public void logoutFromSendAssessment(){
         openResultsPage();
         loggingOut();
+    }
+
+    public void clickOnDispatchesPage(){
+        webDriver.findElement(dispatchesLink).click();
+    }
+    public void clickOnResultsPage(){
+        webDriver.findElement(resultsLink).click();
+    }
+    public void clickOnPollsPage(){
+        webDriver.findElement(pollsLink).click();
+    }
+    public void clickOnLogo(){
+        webDriver.findElement(sendAssessmentLink).click();
     }
 
     public String getPageTitleName() {

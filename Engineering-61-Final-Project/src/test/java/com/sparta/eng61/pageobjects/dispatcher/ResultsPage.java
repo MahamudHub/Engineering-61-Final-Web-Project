@@ -15,6 +15,10 @@ public class ResultsPage {
     By candidateNR = new By.ByCssSelector("tbody .col-1:nth-child(5)");
     By candidateLR = new By.ByCssSelector("tbody .col-1:nth-child(7)");
     By candidateVandCR = new By.ByCssSelector("tbody .col-2:nth-child(8)");
+    By dispatchesLink = new By.ByLinkText("Dispatches");
+    By resultsLink = new By.ByLinkText("Results");
+    By pollsLink = new By.ByLinkText("Polls");
+    By sendAssessmentLink = new By.ByClassName("logoHeader");
 
     public ResultsPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -27,6 +31,11 @@ public class ResultsPage {
         return this;
     }
 
+
+    public String getUrl(){
+        return webDriver.getCurrentUrl();
+    }
+
     public void loggingOut(){
         webDriver.findElement(logOutLink).click();
     }
@@ -34,6 +43,19 @@ public class ResultsPage {
     public void logoutFromResults(){
         openResultsPage();
         loggingOut();
+    }
+
+    public void clickOnDispatchesPage(){
+        webDriver.findElement(dispatchesLink).click();
+    }
+    public void clickOnResultsPage(){
+        webDriver.findElement(resultsLink).click();
+    }
+    public void clickOnPollsPage(){
+        webDriver.findElement(pollsLink).click();
+    }
+    public void clickOnLogo(){
+        webDriver.findElement(sendAssessmentLink).click();
     }
 
     public String getResultsPageTitleName() {
