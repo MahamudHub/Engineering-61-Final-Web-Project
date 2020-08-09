@@ -1,60 +1,53 @@
 package com.sparta.eng61.pageobjects.codingame;
 
-import org.junit.platform.commons.util.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.internal.MouseAction;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class StartPage {
+public class CodingamePage {
 
     WebDriver webDriver;
     By startButton = new By.ByCssSelector("*[data-test=\"AssessmentTile-TileButton\"]");
-//  By startButton = new By.ByXPath("//div[@id='root']/div/div/div/div[2]/div/div/button");
-//  By startButton = new By.ByCssSelector(".c0132");
-//  By startButton = new By.ByName("Start");
-//  By termsButton = new By.ByClassName("c0134");
+
     By termsButton = new By.ByCssSelector(".c0148 > label");
-//  By confirmStart = new By.ByClassName("c0129 c0131");
+
     By confirmStart = new By.ByCssSelector("*[data-test=\"accept\"]");
-//  By confirmStart = new By.ByClassName(".c0140");
+
     By firstQuestion = new By.ByCssSelector("*[data-test=\"TocQuestionButton\"]");
-//    By firstClick = new By.ByCssSelector(".c01116:nth-child(2) label");
-    By firstClick = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label[2]/span/label");
-//    By firstNext = new By.ByCssSelector(".c01126");
+
+    By firstAnswer = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label[2]/span/label");
+
     By firstNext = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/button/span");
-//    By secondQuestion = new By.ByCssSelector(".c0120:nth-child(2)");
+
     By secondQuestion = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div[2]/div[8]/span/button");
-//    By secondClick = new By.ByCssSelector(".c01116:nth-child(2)");
-    By secondClick = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label[2]");
-//    By secondNext = new By.ByCssSelector(".c01126");
+
+    By secondAnswer = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label[2]");
+
     By secondNext = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/button/span");
-//    By thirdQuestion = new By.ByCssSelector(".c0120:nth-child(3)");
+
     By thirdQuestion = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div[3]/div[8]/span/button");
-//    By thirdClick = new By.ByCssSelector(".c01118 > .c01108");
-    By thirdClick = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label/span/label");
-//    By thirdNext = new By.ByCssSelector(".c01126");
+
+    By thirdAnswer = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label/span/label");
+
     By thirdNext = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/button/span");
-//    By fourthQuestion = new By.ByCssSelector(".c01118 label");
+
     By fourthQuestion = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div[4]/div[8]/span/button");
-//    By fourthClick = new By.ByCssSelector(".c01116:nth-child(1) label");
-    By fourthClick = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label");
-//    By fourthNext = new By.ByCssSelector(".c01122");
+
+    By fourthAnswer = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label");
+
     By fourthNext = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/button/span");
+
     By submitTest = new By.ByCssSelector("*[data-test=\"SubmitTest\"]");
-//    By confirmSubmit = new By.ByCssSelector(".c0170:nth-child(2)");
+
     By confirmSubmit = new By.ByXPath("//button[2]");
 
-    public StartPage(WebDriver webDriver) {
+    public CodingamePage(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
 
 
-    public StartPage goToStartPage() {
+    public CodingamePage goToStartPage() {
         webDriver.manage().window().maximize();
         webDriver.get(" https://www.codingame.com/evaluate/?id=3947363c706360530d52c981bdf27c794a47bac");
         return this;
@@ -74,59 +67,59 @@ public class StartPage {
         webDriver.findElement(confirmStart).click();
     }
 
-    public void answerFirstQ() {
+    public void clickFirstQuestion() {
         webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(firstQuestion).click();
     }
 
-    public void clickFirstQ() {
+    public void answerFirstQuestion() {
         webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
-        webDriver.findElement(firstClick).click();
+        webDriver.findElement(firstAnswer).click();
     }
 
-    public void nextFirstQ() {
+    public void nextFirstQuestion() {
         webDriver.findElement(firstNext).click();
     }
 
-    public void answerSecondQ() {
+    public void clickSecondQuestion() {
         webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(secondQuestion).click();
     }
 
-    public void clickSecondQ() {
+    public void answerSecondQuestion() {
         webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
-        webDriver.findElement(secondClick).click();
+        webDriver.findElement(secondAnswer).click();
     }
 
-    public void nextSecondQ() {
+    public void nextSecondQuestion() {
         webDriver.findElement(secondNext).click();
     }
 
-    public void answerThirdQ() {
+    public void clickThirdQuestion() {
         webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(thirdQuestion).click();
     }
 
-    public void clickThirdQ() {
+    public void answerThirdQuestion() {
         webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
-        webDriver.findElement(thirdClick).click();
+        webDriver.findElement(thirdAnswer).click();
     }
 
-    public void nextThirdQ() {
+    public void nextThirdQuestion() {
         webDriver.findElement(thirdNext).click();
     }
 
-    public void answerFourthQ() {
+    public void clickFourthQuestion() {
         webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(fourthQuestion).click();
     }
 
-    public void clickFourthQ() {
+    public void answerFourthQuestion() {
         webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
-        webDriver.findElement(fourthClick).click();
+        webDriver.findElement(fourthAnswer).click();
     }
 
-    public void nextFourthQ() {
+    public void nextFourthQuestion() {
         webDriver.findElement(fourthNext).click();
     }
 
@@ -145,36 +138,69 @@ public class StartPage {
         clickStartButton();
         clickTermsBox();
         confirmStartTest();
-        answerFirstQ();
-        clickFirstQ();
-        nextFirstQ();
-        answerSecondQ();
-        clickSecondQ();
-        nextSecondQ();
-        answerThirdQ();
-        clickThirdQ();
-        nextThirdQ();
-        answerFourthQ();
-        clickFourthQ();
-        nextFourthQ();
+        clickFirstQuestion();
+        answerFirstQuestion();
+        nextFirstQuestion();
+        clickSecondQuestion();
+        answerSecondQuestion();
+        nextSecondQuestion();
+        clickThirdQuestion();
+        answerThirdQuestion();
+        nextThirdQuestion();
+        clickFourthQuestion();
+        answerFourthQuestion();
+        nextFourthQuestion();
         submitAnswers();
         confirmAnswers();
     }
 
-    public boolean readStartPage() {
-        goToStartPage();
-        return webDriver.findElement(startButton).toString().contains("Start");
-    }
 
-    public void doFirstQuestion() {
+    public void loadFirstQuestion() {
         goToStartPage();
         clickStartButton();
         clickTermsBox();
         confirmStartTest();
+        clickFirstQuestion();
     }
 
-    public boolean readFirstQuestion() {
+    public boolean isFirstQuestionLoading() {
         return webDriver.findElement(firstQuestion).toString().contains("1");
+    }
+
+    public void loadSecondQuestion() {
+        goToStartPage();
+        clickStartButton();
+        clickTermsBox();
+        confirmStartTest();
+        clickSecondQuestion();
+    }
+
+    public boolean isSecondQuestionLoading() {
+        return webDriver.findElement(secondQuestion).toString().contains("2");
+    }
+
+    public void loadThirdQuestion() {
+        goToStartPage();
+        clickStartButton();
+        clickTermsBox();
+        confirmStartTest();
+        clickThirdQuestion();
+    }
+
+    public boolean isThirdQuestionLoading() {
+        return webDriver.findElement(thirdQuestion).toString().contains("3");
+    }
+
+    public void loadFourthQuestion() {
+        goToStartPage();
+        clickStartButton();
+        clickTermsBox();
+        confirmStartTest();
+        clickFourthQuestion();
+    }
+
+    public boolean isFourthQuestionLoading() {
+        return webDriver.findElement(fourthQuestion).toString().contains("4");
     }
 
     public void submitAssessment() {
@@ -182,21 +208,22 @@ public class StartPage {
         clickStartButton();
         clickTermsBox();
         confirmStartTest();
-        answerFirstQ();
-        clickFirstQ();
-        nextFirstQ();
-        answerSecondQ();
-        clickSecondQ();
-        nextSecondQ();
-        answerThirdQ();
-        clickThirdQ();
-        nextThirdQ();
-        answerFourthQ();
-        clickFourthQ();
-        nextFourthQ();
+        clickFirstQuestion();
+        answerFirstQuestion();
+        nextFirstQuestion();
+        clickSecondQuestion();
+        answerSecondQuestion();
+        nextSecondQuestion();
+        clickThirdQuestion();
+        answerThirdQuestion();
+        nextThirdQuestion();
+        clickFourthQuestion();
+        answerFourthQuestion();
+        nextFourthQuestion();
+        submitAnswers();
     }
 
-    public boolean readSubmitAssessment() {
+    public boolean isSubmitWorking() {
         return webDriver.findElement(submitTest).toString().contains("Submit");
     }
 

@@ -1,19 +1,15 @@
 package com.sparta.eng61;
 
-import com.sparta.eng61.pageobjects.codingame.StartPage;
+import com.sparta.eng61.pageobjects.codingame.CodingamePage;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.List;
 
 public class CodeingameTester {
 
     WebDriver webDriver = new ChromeDriver();
-    StartPage startPage = new StartPage(webDriver);
+    CodingamePage startPage = new CodingamePage(webDriver);
 
     @Test
     public void doAssessment() {
@@ -21,21 +17,33 @@ public class CodeingameTester {
     }
 
     @Test
-    public void testStartPage() {
-        startPage.goToStartPage().clickStartButton();
-        Assertions.assertEquals(true,startPage.readStartPage());
+    public void testFirstQuestion() {
+        startPage.loadFirstQuestion();
+        Assertions.assertEquals(true, startPage.isFirstQuestionLoading());
     }
 
     @Test
-    public void testQuestion() {
-        startPage.doFirstQuestion();
-        Assertions.assertEquals(true, startPage.readFirstQuestion());
+    public void testSecondQuestion() {
+        startPage.loadSecondQuestion();
+        Assertions.assertTrue(startPage.isSecondQuestionLoading());
+    }
+
+    @Test
+    public void testThirdQuestion() {
+        startPage.loadThirdQuestion();
+        Assertions.assertTrue(startPage.isThirdQuestionLoading());
+    }
+
+    @Test
+    public void testFourthQuestion() {
+        startPage.loadFourthQuestion();
+        Assertions.assertTrue(startPage.isFourthQuestionLoading());
     }
 
     @Test
     public void testSubmit() {
         startPage.submitAssessment();
-        Assertions.assertEquals(true, startPage.readSubmitAssessment());
+        Assertions.assertTrue(startPage.isSubmitWorking());
     }
 
 
