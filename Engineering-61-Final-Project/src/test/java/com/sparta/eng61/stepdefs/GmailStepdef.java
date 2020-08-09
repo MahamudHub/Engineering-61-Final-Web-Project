@@ -36,6 +36,6 @@ public class GmailStepdef {
 
     @Then("they will be taken to the Codeingames test")
     public void theyWillBeTakenToTheCodeingamesTest() {
-        Assertions.assertEquals(true, gmailPage.isLinkInEmail());
+        Assertions.assertEquals(true, gmailPage.isCodinGameLinkInEmail());
     }
 }

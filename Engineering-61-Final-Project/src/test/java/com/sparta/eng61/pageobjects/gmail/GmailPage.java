@@ -53,7 +53,7 @@ public class GmailPage {
         return new StartPage(webDriver);
     }
 
-    public void assessmentLinkInEmail(){
+    public void accessingAssessmentLinkInEmail(){
         goToGmailLoginPage();
         enterCandidateEmail();
         clickEmailNext();
@@ -62,7 +62,7 @@ public class GmailPage {
         accessAssessmentEmail();
     }
 
-    public boolean isLinkInEmail(){
+    public boolean isCodinGameLinkInEmail(){
         return webDriver.findElement(assessmentLink).toString().contains("https://www.codingame.com/");
     }
 

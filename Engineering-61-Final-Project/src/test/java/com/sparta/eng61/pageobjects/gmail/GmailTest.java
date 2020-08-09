@@ -22,7 +22,7 @@ public class GmailTest {
 
     @Test
     public void testingBooleanMethod(){
-        gmailLogin.assessmentLinkInEmail();
-        Assertions.assertEquals(true, gmailLogin.isLinkInEmail());
+        gmailLogin.accessingAssessmentLinkInEmail();
+        Assertions.assertEquals(true, gmailLogin.isCodinGameLinkInEmail());
     }
 }
