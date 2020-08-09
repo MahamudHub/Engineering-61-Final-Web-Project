@@ -33,7 +33,7 @@ public class SendAssessmentPage {
 
     }
 
-    public SendAssessmentPage openResultsPage(){
+    public SendAssessmentPage openSendAssessmentPage(){
         webDriver.get("https://eng61.spartaglobal.academy/");
         return this;
     }
