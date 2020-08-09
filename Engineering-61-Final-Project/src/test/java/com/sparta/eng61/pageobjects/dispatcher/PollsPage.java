@@ -17,11 +17,12 @@ public class PollsPage {
 
     }
 
-    public void openResultsPage() {
+    public PollsPage openPollsPage() {
         webDriver.get("https://eng61.spartaglobal.academy/polls");
+        return this;
     }
 
-    public String getPageTitleName() {
+    public String getPollsPageTitleName() {
         return webDriver.findElement(pageTitle).getText();
     }
 

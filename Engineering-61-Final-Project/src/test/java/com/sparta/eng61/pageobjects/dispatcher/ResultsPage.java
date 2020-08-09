@@ -21,11 +21,12 @@ public class ResultsPage {
 
     }
 
-    public void openResultsPage(){
+    public ResultsPage openResultsPage(){
         webDriver.get("https://eng61.spartaglobal.academy/results");
+        return this;
     }
 
-    public String getPageTitleName() {
+    public String getResultsPageTitleName() {
         return webDriver.findElement(pageTitle).getText();
     }
 

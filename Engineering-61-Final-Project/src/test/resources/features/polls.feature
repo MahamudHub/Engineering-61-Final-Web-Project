@@ -2,10 +2,11 @@ Feature: As a User, I want to see the status and time so that I can see if the r
 
   Scenario: See the status of the candidate assessment
     Given I have to have sent a candidate an assessment
-    When on the polls page should see the candidate assessment status.
-    Then the status will show the current state of the assessment.
+    When I check the candidate assessment status.
+    Then it will show the current state
 
-  Scenario: See the time of the latest of the poll time
+  Scenario: See latest poll time update
     Given I have updated the poll on the results page
-    When on the polls page
-    Then the poll page will show the latest poll time
+    And  the poll has not updated automatically
+    When I check the time of the last poll
+    Then it will be the same as when I updated the poll
