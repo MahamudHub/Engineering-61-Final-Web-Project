@@ -16,17 +16,36 @@ public class SendAssessmentPage {
     By candidateNameField = new By.ById("candidate_name");
     By candidateEmailField = new By.ById("candidate_email");
     By recruiterEmailField = new By.ById("recruiter_email");
+
     By submitButton = new By.ById("submit");
     By pageTitle = new By.ById("page_title");
     By pageHeader = new By.ById("page_header");
     By sentInfo = new By.ByClassName("lead");
-
+    By logOutLink = new By.ById("logout_link");
 
 
     public SendAssessmentPage(WebDriver webDriver) {
         this.webDriver = webDriver;
         webDriver.manage().window().maximize();
+
+    }
+
+    public SendAssessmentPage openResultsPage(){
         webDriver.get("https://eng61.spartaglobal.academy/");
+        return this;
+    }
+
+    public String getUrl(){
+        return webDriver.getCurrentUrl();
+    }
+
+    public void loggingOut(){
+        webDriver.findElement(logOutLink).click();
+    }
+
+    public void logoutFromSendAssessment(){
+        openResultsPage();
+        loggingOut();
     }
 
     public String getPageTitleName() {

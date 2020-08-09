@@ -10,6 +10,7 @@ public class PollsPage {
     By assessmentStatus = new By.ByCssSelector("tbody > .d-flex:nth-child(1) > .col-3:nth-child(2)");
     By candidateEmail = new By.ByCssSelector("tbody > .d-flex:nth-child(1) > .col-3:nth-child(3)");
     By testId = new By.ByCssSelector("tbody > .d-flex:nth-child(1) > .col-3:nth-child(4)");
+    By logOutLink = new By.ById("logout_link");
 
     public PollsPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -20,6 +21,15 @@ public class PollsPage {
     public PollsPage openPollsPage() {
         webDriver.get("https://eng61.spartaglobal.academy/polls");
         return this;
+    }
+
+    public void loggingOut(){
+        webDriver.findElement(logOutLink).click();
+    }
+
+    public void logoutFromPolls(){
+        openPollsPage();
+        loggingOut();
     }
 
     public String getPollsPageTitleName() {

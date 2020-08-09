@@ -7,6 +7,7 @@ public class ResultsPage {
 
     WebDriver webDriver;
     By pageTitle = new By.ById("login_title");
+    By logOutLink = new By.ById("logout_link");
     By updateButton = new By.ByClassName("btn btn-secondary submit");
     By candidateName = new By.ByCssSelector(".table:nth-child(4) > tbody .col-2:nth-child(1)");
     By candidateEmail = new By.ByCssSelector(".table:nth-child(4) > tbody .col-3");
@@ -24,6 +25,15 @@ public class ResultsPage {
     public ResultsPage openResultsPage(){
         webDriver.get("https://eng61.spartaglobal.academy/results");
         return this;
+    }
+
+    public void loggingOut(){
+        webDriver.findElement(logOutLink).click();
+    }
+
+    public void logoutFromResults(){
+        openResultsPage();
+        loggingOut();
     }
 
     public String getResultsPageTitleName() {
