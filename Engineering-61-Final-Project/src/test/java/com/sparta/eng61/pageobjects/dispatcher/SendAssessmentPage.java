@@ -47,7 +47,7 @@ public class SendAssessmentPage {
     }
 
     public void logoutFromSendAssessment(){
-        openResultsPage();
+        openSendAssessmentPage();
         loggingOut();
     }
 
