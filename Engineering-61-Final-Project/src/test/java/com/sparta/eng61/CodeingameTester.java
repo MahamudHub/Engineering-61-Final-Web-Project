@@ -20,11 +20,24 @@ public class CodeingameTester {
         startPage.doTest();
     }
 
+    @Test
+    public void testStartPage() {
+        startPage.goToStartPage().clickStartButton();
+        Assertions.assertEquals(true,startPage.readStartPage());
+    }
 
-//    @Test
-//    public void titleTest() {
-//        doAssessment();
-//        Assertions.assertEquals();
-//    }
+    @Test
+    public void testQuestion() {
+        startPage.doFirstQuestion();
+        Assertions.assertEquals(true, startPage.readFirstQuestion());
+    }
+
+    @Test
+    public void testSubmit() {
+        startPage.submitAssessment();
+        Assertions.assertEquals(true, startPage.readSubmitAssessment());
+    }
+
+
   }
 

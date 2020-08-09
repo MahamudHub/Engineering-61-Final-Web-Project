@@ -161,5 +161,44 @@ public class StartPage {
         confirmAnswers();
     }
 
+    public boolean readStartPage() {
+        goToStartPage();
+        return webDriver.findElement(startButton).toString().contains("Start");
+    }
+
+    public void doFirstQuestion() {
+        goToStartPage();
+        clickStartButton();
+        clickTermsBox();
+        confirmStartTest();
+    }
+
+    public boolean readFirstQuestion() {
+        return webDriver.findElement(firstQuestion).toString().contains("1");
+    }
+
+    public void submitAssessment() {
+        goToStartPage();
+        clickStartButton();
+        clickTermsBox();
+        confirmStartTest();
+        answerFirstQ();
+        clickFirstQ();
+        nextFirstQ();
+        answerSecondQ();
+        clickSecondQ();
+        nextSecondQ();
+        answerThirdQ();
+        clickThirdQ();
+        nextThirdQ();
+        answerFourthQ();
+        clickFourthQ();
+        nextFourthQ();
+    }
+
+    public boolean readSubmitAssessment() {
+        return webDriver.findElement(submitTest).toString().contains("Submit");
+    }
+
 
 }
