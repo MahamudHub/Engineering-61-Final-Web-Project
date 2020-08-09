@@ -11,14 +11,6 @@ Feature: If test sent to candidate is completed or not
     And I open the dispatches page
     Then I should see a No under Complete
 
-  Scenario: candidate has not been contacted and completed a test
-    When A candidate has not been sent a test
-    Given The candidate has attempted the test
-    And I open the dispatches page
-    Then I should see a No under Complete
+#  Scenario: candidate has not been contacted and completed a test
+#  Scenario: candidate has not been contacted and incomplete test
 
-  Scenario: candidate has not been contacted and incomplete test
-    When A candidate has not been sent a test
-    Given The candidate has not attempted the test
-    And I open the dispatches page
-    Then I should see a No under Complete
