@@ -15,13 +15,13 @@ public class PollsTest {
 
     public void openLoginPage() {
         loginPage.submitRightCredentials();
-        pollsPage.openResultsPage();
+        pollsPage.openPollsPage();
     }
 
     @Test
     public void titleTest() {
         openLoginPage();
-        Assertions.assertEquals("Polls", pollsPage.getPageTitleName());
+        Assertions.assertEquals("Polls", pollsPage.getPollsPageTitleName());
         webDriver.close();
     }
 
