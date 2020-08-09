@@ -12,6 +12,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class loginstepdefs {
     WebDriver webDriver = new ChromeDriver();
     LoginPage loginPage = new LoginPage(webDriver);
+    SendAssessmentPage sendAssessmentPage = new SendAssessmentPage(webDriver);
+
     @Given("I enter the correct username")
     public void iEnterTheCorrectUsername() {
         loginPage.enterUsername();
@@ -37,10 +39,11 @@ public class loginstepdefs {
     }
     @Then("I will see the Send Assessment Page")
     public void iWillSeeTheSendAssessmentPage() {
-        //Assertions.assertEquals("https://eng61.spartaglobal.academy/",loginPage.openLoginPage().login().openSendAssessPage().getURL());
+        //Assertions.assertEquals("https://eng61.spartaglobal.academy/",sendAssessmentPage.getURL());
     }
-    @Then("I will not see the Send Assessment Page")
-    public void iWillNotSeeTheSendAssessmentPage() {
-      //  Assertions.assertFalse("https://eng61.spartaglobal.academy/",loginPage.openLoginPage().login().openSendAssessPage().getURL());
+
+    @Then("I will see the Error message")
+    public void iWillSeeTheErrorMessage() {
+        loginPage.errorMessage();
     }
 }

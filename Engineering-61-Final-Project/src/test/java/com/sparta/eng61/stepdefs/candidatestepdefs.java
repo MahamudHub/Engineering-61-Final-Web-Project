@@ -10,17 +10,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class candidatestepdefs {
     WebDriver webDriver = new ChromeDriver();
     DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
+    SendAssessmentPage sendAssessmentPage = new SendAssessmentPage(webDriver);
     LoginPage loginPage = new LoginPage(webDriver);
     //    SendAssessment sendAssessment = new SendAssessment(webDriver);
 
     @Given("A candidate has been contacted")
+    //------Method needed from Mohamed's class
     public void aCandidateHasBeenContacted() {
-        //Assertions.assertEquals(true, sendAssessment.isSentInfoIncludeEmail);
     }
 
     @When("I go to the dispatches page")
     public void iGoToTheDispatchesPage() {
-        loginPage.submitRightCredentials();
+        loginPage.enterRightLoginCredentials();
         dispatchesPage.openDispatchesPage();
     }
 
