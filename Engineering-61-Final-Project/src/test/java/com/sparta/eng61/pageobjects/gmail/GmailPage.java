@@ -3,8 +3,8 @@ package com.sparta.eng61.pageobjects.gmail;
 import com.sparta.eng61.propertiesloader.PropertiesFileLoader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import java.util.concurrent.TimeUnit;
+import com.sparta.eng61.pageobjects.codingame.CodingamePage;
 
 public class GmailPage {
 
