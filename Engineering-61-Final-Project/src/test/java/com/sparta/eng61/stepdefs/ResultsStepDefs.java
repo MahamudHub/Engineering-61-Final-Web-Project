@@ -66,6 +66,7 @@ public class ResultsStepDefs {
 
     @When("I click the update button")
     public void iClickTheUpdateButton() {
+        resultsPage.clickUpdate();
     }
 
     @Then("I should see the polls page")
