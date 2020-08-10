@@ -1,6 +1,10 @@
 package com.sparta.eng61.stepdefs;
 
 import com.sparta.eng61.pageobjects.dispatcher.LoginPage;
+import com.sparta.eng61.pageobjects.dispatcher.DispatchesPage;
+import com.sparta.eng61.pageobjects.dispatcher.SendAssessment;
+import com.sparta.eng61.pageobjects.dispatcher.ResultsPage;
+import com.sparta.eng61.pageobjects.dispatcher.PollsPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,7 +14,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
-public class logoutstepdefs {
+public class LogoutStepdefs {
     WebDriver webDriver = new ChromeDriver();
     By logOutLink = new By.ById("logout_link");
     SendAssessmentPage sendAssessmentPage = new SendAssessmentPage(webDriver);
