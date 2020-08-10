@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CodeingameTester {
+public class CodingameTest {
 
     WebDriver webDriver = new ChromeDriver();
     CodingamePage startPage = new CodingamePage(webDriver);
