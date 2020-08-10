@@ -16,24 +16,19 @@ public class ResultsStepDefs {
     DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
     PollsPage pollsPage = new PollsPage(webDriver);
 
-
-    // Scenario
-    @Given("I have sent the candidate an assessment")
-    public void iHaveSentTheCandidateAnAssessment() {
+    @Given("The candidate has completed the assessment")
+    public void theCandidateHasCompletedTheAssessment() {
     }
 
-    @When("I check the score of the assessment")
-    public void iCheckTheScoreOfTheAssessment() {
+    @When("I am on the results page")
+    public void iAmOnTheResultsPage() {
     }
 
-    @Then("The score is displayed")
-    public void theScoreIsDisplayed() {
+    @Then("I should see the score is displayed")
+    public void iShouldSeeTheScoreIsDisplayed() {
         Assertions.assertEquals(true, resultsPage.getCandidateScore());
     }
 
-    @Given("I am on the results page")
-    public void iAmOnTheResultsPage() {
-    }
 
     @When("I see the candidates email")
     public void iSeeTheCandidatesEmail() {
@@ -51,9 +46,6 @@ public class ResultsStepDefs {
 
     //Given i am on the results page
 
-    @When("I look at the NR Column")
-    public void iLookAtTheNRColumn() {
-    }
 
     @Then("I should see the candidate NR")
     public void iShouldSeeTheCandidateNR() {
@@ -61,11 +53,6 @@ public class ResultsStepDefs {
     }
 
     //Given i am on the results page
-
-    @When("I look at the LR Column")
-    public void iLookAtTheLRColumn() {
-    }
-
 
     @Then("I should see the candidate LR")
     public void iShouldSeeTheCandidateLR() {
@@ -84,6 +71,7 @@ public class ResultsStepDefs {
 
     @Then("I should see the polls page")
     public void iShouldSeeThePollsPage() {
-        Assertions.assertEquals(true, resultsPage.getUpdateButtonTest());
+        Assertions.assertEquals(true, pollsPage.openPollsPage());
     }
+
 }
