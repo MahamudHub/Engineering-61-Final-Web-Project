@@ -7,18 +7,20 @@ import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import com.sparta.eng61.pageobjects.codingame.CodingamePage;
+import com.sparta.eng61.pageobjects.dispatcher.SendAssessmentPage;
 
 public class GmailStepdef {
 
     WebDriver webdriver = new ChromeDriver();
-    SendAssessmentPage sendAssessment = new SendAssessmentPage(webdriver);
+    SendAssessmentPage sendAssessmentPage = new SendAssessmentPage(webdriver);
     GmailPage gmailPage = new GmailPage(webdriver);
-    StartPage startPage = new StartPage(webdriver);
+    CodingamePage codingamePage = new CodingamePage(webdriver);
 
 
     @Given("I have sent the candidate an assessment link email")
     public void iHaveSentTheCandidateAnAssessmentLinkEmail() {
-        sendAssessment.enterFields();
+        sendAssessmentPage.enterFields();
     }
 
     @When("they access their email")
@@ -38,6 +40,6 @@ public class GmailStepdef {
 
     @Then("they will be taken to the Codeingames test")
     public void theyWillBeTakenToTheCodeingamesTest() {
-        Assertions.assertEquals(true, startPage.isStartPageLoading());
+        Assertions.assertEquals(true, codingamePage.isStartPageLoading());
     }
 }
