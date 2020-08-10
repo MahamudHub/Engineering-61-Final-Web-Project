@@ -21,46 +21,71 @@ public class GmailPage {
         this.webDriver = webDriver;
     }
 
-    public GmailPage goToLoginPage() {
+    public GmailPage goToGmailLoginPage() {
         webDriver.manage().window().maximize();
         webDriver.get("http://mail.google.com/mail?hl=en-GB");
         return this;
     }
 
-    public void enterEmail() {
-        properties.loadPropertiesFile();
+    private void enterCandidateEmail() {
         webDriver.findElement(emailAddress).sendKeys(properties.getCandidateEmail());
     }
 
-    public void clickEmailNext() {
+    private void clickEmailNext() {
         webDriver.findElement(emailNext).click();
         webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
     }
 
-    public void enterPassword() {
-        properties.loadPropertiesFile();
+    private void enterCandidatePassword() {
         webDriver.findElement(password).sendKeys(properties.getCandidatePassword());
     }
 
-    public void clickPasswordNext() {
+    private void clickPasswordNext() {
         webDriver.findElement(passwordNext).click();
     }
 
-    public void accessEmail() {
+    private void accessAssessmentEmail() {
         webDriver.findElement(selectEmail).click();
     }
 
-    public void clickLink() {
+    private StartPage clickAssessmentLink() {
         webDriver.findElement(assessmentLink).click();
+        return new StartPage(webDriver);
     }
 
-    public void accessAssessmentLinkFromEmail() {
-        goToLoginPage();
-        enterEmail();
+    public void accessingAssessmentLinkInEmail(){
+        goToGmailLoginPage();
+        enterCandidateEmail();
         clickEmailNext();
-        enterPassword();
+        enterCandidatePassword();
         clickPasswordNext();
-        accessEmail();
-        clickLink();
+        accessAssessmentEmail();
+    }
+
+    public boolean isCodinGameLinkInEmail(){
+        return webDriver.findElement(assessmentLink).toString().contains("https://www.codingame.com/");
+    }
+
+    public void accessCandidateEmail(){
+        goToGmailLoginPage();
+        enterCandidateEmail();
+        clickEmailNext();
+        enterCandidatePassword();
+        clickPasswordNext();
+    }
+
+    public boolean openAssessmentLinkEmail(){
+        return webDriver.findElement(selectEmail).toString().contains("Sparta Global");
+    }
+
+
+    public StartPage accessAssessmentLinkFromEmail() {
+        goToGmailLoginPage();
+        enterCandidateEmail();
+        clickEmailNext();
+        enterCandidatePassword();
+        clickPasswordNext();
+        accessAssessmentEmail();
+        return clickAssessmentLink();
     }
 }

@@ -11,33 +11,41 @@ public class LoginTest {
     DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
     ResultsPage resultsPage = new ResultsPage(webDriver);
     PollsPage pollsPage = new PollsPage(webDriver);
+    SendAssessmentPage sendAssessmentPage = new SendAssessmentPage(webDriver);
     LogoutPage logoutPage = new LogoutPage(webDriver);
 
     //=======TESTING LOGGING OUT============
     //------Logging out from the Dispatches page----------
     @Test
-    public void LoggingoutfromDispatches(){
-        loginPage.submitRightCredentials();
-        dispatchesPage.LogoutfromDispatches();
-        Assertions.assertEquals(true,logoutPage.successfulLogout());
+    public void logoutFromDispatches(){
+        loginPage.enterRightLoginCredentials();
+        dispatchesPage.logoutFromDispatches();
+        Assertions.assertEquals(true,logoutPage.isLogoutSuccessFul());
 
     }
     //------Logging out from the Results page----------
     @Test
-    public void LoggingoutfromResults(){
-        loginPage.submitRightCredentials();
-        resultsPage.LogoutfromResults();
-        Assertions.assertEquals(true,logoutPage.successfulLogout());
+    public void logoutFromResults(){
+        loginPage.enterRightLoginCredentials();
+        resultsPage.logoutFromResults();
+        Assertions.assertEquals(true,logoutPage.isLogoutSuccessFul());
 
     }
     //------Logging out from the Polls page----------
 
     @Test
-    public void LoggingoutfromPolls(){
-        loginPage.submitRightCredentials();
-        pollsPage.LogoutfromPolls();
-        Assertions.assertEquals(true,logoutPage.successfulLogout());
+    public void logoutFromPolls(){
+        loginPage.enterRightLoginCredentials();
+        pollsPage.logoutFromPolls();
+        Assertions.assertEquals(true,logoutPage.isLogoutSuccessFul());
+    }
+    //------Logging out from the Send Assessment page----------
 
+    @Test
+    public void logoutFromSendAssessment(){
+        loginPage.enterRightLoginCredentials();
+        sendAssessmentPage.logoutFromSendAssessment();
+        Assertions.assertEquals(true,logoutPage.isLogoutSuccessFul());
     }
     //---------Testing if logout page opens--------
     @Test
@@ -48,40 +56,47 @@ public class LoginTest {
     //-------testing if login page directs to the Send Assessment page----------
     @Test
     public void successfullLogin(){
-        Assertions.assertEquals("https://eng61.spartaglobal.academy/",loginPage.openLoginPage().login().openSendAssessPage().getURL());
+        Assertions.assertEquals("https://eng61.spartaglobal.academy/",sendAssessmentPage.openSendAssessmentPage().getUrl());
     }
 //===========TESTING ENTERING FIELDS============
 
     //-----Testing right credentials input
     @Test
     public void enterRightCredentials(){
-        loginPage.submitRightCredentials();
-        Assertions.assertEquals(false, loginPage.errorMessage());
+        loginPage.enterRightLoginCredentials();
+        Assertions.assertEquals(false, loginPage.isLoginErrorMessageCorrect());
     }
     @Test
     public void enterWrongUsername(){
-        loginPage.submitWrongUsername();
-        Assertions.assertEquals(true, loginPage.errorMessage());
+        loginPage.enterWrongUsername();
+        Assertions.assertEquals(true, loginPage.isLoginErrorMessageCorrect());
     }
     @Test
     public void enterWrongPassword(){
-        loginPage.submitWrongPassword();
-        Assertions.assertEquals(true, loginPage.errorMessage());
+        loginPage.enterWrongPassword();
+        Assertions.assertEquals(true, loginPage.isLoginErrorMessageCorrect());
     }
     @Test
     public void enterNoInfo(){
-        loginPage.submitNoInfo();
-        Assertions.assertEquals(true, loginPage.errorMessage());
+        loginPage.enterNoInfo();
+        Assertions.assertEquals(true, loginPage.isLoginErrorMessageCorrect());
     }
     @Test
     public void onlyUserName(){
-        loginPage.submitonlyUsername();
-        Assertions.assertEquals(true, loginPage.errorMessage());
+        loginPage.enterLoginUsername();
+        Assertions.assertEquals(true, loginPage.isLoginErrorMessageCorrect());
     }
     @Test
     public void onlyPassword(){
-        loginPage.submitonlyPassword();
-        Assertions.assertEquals(true, loginPage.errorMessage());
+        loginPage.enterLoginPassword();
+        Assertions.assertEquals(true, loginPage.isLoginErrorMessageCorrect());
+    }
+    //-----------Testing logo link-----------
+    @Test
+    public void clickLogoLink(){
+        loginPage.openLoginPage();
+        loginPage.clickLogoLink();
+        Assertions.assertEquals(true, loginPage.isTokenErrorMessageCorrect());
     }
 
 }

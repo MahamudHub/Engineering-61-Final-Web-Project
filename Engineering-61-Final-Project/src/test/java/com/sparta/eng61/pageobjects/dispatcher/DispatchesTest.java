@@ -8,11 +8,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class DispatchesTest {
     WebDriver webDriver = new ChromeDriver();
     DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
-    LoginforDispatches loginforDispatches = new LoginforDispatches(webDriver);
+    //LoginPage loginPage = new LoginPage(webDriver);
 
     @Test
     public void openDispatches(){
-        loginforDispatches.submitRightCredentials();
+        //loginPage.enterRightLoginCredentials();
         dispatchesPage.openDispatchesPage();
     }
 
@@ -24,20 +24,25 @@ public class DispatchesTest {
     @Test
     public void clickDispatchesLink(){
         openDispatches();
-        dispatchesPage.clickDispatches();
+        dispatchesPage.clickOnDispatchesPage();
     }
     @Test
     public void clickResultsLink(){
         openDispatches();
-        dispatchesPage.clickResults();
+        dispatchesPage.clickOnResultsPage();
     }
     @Test
     public void clickPollsLink(){
         openDispatches();
-        dispatchesPage.clickPolls();
+        dispatchesPage.clickOnPollsPage();
     }
     @Test
-    public void filedHeaders(){
+    public void clickLogoLink(){
+        openDispatches();
+        dispatchesPage.clickOnLogo();
+    }
+    @Test
+    public void fieldHeaders(){
         openDispatches();
         Assertions.assertEquals(true, dispatchesPage.fieldHeaders());
 
@@ -45,7 +50,7 @@ public class DispatchesTest {
     @Test
     public void candidateName(){
         openDispatches();
-        Assertions.assertEquals("Sam",dispatchesPage.getCandName());
+        Assertions.assertEquals("Sam",dispatchesPage.getCandidateName());
     }
     @Test
     public void candidateEmail(){

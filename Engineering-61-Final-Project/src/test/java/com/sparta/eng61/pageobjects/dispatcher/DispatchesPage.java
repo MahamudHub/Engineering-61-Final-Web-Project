@@ -10,6 +10,7 @@ public class DispatchesPage {
     By dispatchesLink = new By.ByLinkText("Dispatches");
     By resultsLink = new By.ByLinkText("Results");
     By pollsLink = new By.ByLinkText("Polls");
+    By sendAssessmentLink = new By.ByClassName("logoHeader");
 
     //---------Fields identifiers in dispatches page -----------------------
     By candidateName = new By.ByCssSelector("tbody > tr:nth-child(1) > th");
@@ -35,105 +36,87 @@ public class DispatchesPage {
         webDriver.findElement(logOutLink).click();
     }
     //==========TESTING METHODS==============
-    public void LogoutfromDispatches(){
+    public void logoutFromDispatches(){
         openDispatchesPage();
         loggingOut();
     }
-    public void clickDispatches(){
+    public void clickOnDispatchesPage(){
         webDriver.findElement(dispatchesLink).click();
     }
-    public void clickResults(){
+    public void clickOnResultsPage(){
         webDriver.findElement(resultsLink).click();
     }
-    public void clickPolls(){
+    public void clickOnPollsPage(){
         webDriver.findElement(pollsLink).click();
     }
-
+    public void clickOnLogo(){
+        webDriver.findElement(sendAssessmentLink).click();
+    }
     //-------Field headers------
-    public boolean nameheader(){
-        boolean name = webDriver.getPageSource().contains("Name");
-        return name;
+    public boolean isCandidateNameCorrect(){
+        return webDriver.getPageSource().contains("Name");
     }
-    public boolean candidateEmailheader(){
-        boolean CandidateEmail = webDriver.getPageSource().contains("Email");
-        return CandidateEmail;
+    public boolean isCandidateEmailCorrect(){
+        return webDriver.getPageSource().contains("Email");
     }
-    public boolean recruiterheader(){
-        boolean RecruiterEmail = webDriver.getPageSource().contains("Recruiter");
-        return RecruiterEmail;
+    public boolean isRecruiterEmailCorrect(){
+        return webDriver.getPageSource().contains("Recruiter");
     }
-    public boolean AssessmentTypeheader(){
-        boolean AssessmentType = webDriver.getPageSource().contains("Assessment");
-        return AssessmentType;
+    public boolean isAssessmentCorrect(){
+        return webDriver.getPageSource().contains("Assessment");
     }
-    public boolean testIdheader(){
-        boolean Testid = webDriver.getPageSource().contains("Test Id");
-        return Testid;
+    public boolean isTestIdCorrect(){
+        return webDriver.getPageSource().contains("Test Id");
     }
-    public boolean timeSentheader(){
-        boolean Timesent = webDriver.getPageSource().contains("Time Sent");
-        return Timesent;
+    public boolean isTimeSentCorrect(){
+       return webDriver.getPageSource().contains("Time Sent");
     }
-    public boolean completeheader(){
-        boolean Complete = webDriver.getPageSource().contains("Complete");
-        return Complete;
-
+    public boolean isCompleteCorrect(){
+        return webDriver.getPageSource().contains("Complete");
     }
-    public boolean expiredheader(){
-        boolean Expired = webDriver.getPageSource().contains("Expired");
-        return Expired;
+    public boolean isExpiredCorrect(){
+        return webDriver.getPageSource().contains("Expired");
     }
 
     public boolean fieldHeaders(){
-        boolean allFileds = false;
-        if(nameheader()&&
-        candidateEmailheader()&&
-        recruiterheader()&&
-        AssessmentTypeheader()&&
-        testIdheader()&&
-        testIdheader()&&
-        timeSentheader()&&
-        completeheader()&&
-        expiredheader()){
+        boolean allFields = false;
+        if(isCandidateNameCorrect()&&
+        isCandidateEmailCorrect()&&
+        isRecruiterEmailCorrect()&&
+        isAssessmentCorrect()&&
+        isTestIdCorrect()&&
+        isTestIdCorrect()&&
+        isTimeSentCorrect()&&
+        isCompleteCorrect()&&
+        isExpiredCorrect()){
             return true;
         }
-            return allFileds;
+            return allFields;
     }
-
-
-
+    
     //-------Fields-------
-    public String getCandName(){
-        String candName = webDriver.findElement(candidateName).getText();
-        return candName;
+    public String getCandidateName(){
+        return webDriver.findElement(candidateName).getText();
     }
     public String getCandidateEmail(){
-        String candEmail = webDriver.findElement(candidateEmail).getText();
-        return candEmail;
+        return webDriver.findElement(candidateEmail).getText();
     }
     public String getRecruiterEmail(){
-        String recruiteremail = webDriver.findElement(recruiterEmail).getText();
-        return recruiteremail;
+        return webDriver.findElement(recruiterEmail).getText();
     }
     public String getAssessmentType(){
-        String assessment = webDriver.findElement(assessmentType).getText();
-        return assessment;
+        return webDriver.findElement(assessmentType).getText();
     }
     public String getTestId(){
-        String testid = webDriver.findElement(testId).getText();
-        return testid;
+        return webDriver.findElement(testId).getText();
     }
     public String getTimeSent(){
-        String timesent = webDriver.findElement(timeSent).getText();
-        return timesent;
+        return webDriver.findElement(timeSent).getText();
     }
     public String getComplete(){
-        String Complete = webDriver.findElement(complete).getText();
-        return Complete;
+        return webDriver.findElement(complete).getText();
     }
     public String getExpired(){
-        String Expired = webDriver.findElement(expired).getText();
-        return Expired;
+       return webDriver.findElement(expired).getText();
     }
-
 }

@@ -91,11 +91,9 @@ public class SendAssessmentTest {
 
     @Test
     public void sentInfoContainsCandidateEmailTest() {
-        //openLoginPage();
-        //sendAssessmentPage.enterFields();
-        System.out.println(sendAssessmentPage.getName());
-        //Assertions.assertEquals("Mohamed",sendAssessmentPage.getName());
-        //Assertions.assertEquals(true,sendAssessmentPage.isSentInfoIncludeEmail());
-       // webDriver.close();
+        openLoginPage();
+        sendAssessmentPage.enterFields();
+        Assertions.assertEquals(true,sendAssessmentPage.isSentInfoIncludeEmail());
+        webDriver.close();
     }
 }

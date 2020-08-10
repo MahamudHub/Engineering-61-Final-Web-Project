@@ -10,6 +10,11 @@ public class PollsPage {
     By assessmentStatus = new By.ByCssSelector("tbody > .d-flex:nth-child(1) > .col-3:nth-child(2)");
     By candidateEmail = new By.ByCssSelector("tbody > .d-flex:nth-child(1) > .col-3:nth-child(3)");
     By testId = new By.ByCssSelector("tbody > .d-flex:nth-child(1) > .col-3:nth-child(4)");
+    By logOutLink = new By.ById("logout_link");
+    By dispatchesLink = new By.ByLinkText("Dispatches");
+    By resultsLink = new By.ByLinkText("Results");
+    By pollsLink = new By.ByLinkText("Polls");
+    By sendAssessmentLink = new By.ByClassName("logoHeader");
 
     public PollsPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -17,11 +22,39 @@ public class PollsPage {
 
     }
 
-    public void openResultsPage() {
+    public PollsPage openPollsPage() {
         webDriver.get("https://eng61.spartaglobal.academy/polls");
+        return this;
     }
 
-    public String getPageTitleName() {
+    public void loggingOut(){
+        webDriver.findElement(logOutLink).click();
+    }
+
+    public void logoutFromPolls(){
+        openPollsPage();
+        loggingOut();
+    }
+
+
+    public String getUrl(){
+        return webDriver.getCurrentUrl();
+    }
+
+    public void clickOnDispatchesPage(){
+        webDriver.findElement(dispatchesLink).click();
+    }
+    public void clickOnResultsPage(){
+        webDriver.findElement(resultsLink).click();
+    }
+    public void clickOnPollsPage(){
+        webDriver.findElement(pollsLink).click();
+    }
+    public void clickOnLogo(){
+        webDriver.findElement(sendAssessmentLink).click();
+    }
+
+    public String getPollsPageTitleName() {
         return webDriver.findElement(pageTitle).getText();
     }
 

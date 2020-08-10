@@ -1,29 +1,18 @@
 package com.sparta.eng61.pageobjects.dispatcher;
 
+import com.sparta.eng61.propertiesloader.PropertiesFileLoader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Properties;
 
 public class LoginPage {
     WebDriver webDriver;
 
-    private Properties properties = new Properties();
     By username  =  new By.ByName("username");
     By password = new By.ByName("password");
     By submit = new By.ByName("submit");
+    By logoLink = new By.ByClassName("logoHeader");
+    PropertiesFileLoader propertiesFileLoader = new PropertiesFileLoader();
 
-    public void propertiesAccess() {
-        try {
-            String path = "src\\test\\resources\\login.properties";
-            properties.load(new FileReader(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
     public LoginPage(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
@@ -35,34 +24,37 @@ public class LoginPage {
 
     //right credentials
     public void enterUsername () {
-        webDriver.findElement(username).sendKeys("admin");
-//        System.out.println(properties.getProperty("username").getClass());
-//        webDriver.findElement(username).sendKeys(properties.getProperty("username"));
+        webDriver.findElement(username).sendKeys(propertiesFileLoader.getUsername());
     }
     public void enterPassword () {
-        webDriver.findElement(password).sendKeys("!Eng61");
-//        webDriver.findElement(password).sendKeys(properties.getProperty("password"));
+        webDriver.findElement(password).sendKeys(propertiesFileLoader.getPassword());
     }
 
     //wrong credentials
     public void enterWrongUsername () {
         webDriver.findElement(username).sendKeys("admi");
-//        webDriver.findElement(username).sendKeys(properties.getProperty("incorrectUsername"));
     }
     public void enterWrongPassword () {
         webDriver.findElement(password).sendKeys("!Eng6");
-        //webDriver.findElement(password).sendKeys(properties.getProperty("incorrectPassword"));
     }
+
 
     //submit button
     public void clickSubmitButton () {
         webDriver.findElement(submit).click();
     }
 
+    //logo header Link
+    public void clickLogoLink(){
+        webDriver.findElement(logoLink).click();
+    }
     //error message if wrong credentials input
-    public boolean errorMessage () {
-        boolean errorExists = webDriver.getPageSource().contains("Incorrect password, please try to login again!");
-        return errorExists;
+    public boolean isLoginErrorMessageCorrect () {
+        return webDriver.getPageSource().contains("Incorrect password, please try to login again!");
+    }
+    //no token
+    public boolean isTokenErrorMessageCorrect(){
+        return webDriver.getPageSource().contains("No token provided, please login to access this page!");
     }
 
     //======Testing methods========
@@ -70,33 +62,34 @@ public class LoginPage {
     //-------------Blank username or password---------------
 
     //submitting username but no password
-    public void submitonlyUsername () {
+    public void enterLoginUsername() {
         openLoginPage();
         enterUsername();
         clickSubmitButton();
     }
     //submitting no username but right password
-    public void submitonlyPassword () {
+    public void enterLoginPassword() {
         openLoginPage();
         enterPassword();
         clickSubmitButton();
     }
     //submitting no username and no password
-    public void submitNoInfo () {
+    public void enterNoInfo () {
         openLoginPage();
         clickSubmitButton();
     }
 
     //------------------Correct username and password-------------
-    public void submitRightCredentials () {
+    public void enterRightLoginCredentials() {
         openLoginPage();
         enterUsername();
         enterPassword();
         clickSubmitButton();
     }
 
+
     //---------------submitting wrong username and right password------------
-    public void submitWrongUsername () {
+    public void enterWrongLoginUsername () {
         openLoginPage();
         enterWrongUsername();
         enterPassword();
@@ -104,7 +97,7 @@ public class LoginPage {
     }
 
     //-----------------submitting right username and wrong password-----------
-    public void submitWrongPassword () {
+    public void enterWrongLoginPassword () {
         openLoginPage();
         enterUsername();
         enterWrongPassword();
@@ -113,14 +106,14 @@ public class LoginPage {
 
 
     //------------------login directs to new page-------------------
-//    public SendAssessmentPage login(){
-//        openLoginPage();
-//        enterUsername();
-//        enterPassword();
-//        clickSubmitButton();
-//        return new SendAssessmentPage(webDriver);
-//    }
-//
+    public SendAssessmentPage login(){
+        openLoginPage();
+        enterUsername();
+        enterPassword();
+        clickSubmitButton();
+        return new SendAssessmentPage(webDriver);
+    }
+
 
 
 }

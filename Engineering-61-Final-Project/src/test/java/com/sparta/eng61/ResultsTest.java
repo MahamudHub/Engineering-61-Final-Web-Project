@@ -21,7 +21,7 @@ public class ResultsTest {
     @Test
     public void titleTest() {
         openLoginPage();
-        Assertions.assertEquals("Results", resultsPage.getPageTitleName());
+        Assertions.assertEquals("Results", resultsPage.getResultsPageTitleName());
         webDriver.close();
     }
 
