@@ -46,7 +46,6 @@ public class ResultsStepDefs {
 
     //Given i am on the results page
 
-
     @Then("I should see the candidate NR")
     public void iShouldSeeTheCandidateNR() {
         Assertions.assertEquals(true, resultsPage.getCandidateNR());
