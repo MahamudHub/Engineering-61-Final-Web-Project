@@ -12,7 +12,7 @@ public class GmailStepdef {
 
     WebDriver webdriver = new ChromeDriver();
     GmailPage gmailPage = new GmailPage(webdriver);
-
+    StartPage startPage = new StartPage(webdriver);
 
     @Given("I have sent the candidate an assessment link email")
     public void iHaveSentTheCandidateAnAssessmentLinkEmail() {
@@ -36,6 +36,6 @@ public class GmailStepdef {
 
     @Then("they will be taken to the Codeingames test")
     public void theyWillBeTakenToTheCodeingamesTest() {
-        Assertions.assertEquals(true, gmailPage.isCodinGameLinkInEmail());
+        Assertions.assertEquals(true, startPage.isStartPageLoading());
     }
 }
