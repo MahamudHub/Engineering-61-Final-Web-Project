@@ -16,46 +16,46 @@ public class AssessmentStepdefs {
     WebDriver webDriver = new ChromeDriver();
     LoginPage loginPage = new LoginPage(webDriver);
     DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
-    SendAssessmentPage sendAssessment = new SendAssessmentPage(webDriver);
+    SendAssessmentPage sendAssessmentPage = new SendAssessmentPage(webDriver);
     @Given("The recruiter chooses a test")
     public void theRecruiterChoosesATest() {
-       // sendAssessment.getAssessmentChoice();
+        sendAssessmentPage.selectJavaAssessment();
     }
 
     @And("Ticks the Psychometric test")
     public void ticksThePsychometricTest() {
-        //Assertions.assertEquals(true, sendAssessment.isSendPsychometricVisible());
+        Assertions.assertEquals(true, sendAssessmentPage.isSendPsychometricVisible());
     }
 
     @When("I go to the Dispatches page")
     public void iGoToTheDispatchesPage() {
         loginPage.enterRightLoginCredentials();
-        //dispatchesPage.openDispatchesPage();
+        dispatchesPage.openDispatchesPage();
     }
 
     @Then("I should see both test types under Assessment type")
     public void iShouldSeeBothTestTypesUnderAssessmentType() {
-       // Assertions.assertEquals(sendAssessment.getSentInfo(),dispatchesPage.getAssessmentType());
+        Assertions.assertEquals(sendAssessmentPage.getSentInfo(),dispatchesPage.getAssessmentType());
     }
 
     @And("Does not tick the Psychometric test")
     public void doesNotTickThePsychometricTest() {
-       // Assertions.assertEquals(false, sendAssessment.isSendPsychometricVisible());
+        Assertions.assertEquals(false, sendAssessmentPage.isSendPsychometricVisible());
     }
 
     @Then("I should see only one test under Assessment type")
     public void iShouldSeeOnlyOneTestUnderAssessmentType() {
-        // Assertions.assertEquals(sendAssessment.getSentInfo(),dispatchesPage.getAssessmentType());
+         Assertions.assertEquals(sendAssessmentPage.getSentInfo(),dispatchesPage.getAssessmentType());
     }
 
     @Given("The recruiter chooses a Psychometric test")
     public void theRecruiterChoosesAPsychometricTest() {
-       // sendAssessment.getPsychometricAssessment();
+        sendAssessmentPage.getPsychometricAssessment();
     }
 
     @Then("I should see only a Psychometric test under Assessment type")
     public void iShouldSeeOnlyAPsychometricTestUnderAssessmentType() {
-       // Assertions.assertEquals("Psychometric",dispatchesPage.getAssessmentType());
+        Assertions.assertEquals("Psychometric",dispatchesPage.getAssessmentType());
 
     }
 }

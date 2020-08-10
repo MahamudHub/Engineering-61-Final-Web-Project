@@ -6,6 +6,7 @@ import com.sparta.eng61.pageobjects.dispatcher.SendAssessmentPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -14,7 +15,6 @@ public class CandidateStepdefs {
     DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
     SendAssessmentPage sendAssessmentPage = new SendAssessmentPage(webDriver);
     LoginPage loginPage = new LoginPage(webDriver);
-    //    SendAssessment sendAssessment = new SendAssessment(webDriver);
 
     @Given("A candidate has been contacted")
     //------Method needed from Mohamed's class
@@ -30,12 +30,12 @@ public class CandidateStepdefs {
     @Then("I should see their name")
     public void iShouldSeeTheirName() {
         iGoToTheDispatchesPage();
-       // Assertions.assertEquals(sendAssessment.isSentInfoIncludeName,dispatchesPage.getCandName());
+        Assertions.assertEquals(sendAssessmentPage.isSentInfoIncludeName(),dispatchesPage.getCandidateName());
     }
 
     @Then("I should see their email")
     public void iShouldSeeTheirEmail() {
         iGoToTheDispatchesPage();
-        //Assertions.assertEquals(sendAssessment.isSentInfoIncludeEmail,dispatchesPage.getCandidateEmail());
+        Assertions.assertEquals(sendAssessmentPage.isSentInfoIncludeEmail(),dispatchesPage.getCandidateEmail());
     }
 }
