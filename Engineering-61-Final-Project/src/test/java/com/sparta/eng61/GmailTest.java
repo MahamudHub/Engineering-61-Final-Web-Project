@@ -1,5 +1,6 @@
-package com.sparta.eng61.pageobjects.gmail;
+package com.sparta.eng61;
 
+import com.sparta.eng61.pageobjects.gmail.GmailPage;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
