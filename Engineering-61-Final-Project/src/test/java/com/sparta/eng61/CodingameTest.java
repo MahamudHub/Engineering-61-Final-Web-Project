@@ -9,41 +9,41 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class CodingameTest {
 
     WebDriver webDriver = new ChromeDriver();
-    CodingamePage startPage = new CodingamePage(webDriver);
+    CodingamePage codingamePage = new CodingamePage(webDriver);
 
     @Test
     public void doAssessment() {
-        startPage.doTest();
+        codingamePage.doTest();
     }
 
     @Test
     public void testFirstQuestion() {
-        startPage.loadFirstQuestion();
-        Assertions.assertTrue(startPage.isFirstQuestionLoading());
+        codingamePage.loadFirstQuestion();
+        Assertions.assertEquals(true, codingamePage.isFirstQuestionLoading());
     }
 
     @Test
     public void testSecondQuestion() {
-        startPage.loadSecondQuestion();
-        Assertions.assertTrue(startPage.isSecondQuestionLoading());
+        codingamePage.loadSecondQuestion();
+        Assertions.assertEquals(true, codingamePage.isSecondQuestionLoading());
     }
 
     @Test
     public void testThirdQuestion() {
-        startPage.loadThirdQuestion();
-        Assertions.assertTrue(startPage.isThirdQuestionLoading());
+        codingamePage.loadThirdQuestion();
+        Assertions.assertEquals(true, codingamePage.isThirdQuestionLoading());
     }
 
     @Test
     public void testFourthQuestion() {
-        startPage.loadFourthQuestion();
-        Assertions.assertTrue(startPage.isFourthQuestionLoading());
+        codingamePage.loadFourthQuestion();
+        Assertions.assertEquals(true, codingamePage.isFourthQuestionLoading());
     }
 
     @Test
     public void testSubmit() {
-        startPage.submitAssessment();
-        Assertions.assertTrue(startPage.isSubmitWorking());
+        codingamePage.submitAssessment();
+        Assertions.assertEquals(true, codingamePage.isSubmitWorking());
     }
 
 
