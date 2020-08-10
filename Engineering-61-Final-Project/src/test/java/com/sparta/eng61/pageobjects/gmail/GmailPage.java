@@ -48,9 +48,9 @@ public class GmailPage {
         webDriver.findElement(selectEmail).click();
     }
 
-    private StartPage clickAssessmentLink() {
+    private CodingamePage clickAssessmentLink() {
         webDriver.findElement(assessmentLink).click();
-        return new StartPage(webDriver);
+        return new CodingamePage(webDriver);
     }
 
     public void accessingAssessmentLinkInEmail(){
@@ -79,7 +79,7 @@ public class GmailPage {
     }
 
 
-    public StartPage accessAssessmentLinkFromEmail() {
+    public CodingamePage accessAssessmentLinkFromEmail() {
         goToGmailLoginPage();
         enterCandidateEmail();
         clickEmailNext();
