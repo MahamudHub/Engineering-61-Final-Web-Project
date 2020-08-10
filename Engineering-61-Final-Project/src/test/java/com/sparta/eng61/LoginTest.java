@@ -1,5 +1,7 @@
-package com.sparta.eng61.pageobjects.dispatcher;
+package com.sparta.eng61;
 
+import com.sparta.eng61.pageobjects.dispatcher.LoginPage;
+import com.sparta.eng61.pageobjects.dispatcher.LogoutPage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
