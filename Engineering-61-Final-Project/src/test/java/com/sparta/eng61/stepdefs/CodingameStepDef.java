@@ -1,4 +1,4 @@
-package com.sparta.eng61.pageobjects.codingame.stepdefs;
+package com.sparta.eng61.stepdefs;
 
 import com.sparta.eng61.pageobjects.codingame.CodingamePage;
 import io.cucumber.java.en.Given;
