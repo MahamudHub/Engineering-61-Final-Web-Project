@@ -2,6 +2,10 @@ package com.sparta.eng61;
 
 import com.sparta.eng61.pageobjects.dispatcher.LoginPage;
 import com.sparta.eng61.pageobjects.dispatcher.LogoutPage;
+import com.sparta.eng61.pageobjects.dispatcher.DispatchesPage;
+import com.sparta.eng61.pageobjects.dispatcher.SendAssessmentPage;
+import com.sparta.eng61.pageobjects.dispatcher.ResultsPage;
+import com.sparta.eng61.pageobjects.dispatcher.PollsPage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
