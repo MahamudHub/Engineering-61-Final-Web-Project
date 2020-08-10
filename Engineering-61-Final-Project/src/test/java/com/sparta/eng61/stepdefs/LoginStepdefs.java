@@ -2,7 +2,7 @@ package com.sparta.eng61.stepdefs;
 
 import com.sparta.eng61.pageobjects.dispatcher.LoginPage;
 import com.sparta.eng61.pageobjects.dispatcher.DispatchesPage;
-import com.sparta.eng61.pageobjects.dispatcher.SendAssessment;
+import com.sparta.eng61.pageobjects.dispatcher.SendAssessmentPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
