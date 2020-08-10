@@ -11,12 +11,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class GmailStepdef {
 
     WebDriver webdriver = new ChromeDriver();
+    SendAssessmentPage sendAssessment = new SendAssessmentPage(webdriver);
     GmailPage gmailPage = new GmailPage(webdriver);
     StartPage startPage = new StartPage(webdriver);
 
+
     @Given("I have sent the candidate an assessment link email")
     public void iHaveSentTheCandidateAnAssessmentLinkEmail() {
-        //Method to send email to candidate
+        sendAssessment.enterFields();
     }
 
     @When("they access their email")
