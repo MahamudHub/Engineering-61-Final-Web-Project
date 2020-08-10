@@ -56,7 +56,7 @@ public class LoginTest {
     //-------testing if login page directs to the Send Assessment page----------
     @Test
     public void successfullLogin(){
-        Assertions.assertEquals("https://eng61.spartaglobal.academy/",sendAssessmentPage.openSendAssessmentPage().getURL());
+        Assertions.assertEquals("https://eng61.spartaglobal.academy/",sendAssessmentPage.openSendAssessmentPage().getUrl());
     }
 //===========TESTING ENTERING FIELDS============
 
