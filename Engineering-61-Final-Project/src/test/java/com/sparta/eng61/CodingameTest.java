@@ -19,7 +19,7 @@ public class CodingameTest {
     @Test
     public void testFirstQuestion() {
         startPage.loadFirstQuestion();
-        Assertions.assertEquals(true, startPage.isFirstQuestionLoading());
+        Assertions.assertTrue(startPage.isFirstQuestionLoading());
     }
 
     @Test
