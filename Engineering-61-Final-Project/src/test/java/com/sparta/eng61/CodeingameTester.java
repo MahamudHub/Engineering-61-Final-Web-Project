@@ -1,31 +1,51 @@
 package com.sparta.eng61;
 
-import com.sparta.eng61.pageobjects.codingame.StartPage;
+import com.sparta.eng61.pageobjects.codingame.CodingamePage;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.List;
 
 public class CodeingameTester {
 
     WebDriver webDriver = new ChromeDriver();
-    StartPage startPage = new StartPage(webDriver);
+    CodingamePage startPage = new CodingamePage(webDriver);
 
     @Test
-    public void testing(){
+    public void doAssessment() {
         startPage.doTest();
     }
 
+    @Test
+    public void testFirstQuestion() {
+        startPage.loadFirstQuestion();
+        Assertions.assertEquals(true, startPage.isFirstQuestionLoading());
+    }
 
-//    @Test
-//    public void ksjd(){
-//            webDriver.get(" https://www.codingame.com/evaluate?id=3943771a523a9f3f7ef66d8b60545428ef336de");
-//            webDriver.manage().window().maximize();
-//            webDriver.findElement(By.cssSelector("*[data-test=\"AssessmentTile-TileButton\"]")).click();
-//    }
+    @Test
+    public void testSecondQuestion() {
+        startPage.loadSecondQuestion();
+        Assertions.assertTrue(startPage.isSecondQuestionLoading());
+    }
+
+    @Test
+    public void testThirdQuestion() {
+        startPage.loadThirdQuestion();
+        Assertions.assertTrue(startPage.isThirdQuestionLoading());
+    }
+
+    @Test
+    public void testFourthQuestion() {
+        startPage.loadFourthQuestion();
+        Assertions.assertTrue(startPage.isFourthQuestionLoading());
+    }
+
+    @Test
+    public void testSubmit() {
+        startPage.submitAssessment();
+        Assertions.assertTrue(startPage.isSubmitWorking());
+    }
+
+
   }
 
