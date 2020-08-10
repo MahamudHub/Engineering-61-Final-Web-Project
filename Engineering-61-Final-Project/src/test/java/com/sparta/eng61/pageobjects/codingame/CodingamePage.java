@@ -154,6 +154,10 @@ public class CodingamePage {
         confirmAnswers();
     }
 
+    public boolean isStartPageLoading() {
+        goToStartPage();
+        return webDriver.findElement(startButton).toString().contains("Start");
+    }
 
     public void loadFirstQuestion() {
         goToStartPage();
