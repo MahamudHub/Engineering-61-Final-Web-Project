@@ -77,8 +77,11 @@ public class PollsPage {
     }
 
     public boolean isPollTimeUpdatingAutomatically() {
-        return getPollTime().contains("8:00 am")
+        if (getPollTime().contains("8:00 am")
                 || getPollTime().contains("12:00 pm")
-                || getPollTime().contains("4:00 pm");
+                || getPollTime().contains("4:00 pm")){
+            return true;
+        }
+        return false;
     }
 }
