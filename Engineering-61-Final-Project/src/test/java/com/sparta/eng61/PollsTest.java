@@ -14,7 +14,7 @@ public class PollsTest {
     PollsPage pollsPage = new PollsPage(webDriver);
 
     public void openLoginPage() {
-        loginPage.submitRightCredentials();
+        loginPage.enterRightLoginCredentials();
         pollsPage.openPollsPage();
     }
 
