@@ -33,6 +33,13 @@ public class PollsTest {
     }
 
     @Test
+    public void pollTimeUpdateTest() {
+        openLoginPage();
+        Assertions.assertEquals(true, pollsPage.isPollTimeUpdatingAutomatically());
+        webDriver.close();
+    }
+
+    @Test
     public void assessmentStatusTest() {
         openLoginPage();
         Assertions.assertEquals("waiting", pollsPage.getAssessmentStatus());
