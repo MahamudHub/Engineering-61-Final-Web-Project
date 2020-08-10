@@ -24,7 +24,7 @@ public class CodingameStepdef {
 
     @Then("The Candidate can answer the first question")
     public void AnswerTheFirstQuestion() {
-        Assertions.assertTrue(codingamePage.isFirstQuestionLoading());
+        Assertions.assertEquals(true, codingamePage.isFirstQuestionLoading());
     }
 
     @When("The Candidate clicks on the second question")
@@ -34,7 +34,7 @@ public class CodingameStepdef {
 
     @Then("The Candidate can answer the second question")
     public void AnswerTheSecondQuestion() {
-        Assertions.assertTrue(codingamePage.isSecondQuestionLoading());
+        Assertions.assertEquals(true, codingamePage.isSecondQuestionLoading());
     }
 
     @When("The Candidate clicks on the third question")
@@ -44,7 +44,7 @@ public class CodingameStepdef {
 
     @Then("The Candidate can answer the third question")
     public void AnswerTheThirdQuestion() {
-        Assertions.assertTrue(codingamePage.isThirdQuestionLoading());
+        Assertions.assertEquals(true, codingamePage.isThirdQuestionLoading());
     }
 
     @When("The Candidate clicks on the fourth question")
@@ -54,7 +54,7 @@ public class CodingameStepdef {
 
     @Then("The Candidate can answer the fourth question")
     public void AnswerTheFourthQuestion() {
-        Assertions.assertTrue(codingamePage.isFourthQuestionLoading());
+        Assertions.assertEquals(true, codingamePage.isFourthQuestionLoading());
     }
 
     @When("The Candidate is satisfied with his answers")
@@ -64,6 +64,6 @@ public class CodingameStepdef {
 
     @Then("The Candidate submits the test")
     public void TheTestWillBeSubmitted() {
-        Assertions.assertTrue(codingamePage.isSubmitWorking());
+        Assertions.assertEquals(true, codingamePage.isSubmitWorking());
     }
 }
