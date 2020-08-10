@@ -1,13 +1,15 @@
 package com.sparta.eng61.stepdefs;
 
 import com.sparta.eng61.pageobjects.dispatcher.LoginPage;
+import com.sparta.eng61.pageobjects.dispatcher.DispatchesPage;
+import com.sparta.eng61.pageobjects.dispatcher.SendAssessment;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class candidatestepdefs {
+public class CandidateStepdefs {
     WebDriver webDriver = new ChromeDriver();
     DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
     SendAssessmentPage sendAssessmentPage = new SendAssessmentPage(webDriver);

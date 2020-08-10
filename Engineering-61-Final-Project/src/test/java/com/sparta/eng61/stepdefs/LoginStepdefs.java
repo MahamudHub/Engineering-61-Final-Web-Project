@@ -1,6 +1,8 @@
 package com.sparta.eng61.stepdefs;
 
 import com.sparta.eng61.pageobjects.dispatcher.LoginPage;
+import com.sparta.eng61.pageobjects.dispatcher.DispatchesPage;
+import com.sparta.eng61.pageobjects.dispatcher.SendAssessment;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,7 +11,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class loginstepdefs {
+public class LoginStepdefs {
     WebDriver webDriver = new ChromeDriver();
     LoginPage loginPage = new LoginPage(webDriver);
     SendAssessmentPage sendAssessmentPage = new SendAssessmentPage(webDriver);
@@ -44,6 +46,6 @@ public class loginstepdefs {
 
     @Then("I will see the Error message")
     public void iWillSeeTheErrorMessage() {
-        loginPage.errorMessage();
+        loginPage.isLoginErrorMessageCorrect();
     }
 }

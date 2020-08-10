@@ -1,6 +1,9 @@
 package com.sparta.eng61.stepdefs;
 
 import com.sparta.eng61.pageobjects.dispatcher.LoginPage;
+import com.sparta.eng61.pageobjects.dispatcher.DispatchesPage;
+import com.sparta.eng61.pageobjects.dispatcher.SendAssessment;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,11 +12,11 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class assessmentstepdefs {
+public class AssessmentStepdefs {
     WebDriver webDriver = new ChromeDriver();
     LoginPage loginPage = new LoginPage(webDriver);
-    //DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
-//    SendAssessment sendAssessment = new SendAssessment(webDriver);
+    DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
+    SendAssessment sendAssessment = new SendAssessment(webDriver);
     @Given("The recruiter chooses a test")
     public void theRecruiterChoosesATest() {
        // sendAssessment.getAssessmentChoice();
@@ -26,7 +29,7 @@ public class assessmentstepdefs {
 
     @When("I go to the Dispatches page")
     public void iGoToTheDispatchesPage() {
-        loginPage.submitRightCredentials();
+        loginPage.enterRightLoginCredentials();
         //dispatchesPage.openDispatchesPage();
     }
 
