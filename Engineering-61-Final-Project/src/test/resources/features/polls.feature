@@ -1,9 +1,21 @@
 Feature: As a User, I want to see the status and time so that I can see if the results have been retrieved.
 
-  Scenario: See the status of the candidate assessment
-    Given I have to have sent a candidate an assessment
-    When I check the candidate assessment status.
-    Then it will show the current state
+    Scenario: Check waiting status
+      Given I have sent the candidate an assessment
+      When I go on the poll page
+      Then The status will say waiting
+
+      Scenario: Check completed status
+        Given I have sent the candidate an assessment
+        And The candidate has completed the assessment
+        When I go on the poll page
+        Then The status will say completed
+
+        Scenario: Check expired status
+          Given I have sent the candidate an assessment
+          And The time has expired
+          When I go on the poll page
+          Then The status will say expired
 
   Scenario: See latest poll time update
     Given I have updated the poll on the results page
