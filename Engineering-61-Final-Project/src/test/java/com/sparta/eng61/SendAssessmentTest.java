@@ -13,7 +13,7 @@ public class SendAssessmentTest {
     LoginPage loginPage = new LoginPage(webDriver);
 
     public void openLoginPage() {
-        loginPage.submitRightCredentials();
+        loginPage.enterRightLoginCredentials();
     }
 
     @Test

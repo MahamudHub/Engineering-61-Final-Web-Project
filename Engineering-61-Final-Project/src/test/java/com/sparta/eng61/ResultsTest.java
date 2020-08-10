@@ -14,7 +14,7 @@ public class ResultsTest {
 
 
     public void openLoginPage() {
-        loginPage.submitRightCredentials();
+        loginPage.enterRightLoginCredentials();
         resultsPage.openResultsPage();
     }
 
