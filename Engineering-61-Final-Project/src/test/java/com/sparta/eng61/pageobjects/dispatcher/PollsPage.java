@@ -36,7 +36,6 @@ public class PollsPage {
         loggingOut();
     }
 
-
     public String getUrl(){
         return webDriver.getCurrentUrl();
     }
@@ -44,12 +43,15 @@ public class PollsPage {
     public void clickOnDispatchesPage(){
         webDriver.findElement(dispatchesLink).click();
     }
+
     public void clickOnResultsPage(){
         webDriver.findElement(resultsLink).click();
     }
+
     public void clickOnPollsPage(){
         webDriver.findElement(pollsLink).click();
     }
+
     public void clickOnLogo(){
         webDriver.findElement(sendAssessmentLink).click();
     }
@@ -72,5 +74,11 @@ public class PollsPage {
 
     public String getTestId() {
         return webDriver.findElement(testId).getText();
+    }
+
+    public boolean isPollTimeUpdatingAutomatically() {
+        return getPollTime().contains("8:00 am")
+                || getPollTime().contains("12:00 pm")
+                || getPollTime().contains("4:00 pm");
     }
 }
