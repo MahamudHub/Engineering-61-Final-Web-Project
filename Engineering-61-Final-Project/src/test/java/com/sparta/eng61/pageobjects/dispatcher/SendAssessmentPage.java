@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
 import java.util.List;
 
 public class SendAssessmentPage {
@@ -25,6 +26,7 @@ public class SendAssessmentPage {
     By pageTitle = new By.ById("page_title");
     By pageHeader = new By.ById("page_header");
     By sentInfo = new By.ByClassName("lead");
+    By randomClick = new By.ByCssSelector("html");
 
 
     public SendAssessmentPage(WebDriver webDriver) {
@@ -33,34 +35,37 @@ public class SendAssessmentPage {
 
     }
 
-    public SendAssessmentPage openSendAssessmentPage(){
+    public SendAssessmentPage openSendAssessmentPage() {
         webDriver.get("https://eng61.spartaglobal.academy/");
         return this;
     }
 
-    public String getUrl(){
+    public String getUrl() {
         return webDriver.getCurrentUrl();
     }
 
-    public void loggingOut(){
+    public void loggingOut() {
         webDriver.findElement(logOutLink).click();
     }
 
-    public void logoutFromSendAssessment(){
+    public void logoutFromSendAssessment() {
         openSendAssessmentPage();
         loggingOut();
     }
 
-    public void clickOnDispatchesPage(){
+    public void clickOnDispatchesPage() {
         webDriver.findElement(dispatchesLink).click();
     }
-    public void clickOnResultsPage(){
+
+    public void clickOnResultsPage() {
         webDriver.findElement(resultsLink).click();
     }
-    public void clickOnPollsPage(){
+
+    public void clickOnPollsPage() {
         webDriver.findElement(pollsLink).click();
     }
-    public void clickOnLogo(){
+
+    public void clickOnLogo() {
         webDriver.findElement(sendAssessmentLink).click();
     }
 
@@ -130,7 +135,27 @@ public class SendAssessmentPage {
     }
 
     //--------------------Entering the fields & click --------------------//
-    public void selectAssessment() {
+    public void selectPsychometricAssessment() {
+        Select dropdown = new Select(webDriver.findElement(assessmentChoices));
+        dropdown.selectByValue("psychometric");
+    }
+
+    public void selectCSharpAssessment() {
+        Select dropdown = new Select(webDriver.findElement(assessmentChoices));
+        dropdown.selectByValue("csharp");
+    }
+
+    public void selectJavaAssessment() {
+        Select dropdown = new Select(webDriver.findElement(assessmentChoices));
+        dropdown.selectByValue("java");
+    }
+
+    public void selectPythonAssessment() {
+        Select dropdown = new Select(webDriver.findElement(assessmentChoices));
+        dropdown.selectByValue("python");
+    }
+
+    public void selectPythonLearningAssessment() {
         Select dropdown = new Select(webDriver.findElement(assessmentChoices));
         dropdown.selectByValue("psychometric");
     }
@@ -147,15 +172,20 @@ public class SendAssessmentPage {
         webDriver.findElement(recruiterEmailField).sendKeys(properties.getRecruiterEmail());
     }
 
+    public void clickRandomSpace() {
+        webDriver.findElement(randomClick).click();
+    }
+
     public void clickSubmit() {
         webDriver.findElement(submitButton).click();
     }
 
     public void enterFields() {
-        selectAssessment();
+        selectPsychometricAssessment();
         enterCandidateName();
         enterCandidateEmail();
         enterRecruiterEmail();
+        clickRandomSpace();
         clickSubmit();
     }
 }
