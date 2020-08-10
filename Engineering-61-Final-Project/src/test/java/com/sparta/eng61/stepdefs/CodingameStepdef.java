@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CodingameStepDef {
+public class CodingameStepdef {
     WebDriver webDriver = new ChromeDriver();
     CodingamePage codingamePage = new CodingamePage(webDriver);
 
