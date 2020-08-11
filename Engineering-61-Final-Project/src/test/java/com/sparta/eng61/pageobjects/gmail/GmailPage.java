@@ -1,8 +1,9 @@
 package com.sparta.eng61.pageobjects.gmail;
 
-import com.sparta.eng61.helper.MultipleClickAttempt;
+//import com.sparta.eng61.helper.MultipleClickAttempt;
 import com.sparta.eng61.propertiesloader.PropertiesFileLoader;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import java.util.concurrent.TimeUnit;
@@ -11,7 +12,7 @@ import com.sparta.eng61.pageobjects.codingame.CodingamePage;
 public class GmailPage {
 
     WebDriver webDriver;
-    MultipleClickAttempt multipleClickAttempt = new MultipleClickAttempt();
+    //MultipleClickAttempt multipleClickAttempt = new MultipleClickAttempt();
     By emailAddress = new By.ById("identifierId");
     By emailNext = new By.ByCssSelector("#identifierNext > div > button");
     By password = new By.ByName("password");
@@ -67,7 +68,8 @@ public class GmailPage {
     }
 
     private CodingamePage clickAssessmentLink() {
-        webDriver.findElement(assessmentLink).click();
+        String url = webDriver.findElement(assessmentLink).getText();
+        webDriver.get(url);
         return new CodingamePage(webDriver);
     }
 

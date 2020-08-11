@@ -1,5 +1,7 @@
 package com.sparta.eng61.pageobjects.codingame;
 
+import com.sparta.eng61.pageobjects.dispatcher.LoginPage;
+import com.sparta.eng61.pageobjects.dispatcher.ResultsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -8,6 +10,9 @@ import java.util.concurrent.TimeUnit;
 public class CodingamePage {
 
     WebDriver webDriver;
+    LoginPage loginPage = new LoginPage(webDriver);
+    ResultsPage resultsPage;
+
     By startButton = new By.ByCssSelector("*[data-test=\"AssessmentTile-TileButton\"]");
 
     By termsButton = new By.ByCssSelector(".c0148 > label");
@@ -42,8 +47,11 @@ public class CodingamePage {
 
     By confirmSubmit = new By.ByXPath("//button[2]");
 
+
+
     public CodingamePage(WebDriver webDriver) {
         this.webDriver = webDriver;
+        resultsPage = new ResultsPage(webDriver);
     }
 
 
@@ -54,10 +62,12 @@ public class CodingamePage {
     }
 
     public void clickStartButton() {
-        webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
+       // webDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         webDriver.findElement(startButton).click();
     }
-
+    public String getCodingameURL(){
+        return webDriver.getCurrentUrl();
+    }
     public void clickTermsBox() {
         webDriver.findElement(termsButton).click();
     }
@@ -134,7 +144,7 @@ public class CodingamePage {
     }
 
     public void doTest() {
-        goToStartPage();
+        //goToStartPage();
         clickStartButton();
         clickTermsBox();
         confirmStartTest();
@@ -152,6 +162,16 @@ public class CodingamePage {
         nextFourthQuestion();
         submitAnswers();
         confirmAnswers();
+        resultsPage.openResultsPage();
+    }
+
+    public void navigateToDispatcher(){
+        webDriver.navigate().to("https://eng61.spartaglobal.academy/results");
+    }
+
+    public void goToDispatcher() {
+        String url = "https://eng61.spartaglobal.academy/login";
+        webDriver.get(url);
     }
 
     public boolean isStartPageLoading() {
