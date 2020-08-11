@@ -1,14 +1,15 @@
 package com.sparta.eng61.unittests;
 
+import com.sparta.eng61.WebDriverFactory;
 import com.sparta.eng61.pageobjects.dispatcher.LoginPage;
 import com.sparta.eng61.pageobjects.dispatcher.ResultsPage;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ResultsTest {
-    WebDriver webDriver = new ChromeDriver();
+    WebDriverFactory webDriverFactory = new WebDriverFactory();
+    WebDriver webDriver = webDriverFactory.browserFactory("edge");
     LoginPage loginPage = new LoginPage(webDriver);
     ResultsPage resultsPage = new ResultsPage(webDriver);
 
@@ -67,10 +68,10 @@ public class ResultsTest {
         webDriver.close();
     }
 
-//    @Test
-//    public void updateTextTest() {
-//        openLoginPage();
-//        Assertions.assertEquals("Update", resultsPage.getUpdateButtonTest());
-//        webDriver.close();
-//    }
+    @Test
+    public void updateTextTest() {
+        openLoginPage();
+        Assertions.assertEquals("Update", resultsPage.getUpdateButtonTest());
+        webDriver.close();
+    }
 }
