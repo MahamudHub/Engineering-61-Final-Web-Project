@@ -2,6 +2,7 @@ package com.sparta.eng61.unittests;
 
 import com.sparta.eng61.WebDriverFactory;
 import com.sparta.eng61.pageobjects.dispatcher.LoginPage;
+import com.sparta.eng61.pageobjects.dispatcher.PollsPage;
 import com.sparta.eng61.pageobjects.dispatcher.ResultsPage;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -12,6 +13,7 @@ public class ResultsTest {
     WebDriver webDriver = webDriverFactory.browserFactory("edge");
     LoginPage loginPage = new LoginPage(webDriver);
     ResultsPage resultsPage = new ResultsPage(webDriver);
+    PollsPage pollsPage = new PollsPage(webDriver);
 
 
     public void openLoginPage() {
@@ -73,5 +75,13 @@ public class ResultsTest {
         openLoginPage();
         Assertions.assertEquals("Update", resultsPage.getUpdateButtonTest());
         webDriver.close();
+    }
+
+    @Test
+    public void clickUpdateTest() {
+        openLoginPage();
+        resultsPage.clickUpdate();
+        //Assertions.assertEquals(pollsPage.openPollsPage(), resultsPage.clickUpdate());
+        //webDriver.close();
     }
 }
