@@ -1,4 +1,6 @@
 Feature: Time the test was sent to a candidate
+
+  @TimeAssessmentSentToCandidate
   Scenario: Candidate was contacted
     Given A test was sent to a candidate
     When I go to the dispatches page
