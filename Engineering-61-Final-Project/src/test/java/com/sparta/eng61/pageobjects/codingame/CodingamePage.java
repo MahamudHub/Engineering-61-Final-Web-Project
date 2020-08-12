@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class CodingamePage {
 
-    WebDriver webDriver = new ChromeDriver();
+    WebDriver webDriver;
     GmailPage gmailPage = new GmailPage(webDriver);
     ResultsPage resultsPage;
 
