@@ -1,13 +1,18 @@
 package com.sparta.eng61.pageobjects.codingame;
 
+import com.sparta.eng61.pageobjects.gmail.GmailPage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
 public class CodingamePage {
 
-    WebDriver webDriver;
+    WebDriver webDriver = new ChromeDriver();
+    GmailPage gmailPage = new GmailPage(webDriver);
+
     By startButton = new By.ByCssSelector("*[data-test=\"AssessmentTile-TileButton\"]");
 
     By termsButton = new By.ByCssSelector(".c0148 > label");
@@ -48,13 +53,12 @@ public class CodingamePage {
 
 
     public CodingamePage goToStartPage() {
-        webDriver.manage().window().maximize();
-        webDriver.get(" https://www.codingame.com/evaluate/?id=3947363c706360530d52c981bdf27c794a47bac");
+        gmailPage.accessAssessmentLinkFromEmail();
         return this;
     }
 
     public void clickStartButton() {
-        webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(15000, TimeUnit.SECONDS);
         webDriver.findElement(startButton).click();
     }
 
@@ -208,7 +212,6 @@ public class CodingamePage {
     }
 
     public void submitAssessment() {
-        goToStartPage();
         clickStartButton();
         clickTermsBox();
         confirmStartTest();
@@ -228,7 +231,7 @@ public class CodingamePage {
     }
 
     public boolean isSubmitWorking() {
-        return webDriver.findElement(submitTest).toString().contains("Submit");
+        return webDriver.findElement(submitTest).toString().contains("End Test");
     }
 
 
