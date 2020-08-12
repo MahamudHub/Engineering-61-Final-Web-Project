@@ -22,6 +22,7 @@ public class ResultsStepDefs {
 
     @When("I am on the results page")
     public void iAmOnTheResultsPage() {
+        resultsPage.openResultsPage();
     }
 
     @Then("I should see the score is displayed")
@@ -75,3 +76,4 @@ public class ResultsStepDefs {
     }
 
 }
+
