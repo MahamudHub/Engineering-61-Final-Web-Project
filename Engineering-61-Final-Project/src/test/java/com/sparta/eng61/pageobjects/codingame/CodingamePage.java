@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class CodingamePage {
 
-    WebDriver webDriver = new ChromeDriver();
+    WebDriver webDriver;
     GmailPage gmailPage = new GmailPage(webDriver);
 
     By startButton = new By.ByCssSelector("*[data-test=\"AssessmentTile-TileButton\"]");
@@ -60,8 +60,12 @@ public class CodingamePage {
     }
 
     public void clickStartButton() {
-        webDriver.manage().timeouts().implicitlyWait(15000, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         webDriver.findElement(startButton).click();
+    }
+
+    public String getCodingameURL(){
+        return webDriver.getCurrentUrl();
     }
 
     public void clickTermsBox() {
@@ -160,6 +164,14 @@ public class CodingamePage {
         confirmAnswers();
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
+    public void navigateToDispatcher(){
+        webDriver.navigate().to("https://eng61.spartaglobal.academy/results");
+    }
+
+    public void goToDispatcher() {
+        String url = "https://eng61.spartaglobal.academy/login";
+        webDriver.get(url);
+    }
 
     public boolean isStartPageLoading() {
         goToStartPage();
@@ -215,6 +227,7 @@ public class CodingamePage {
     }
 
     public void submitAssessment() {
+        goToStartPage();
         clickStartButton();
         clickTermsBox();
         confirmStartTest();
