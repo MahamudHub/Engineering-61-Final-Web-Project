@@ -1,4 +1,4 @@
-package com.sparta.eng61;
+package com.sparta.eng61.unittests;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;

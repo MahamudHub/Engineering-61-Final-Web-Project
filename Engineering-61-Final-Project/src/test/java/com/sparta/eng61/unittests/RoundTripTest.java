@@ -1,4 +1,4 @@
-package com.sparta.eng61;
+package com.sparta.eng61.unittests;
 
 import com.sparta.eng61.pageobjects.codingame.CodingamePage;
 import com.sparta.eng61.pageobjects.dispatcher.*;
