@@ -6,11 +6,11 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class WebDriverFactory {
-    WebDriver webDriver;
-    String browser;
+    static WebDriver webDriver;
+    static String browser;
 
-    public WebDriver browserFactory(String selectBrowser) {
-        browser = selectBrowser;
+    public static WebDriver SelectDriver(String browserName) {
+        browser = browserName;
         switch (browser) {
             case "chrome":
                 webDriver = new ChromeDriver();
@@ -19,7 +19,7 @@ public class WebDriverFactory {
                 webDriver = new FirefoxDriver();
                 break;
             case "edge":
-                System.setProperty("webdriver.edge.driver","msedgedriver.exe");
+                System.setProperty("webdriver.edge.driver", "msedgedriver.exe");
                 webDriver = new EdgeDriver();
                 break;
         }

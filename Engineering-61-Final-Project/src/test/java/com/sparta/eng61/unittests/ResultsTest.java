@@ -9,12 +9,10 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
 public class ResultsTest {
-    WebDriverFactory webDriverFactory = new WebDriverFactory();
-    WebDriver webDriver = webDriverFactory.browserFactory("edge");
+    WebDriver webDriver = WebDriverFactory.SelectDriver("edge");
     LoginPage loginPage = new LoginPage(webDriver);
     ResultsPage resultsPage = new ResultsPage(webDriver);
     PollsPage pollsPage = new PollsPage(webDriver);
-
 
     public void openLoginPage() {
         loginPage.enterRightLoginCredentials();
