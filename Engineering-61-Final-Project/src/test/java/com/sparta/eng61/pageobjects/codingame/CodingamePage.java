@@ -164,8 +164,8 @@ public class CodingamePage {
         nextFourthQuestion();
         submitAnswers();
         confirmAnswers();
-        webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
+//        webDriver.switchTo().alert().accept();
+        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     public void navigateToDispatcher(){

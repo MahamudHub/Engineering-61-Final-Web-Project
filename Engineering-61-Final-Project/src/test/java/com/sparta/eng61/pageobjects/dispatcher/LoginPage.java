@@ -22,6 +22,12 @@ public class LoginPage {
         return this;
     }
 
+    public LoginPage reopenLoginPage () {
+        webDriver.manage().window();
+        webDriver.get("https://eng61.spartaglobal.academy/login");
+        webDriver.switchTo().alert().accept();
+        return this;
+    }
     //right credentials
     public void enterUsername () {
         webDriver.findElement(username).sendKeys(propertiesFileLoader.getUsername());
@@ -108,6 +114,13 @@ public class LoginPage {
     //------------------login directs to new page-------------------
     public SendAssessmentPage login(){
         openLoginPage();
+        enterUsername();
+        enterPassword();
+        clickSubmitButton();
+        return new SendAssessmentPage(webDriver);
+    }
+    public SendAssessmentPage relogin(){
+        reopenLoginPage();
         enterUsername();
         enterPassword();
         clickSubmitButton();
