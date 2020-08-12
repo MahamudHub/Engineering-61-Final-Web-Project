@@ -1,4 +1,4 @@
-package com.sparta.eng61.propertiesloader;
+package com.sparta.eng61.helpers;
 
 import java.io.FileReader;
 import java.io.IOException;

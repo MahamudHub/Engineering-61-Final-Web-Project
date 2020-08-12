@@ -1,6 +1,6 @@
 package com.sparta.eng61.unittests;
 
-import com.sparta.eng61.WebDriverFactory;
+import com.sparta.eng61.helpers.WebDriverFactory;
 import com.sparta.eng61.pageobjects.dispatcher.LoginPage;
 import com.sparta.eng61.pageobjects.dispatcher.PollsPage;
 import com.sparta.eng61.pageobjects.dispatcher.ResultsPage;
