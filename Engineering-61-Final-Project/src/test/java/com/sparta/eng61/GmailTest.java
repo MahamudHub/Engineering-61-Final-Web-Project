@@ -21,9 +21,9 @@ public class GmailTest {
         Assertions.assertEquals(true, gmailLogin.openAssessmentLinkEmail());
     }
 
-    @Test
-    public void testingBooleanMethod(){
-        gmailLogin.accessingAssessmentLinkInEmail();
-        Assertions.assertEquals(true, gmailLogin.isCodinGameLinkInEmail());
-    }
+//    @Test
+//    public void testingBooleanMethod(){
+//        gmailLogin.accessingAssessmentLinkInEmail();
+//        Assertions.assertEquals(true, gmailLogin.isCodinGameLinkInEmail());
+//    }
 }

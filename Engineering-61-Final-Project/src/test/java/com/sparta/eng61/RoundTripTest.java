@@ -39,19 +39,19 @@ public class RoundTripTest {
         dispatchesPage.openDispatchesPage();
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
-    private void clickOnGmailLink() {
-        gmailPage.accessAssessmentLinkFromEmail().doTest();
-    }
-    private void completeCodinGameAssesment() {
-        codingamePage.doTest();
-    }
-
-    private void checkForResults() {
-        loginPage.login();
-        resultsPage.openResultsPage();
-        resultsPage.clickUpdate();
-        pollsPage.clickOnResultsPage();
-    }
+//    private void clickOnGmailLink() {
+//        gmailPage.accessAssessmentLinkFromEmail().doTest();
+//    }
+//    private void completeCodinGameAssesment() {
+//        codingamePage.doTest();
+//    }
+//
+//    private void checkForResults() {
+//        loginPage.login();
+//        resultsPage.openResultsPage();
+//        resultsPage.clickUpdate();
+//        pollsPage.clickOnResultsPage();
+//    }
 
 
 

@@ -53,7 +53,7 @@ public class CodingamePage {
 
     public CodingamePage(WebDriver webDriver) {
         this.webDriver = webDriver;
-        resultsPage = new ResultsPage(webDriver);
+        //resultsPage = new ResultsPage(webDriver);
     }
 
 
@@ -64,7 +64,7 @@ public class CodingamePage {
     }
 
     public void clickStartButton() {
-        webDriver.manage().timeouts().implicitlyWait(15000, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         webDriver.findElement(startButton).click();
     }
     public String getCodingameURL(){
