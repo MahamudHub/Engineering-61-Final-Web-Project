@@ -20,11 +20,11 @@ public class RoundTripTest {
     GmailPage gmailPage = new GmailPage(webDriver);
     CodingamePage codingamePage = new CodingamePage(webDriver);
 
-    //@Test
+    @Test
     public void afterTest(){
-//       loginPage.enterRightLoginCredentials();
+       loginPage.enterRightLoginCredentials();
 //        dispatchesPage.clickOnResultsPage();
-//        resultsPage.openResultsPage();
+        resultsPage.openResultsPage();
         resultsPage.clickUpdate();
         pollsPage.clickOnResultsPage();
     }
@@ -39,7 +39,6 @@ public class RoundTripTest {
 //        resultsPage.openResultsPage();
         //codingamePage.goToDispatcher();
         //webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
-        //afterTest();
+        afterTest();
     }
 }

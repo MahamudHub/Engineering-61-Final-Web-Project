@@ -1,6 +1,7 @@
 package com.sparta.eng61.pageobjects.codingame;
 
 import com.sparta.eng61.pageobjects.dispatcher.LoginPage;
+import com.sparta.eng61.pageobjects.dispatcher.PollsPage;
 import com.sparta.eng61.pageobjects.dispatcher.ResultsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +13,7 @@ public class CodingamePage {
     WebDriver webDriver;
     LoginPage loginPage = new LoginPage(webDriver);
     ResultsPage resultsPage;
+    PollsPage pollsPage;
 
     By startButton = new By.ByCssSelector("*[data-test=\"AssessmentTile-TileButton\"]");
 
@@ -162,7 +164,8 @@ public class CodingamePage {
         nextFourthQuestion();
         submitAnswers();
         confirmAnswers();
-        resultsPage.openResultsPage();
+        webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
     }
 
     public void navigateToDispatcher(){
