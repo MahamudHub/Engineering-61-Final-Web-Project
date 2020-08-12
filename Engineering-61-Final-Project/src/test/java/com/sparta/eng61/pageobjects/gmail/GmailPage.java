@@ -12,7 +12,6 @@ import com.sparta.eng61.pageobjects.codingame.CodingamePage;
 public class GmailPage {
 
     WebDriver webDriver;
-    //MultipleClickAttempt multipleClickAttempt = new MultipleClickAttempt();
     By emailAddress = new By.ById("identifierId");
     By emailNext = new By.ByCssSelector("#identifierNext > div > button");
     By password = new By.ByName("password");
