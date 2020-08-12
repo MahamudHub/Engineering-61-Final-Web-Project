@@ -94,7 +94,7 @@ public class ResultsPage {
     }
 
     public PollsPage clickUpdate() {
-        webDriver.findElement(updateButton).click();
+         webDriver.findElement(updateButton).click();
         return new PollsPage(webDriver);
     }
 
