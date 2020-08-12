@@ -1,19 +1,19 @@
 package com.sparta.eng61.pageobjects.codingame;
 
-import com.sparta.eng61.pageobjects.dispatcher.LoginPage;
-import com.sparta.eng61.pageobjects.dispatcher.PollsPage;
 import com.sparta.eng61.pageobjects.dispatcher.ResultsPage;
+import com.sparta.eng61.pageobjects.gmail.GmailPage;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
 public class CodingamePage {
 
-    WebDriver webDriver;
-    LoginPage loginPage = new LoginPage(webDriver);
+    WebDriver webDriver = new ChromeDriver();
+    GmailPage gmailPage = new GmailPage(webDriver);
     ResultsPage resultsPage;
-    PollsPage pollsPage;
 
     By startButton = new By.ByCssSelector("*[data-test=\"AssessmentTile-TileButton\"]");
 
@@ -64,7 +64,7 @@ public class CodingamePage {
     }
 
     public void clickStartButton() {
-       // webDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(15000, TimeUnit.SECONDS);
         webDriver.findElement(startButton).click();
     }
     public String getCodingameURL(){
