@@ -53,7 +53,9 @@ public class CodingamePage {
 
 
     public CodingamePage goToStartPage() {
-        gmailPage.accessAssessmentLinkFromEmail();
+        //gmailPage.accessAssessmentLinkFromEmail();
+        webDriver.manage().window().maximize();
+        webDriver.get(" https://www.codingame.com/evaluate/?id=3947363c706360530d52c981bdf27c794a47bac");
         return this;
     }
 
@@ -138,7 +140,7 @@ public class CodingamePage {
     }
 
     public void doTest() {
-        goToStartPage();
+        //goToStartPage();
         clickStartButton();
         clickTermsBox();
         confirmStartTest();
@@ -156,6 +158,7 @@ public class CodingamePage {
         nextFourthQuestion();
         submitAnswers();
         confirmAnswers();
+        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     public boolean isStartPageLoading() {
