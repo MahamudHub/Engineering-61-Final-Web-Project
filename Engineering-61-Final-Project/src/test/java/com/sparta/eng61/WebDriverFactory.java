@@ -12,13 +12,13 @@ public class WebDriverFactory {
     public static WebDriver SelectDriver(String browserName) {
         browser = browserName;
         switch (browser) {
-            case "chrome":
+            case "Chrome":
                 webDriver = new ChromeDriver();
                 break;
-            case "firefox":
+            case "Firefox":
                 webDriver = new FirefoxDriver();
                 break;
-            case "edge":
+            case "Edge":
                 System.setProperty("webdriver.edge.driver", "msedgedriver.exe");
                 webDriver = new EdgeDriver();
                 break;

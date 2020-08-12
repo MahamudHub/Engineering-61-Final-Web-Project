@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
 public class ResultsTest {
-    WebDriver webDriver = WebDriverFactory.SelectDriver("edge");
+    WebDriver webDriver = WebDriverFactory.SelectDriver("Firefox");
     LoginPage loginPage = new LoginPage(webDriver);
     ResultsPage resultsPage = new ResultsPage(webDriver);
     PollsPage pollsPage = new PollsPage(webDriver);

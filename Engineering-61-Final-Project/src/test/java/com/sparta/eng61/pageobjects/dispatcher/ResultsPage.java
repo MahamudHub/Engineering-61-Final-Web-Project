@@ -93,7 +93,23 @@ public class ResultsPage {
         return webDriver.findElement(updateButton).getText();
     }
 
-    public void clickUpdate() {
+    public PollsPage clickUpdate() {
          webDriver.findElement(updateButton).click();
+        return new PollsPage(webDriver);
+    }
+
+    public boolean clickUpdateButton(By by) {
+        boolean result = false;
+        int attempts = 0;
+        while(attempts < 2) {
+            try {
+                webDriver.findElement(by).click();
+                result = true;
+                break;
+            } catch(StaleElementReferenceException e) {
+            }
+            attempts++;
+        }
+        return result;
     }
 }
