@@ -66,7 +66,7 @@ public class GmailPage {
     private CodingamePage clickAssessmentLink() {
         String url = webDriver.findElement(assessmentLink).getText();
         webDriver.get(url);
-        webDriver.findElement(assessmentLink).click();
+        //webDriver.findElement(assessmentLink).click();
         return new CodingamePage(webDriver);
     }
 
