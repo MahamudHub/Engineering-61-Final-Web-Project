@@ -1,6 +1,7 @@
 package com.sparta.eng61.pageobjects.dispatcher;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 
 public class ResultsPage {
@@ -8,7 +9,7 @@ public class ResultsPage {
     WebDriver webDriver;
     By pageTitle = new By.ById("login_title");
     By logOutLink = new By.ById("logout_link");
-    By updateButton = new By.ByClassName("btn btn-secondary submit");
+    By updateButton = new By.ByCssSelector(".btn");
     By candidateName = new By.ByCssSelector(".table:nth-child(4) > tbody .col-2:nth-child(1)");
     By candidateEmail = new By.ByCssSelector(".table:nth-child(4) > tbody .col-3");
     By candidateScore = new By.ByCssSelector(".dark");
@@ -31,7 +32,6 @@ public class ResultsPage {
         return this;
     }
 
-
     public String getUrl(){
         return webDriver.getCurrentUrl();
     }
@@ -48,12 +48,15 @@ public class ResultsPage {
     public void clickOnDispatchesPage(){
         webDriver.findElement(dispatchesLink).click();
     }
+
     public void clickOnResultsPage(){
         webDriver.findElement(resultsLink).click();
     }
+
     public void clickOnPollsPage(){
         webDriver.findElement(pollsLink).click();
     }
+
     public void clickOnLogo(){
         webDriver.findElement(sendAssessmentLink).click();
     }
@@ -90,8 +93,23 @@ public class ResultsPage {
         return webDriver.findElement(updateButton).getText();
     }
 
-    public void clickUpdate() {
+    public PollsPage clickUpdate() {
         webDriver.findElement(updateButton).click();
+        return new PollsPage(webDriver);
     }
 
+    public boolean clickUpdateButton(By by) {
+        boolean result = false;
+        int attempts = 0;
+        while(attempts < 2) {
+            try {
+                webDriver.findElement(by).click();
+                result = true;
+                break;
+            } catch(StaleElementReferenceException e) {
+            }
+            attempts++;
+        }
+        return result;
+    }
 }
