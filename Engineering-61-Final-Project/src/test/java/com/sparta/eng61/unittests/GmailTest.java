@@ -1,4 +1,4 @@
-package com.sparta.eng61;
+package com.sparta.eng61.unittests;
 
 import com.sparta.eng61.pageobjects.gmail.GmailPage;
 import org.junit.Test;
