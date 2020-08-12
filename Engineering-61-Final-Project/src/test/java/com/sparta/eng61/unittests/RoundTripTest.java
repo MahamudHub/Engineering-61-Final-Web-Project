@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class RoundTripTest {
     WebDriver webDriver = new ChromeDriver();
     LoginPage loginPage = new LoginPage(webDriver);
@@ -27,4 +29,36 @@ public class RoundTripTest {
         resultsPage.clickUpdate();
         resultsPage.openResultsPage();
     }
+    @Test
+    public void executeRoundTrip(){
+        sendAssesment();
+        gmailPage.accessAssessmentLinkFromEmail().doTest();
+        //completeCodinGameAssesment();
+        loginPage.relogin();
+        resultsPage.openResultsPage();
+        resultsPage.clickUpdate();
+        pollsPage.clickOnResultsPage();
+    }
+
+    private void sendAssesment() {
+        loginPage.login()
+                .enterFields();
+        dispatchesPage.openDispatchesPage();
+        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    }
+    private void clickOnGmailLink() {
+        gmailPage.accessAssessmentLinkFromEmail().doTest();
+    }
+    private void completeCodinGameAssesment() {
+        codingamePage.doTest();
+    }
+
+    private void checkForResults() {
+        loginPage.login();
+        resultsPage.openResultsPage();
+        resultsPage.clickUpdate();
+        pollsPage.clickOnResultsPage();
+    }
+
+
 }
