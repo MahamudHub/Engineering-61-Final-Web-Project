@@ -113,7 +113,18 @@ public class LoginPage {
         clickSubmitButton();
         return new SendAssessmentPage(webDriver);
     }
-
-
+    public LoginPage reopenLoginPage () {
+        webDriver.manage().window();
+        webDriver.get("https://eng61.spartaglobal.academy/login");
+        webDriver.switchTo().alert().accept();
+        return this;
+    }
+    public SendAssessmentPage relogin(){
+        reopenLoginPage();
+        enterUsername();
+        enterPassword();
+        clickSubmitButton();
+        return new SendAssessmentPage(webDriver);
+    }
 
 }
