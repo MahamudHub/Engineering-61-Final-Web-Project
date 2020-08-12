@@ -1,4 +1,4 @@
-package com.sparta.eng61;
+package com.sparta.eng61.unittests;
 
 import com.sparta.eng61.pageobjects.dispatcher.DispatchesPage;
 import org.junit.jupiter.api.Assertions;
