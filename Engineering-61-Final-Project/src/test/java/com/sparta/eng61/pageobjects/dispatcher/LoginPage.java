@@ -1,6 +1,6 @@
 package com.sparta.eng61.pageobjects.dispatcher;
 
-import com.sparta.eng61.propertiesloader.PropertiesFileLoader;
+import com.sparta.eng61.helpers.PropertiesFileLoader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
