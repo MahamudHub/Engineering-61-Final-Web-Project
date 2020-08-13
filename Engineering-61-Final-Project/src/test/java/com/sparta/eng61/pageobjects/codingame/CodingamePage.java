@@ -33,7 +33,8 @@ public class CodingamePage {
     By submitTest = new By.ByCssSelector("*[data-test=\"SubmitTest\"]");
     By confirmSubmit = new By.ByXPath("//button[2]");
 
-    By starRating = new By.ByCssSelector("span:nth-child(5) > span > img");
+   // By starRating = new By.ByCssSelector("span:nth-child(5) > span > img");
+    By starRating = new By.ByXPath("//*[@id=\"root\"]/div/div/div[2]/div/div/form/div/div/div[1]/div[2]/span/span[5]/img");
     By giveFeedback = new By.ByName("comment");
     By submitFeedback = new By.ByXPath("//button[@type='submit']");
 
