@@ -46,9 +46,9 @@ public class GmailPage {
         webDriver.findElement(passwordNext).click();
     }
 
-    private void accessAssessmentEmail() {
-        webDriver.findElement(selectEmail).click();
-    }
+//    private void accessAssessmentEmail() {
+//        webDriver.findElement(selectEmail).click();
+//    }
     public boolean selectassessmentEmail(By by) {
         boolean result = false;
         int attempts = 0;
@@ -70,14 +70,14 @@ public class GmailPage {
         return new CodingamePage(webDriver);
     }
 
-    public void accessingAssessmentLinkInEmail(){
-        goToGmailLoginPage();
-        enterCandidateEmail();
-        clickEmailNext();
-        enterCandidatePassword();
-        clickPasswordNext();
-        accessAssessmentEmail();
-    }
+//    public void accessingAssessmentLinkInEmail(){
+//        goToGmailLoginPage();
+//        enterCandidateEmail();
+//        clickEmailNext();
+//        enterCandidatePassword();
+//        clickPasswordNext();
+//        accessAssessmentEmail();
+//    }
 
     public boolean isCodinGameLinkInEmail(){
         return webDriver.findElement(assessmentLink).toString().contains("https://www.codingame.com/");
@@ -102,7 +102,7 @@ public class GmailPage {
         clickEmailNext();
         enterCandidatePassword();
         clickPasswordNext();
-        accessAssessmentEmail();
+        //accessAssessmentEmail();
         selectassessmentEmail(selectNewEmail);
         return clickAssessmentLink();
     }

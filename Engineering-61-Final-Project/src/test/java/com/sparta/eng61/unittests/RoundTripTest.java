@@ -20,24 +20,13 @@ public class RoundTripTest {
     GmailPage gmailPage = new GmailPage(webDriver);
     CodingamePage codingamePage = new CodingamePage(webDriver);
 
-    @Test
-    public void roundTrip (){
-        loginPage.login()
-                .enterFields();
-        dispatchesPage.openDispatchesPage();
-        gmailPage.accessAssessmentLinkFromEmail().doTest();
-        resultsPage.clickUpdate();
-        resultsPage.openResultsPage();
-    }
+
     @Test
     public void executeRoundTrip(){
         sendAssesment();
-        gmailPage.accessAssessmentLinkFromEmail().doTest();
-        //completeCodinGameAssesment();
-        loginPage.relogin();
-        resultsPage.openResultsPage();
-        resultsPage.clickUpdate();
-        pollsPage.clickOnResultsPage();
+        clickOnGmailLink();
+        completeCodinGameAssesment();
+        checkForResults();
     }
 
     private void sendAssesment() {
@@ -47,14 +36,14 @@ public class RoundTripTest {
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
     private void clickOnGmailLink() {
-        gmailPage.accessAssessmentLinkFromEmail().doTest();
+        gmailPage.accessAssessmentLinkFromEmail();
     }
     private void completeCodinGameAssesment() {
         codingamePage.doTest();
     }
 
     private void checkForResults() {
-        loginPage.login();
+        loginPage.relogin();
         resultsPage.openResultsPage();
         resultsPage.clickUpdate();
         pollsPage.clickOnResultsPage();
