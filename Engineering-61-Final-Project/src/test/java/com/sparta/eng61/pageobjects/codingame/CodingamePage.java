@@ -14,38 +14,28 @@ public class CodingamePage {
     GmailPage gmailPage = new GmailPage(webDriver);
 
     By startButton = new By.ByCssSelector("*[data-test=\"AssessmentTile-TileButton\"]");
-
     By termsButton = new By.ByCssSelector(".c0148 > label");
-
     By confirmStart = new By.ByCssSelector("*[data-test=\"accept\"]");
 
     By firstQuestion = new By.ByCssSelector("*[data-test=\"TocQuestionButton\"]");
-
     By firstAnswer = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label[2]/span/label");
-
     By firstNext = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/button/span");
-
     By secondQuestion = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div[2]/div[8]/span/button");
-
     By secondAnswer = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label[2]");
-
     By secondNext = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/button/span");
-
     By thirdQuestion = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div[3]/div[8]/span/button");
-
     By thirdAnswer = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label/span/label");
-
     By thirdNext = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/button/span");
-
     By fourthQuestion = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div/div/div/div[2]/div/div[4]/div[8]/span/button");
-
     By fourthAnswer = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div/div/div[2]/form/label");
-
     By fourthNext = new By.ByXPath("//div[@id='root']/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/button/span");
 
     By submitTest = new By.ByCssSelector("*[data-test=\"SubmitTest\"]");
-
     By confirmSubmit = new By.ByXPath("//button[2]");
+
+    By starRating = new By.ByCssSelector("span:nth-child(5) > span > img");
+    By giveFeedback = new By.ByName("comment");
+    By submitFeedback = new By.ByXPath("//button[@type='submit']");
 
     public CodingamePage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -53,9 +43,7 @@ public class CodingamePage {
 
 
     public CodingamePage goToStartPage() {
-        //gmailPage.accessAssessmentLinkFromEmail();
-        webDriver.manage().window().maximize();
-        webDriver.get(" https://www.codingame.com/evaluate/?id=3947363c706360530d52c981bdf27c794a47bac");
+        gmailPage.accessAssessmentLinkFromEmail();
         return this;
     }
 
@@ -142,9 +130,14 @@ public class CodingamePage {
         webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         webDriver.findElement(confirmSubmit).click();
     }
+    public void doFeedback() {
+        webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        webDriver.findElement(starRating).click();
+        webDriver.findElement(giveFeedback).sendKeys("Looking forward to the results :)");
+        webDriver.findElement(submitFeedback).click();
+    }
 
     public void doTest() {
-        //goToStartPage();
         clickStartButton();
         clickTermsBox();
         confirmStartTest();
@@ -162,6 +155,7 @@ public class CodingamePage {
         nextFourthQuestion();
         submitAnswers();
         confirmAnswers();
+        doFeedback();
         webDriver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
     }
     public void navigateToDispatcher(){
