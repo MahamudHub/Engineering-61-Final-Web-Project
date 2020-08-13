@@ -100,6 +100,58 @@ public class TestRunner {
 
 }
 ```
+Here is a list of the tags that you can use in our framework:
+
+```
+@TestWithPsychometric
+@TestWithoutPsychometric
+@OnlyPsychometricTest
+@SendingCandidateEmail
+@EmailHasCodingGameLink
+@CandidateNameAddedToDispatches
+@CandidateEmailAddedToDispatches
+@EnterFirstQuestionAnswer
+@EnterSecondQuestionAnswer
+@EnterThirdQuestionAnswer
+@EnterFourthQuestionAnswer
+@EnterFourthQuestionAnswer
+@SubmitTest
+@CompletedTest
+@IncompleteTest
+@TestNotExpired
+@TestExpired
+@BothCredentialsCorrect
+@BothCredentialsWrong
+@BlankCredentials
+@IncorrectUsername
+@IncorrectPassword
+@LogOutFromSendAssessmentPage
+@LoggingOutFromDispatcherPage
+@LoggingOutFromResultsPage
+@LoggingOutFromPollsPage
+@CheckWaitingStatus
+@CheckCompletedStatus
+@CheckExpiredStatus
+@PollTimeUpdate
+@CheckTestIDPresent
+@CheckEmailAddressPresent
+@RecruiterEmailPresent
+@ScoreForCandidateAssessment
+@EmailCorrectInResultsPage
+@EachNameDisplayedInResultsPage
+@CandidateNRDisplayed
+@CandidateLRDisplayed
+@UpdateButtonFunctions
+@FieldForCandidateName
+@FieldForCandidateEmail
+@FieldForRecruiterEmail
+@SelectingPsychometricAssessment
+@NumberOfAssessments
+@SendingAssessment
+@EnterCandidateName
+@EnterCandidateEmail
+@TimeAssessmentSentToCandidate
+```
 
 ### Round Trip
 
@@ -209,3 +261,4 @@ Special Thanks to Darrell Grainger for supplying us with a method to see if the 
 Special Thanks to Manish Gadhvi for being a great scrum master and helping us whenever we needed it. 
  
 Special Thanks to Richard Gurney for giving us a live project to work on.
+
