@@ -93,7 +93,7 @@ For example, if you would like to test if the update button clicks on the result
                 "html:target/reporting/report.html",
                 "json:target/reporting/report.json",
                 "junit:target/reporting/report.xml"},
-        tags = "",
+        tags = "@UpdateButtonFunction",
         stepNotifications = true,
         dryRun = false
 )
@@ -104,7 +104,9 @@ public class TestRunner {
 
 ### Round Trip
 
-The framework is also capable of running a full cycle trip. This means that the program will go onto the Dispatcher webs
+The framework is also capable of running a full cycle trip. This means that the program will go onto the Dispatcher website, send an assessment to a candidate email, log on to the candidate email, do the test then go back to the Dispatcher website and update the results to find the candidates test. 
+
+Using this method will require you to fill in the correct information into the properties file, so that when the method runs it will enter that information automatically. 
 
 ## Contributing
 
@@ -137,7 +139,6 @@ Your commit message should describe what the commit, when applied, does to the c
 e.g. 
 Name-ClassFeature-DATE.
 Bob-LoginPageErrorMessage-11082020.
-
 ```
 
 
@@ -149,28 +150,47 @@ The name of your pom should be the same as the name of the webpage it is interac
 
 ![ProjectStructure](Assets/ProjectStructureOfPOM.jpg)
 
-Once the pageobject is populated, unit testing of each method should be carried out at the unittests package by creating a new class (WEBSITENAME+”tester”). 
+To create methods in the pageobject, use the ‘By’ command from Selenium to call the specific elements in a web page. It is advised to first try the following ‘By’ commands respectively:
+```java
+By elementClass = new By.ByClassName("class");
+By elementId = new By.ById("id");
+By elementName = new By.ByName("name");
+By elementLinkText = new By.ByLinkText("linkText");
+By elementPartialLinkText = new By.ByPartialLinkText("partialLinkText");
+By elementCssSelector = new By.ByCssSelector("cssSelector");
+By elementXpath = new By.ByXpath("xpath");
+```
 
-The name of the methods for testing is left under user digression, although industry practices such as using “Is”+METHODNAME+”correct” for booleans and METHODNAME+”test” for void is recommended.
+If unable to figure out the syntax through inspect element, it is advised to use the tool “Selenium IDE” and record the clicks to be used for the By command.
 
-Credential.properties can be added and modified in the resources package. This package can be used to create scenarios in a new feature file (WEBSITENAME+”.feature”) for the pageobject. The feature file must be populated with Gherkin syntax.
+Once the pageobject is populated:
 
-A stepdef file (WEBSITENAME+”Stepdef”) is to be added in the stepdef package and the gherkin text from the feature file to be called. 
+- Add the unit test at the ‘unittests’ package by creating a new class (WEBSITENAME+”tester”).
+- Create and Modify the Credential.properties from the resources package.
+- Use the resources package to create scenarios with Gherkin syntax in a new feature file(WEBSITENAME+”.feature”) for the pageobject.
+- Add the stepdef file (WEBSITENAME+”Stepdef”) in the stepdef package to call the gherkin syntax from the feature file to be called. 
 
 The test runner then allows the user to run the specific test methods required.
 
 
 ## Built With
+#### Dependencies
 
 * [Maven](https://maven.apache.org/) - Dependency Management
  * [Junit](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api/5.6.2) - Dependency
- * [Selenium Java](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/3.141.59/) – Dependency
- * [Cucumber Java](https://mvnrepository.com/artifact/io.cucumber/cucumber-java/6.2.0) - Dependency
- * [Cucumber Junit]( https://mvnrepository.com/artifact/io.cucumber/cucumber-junit/6.2.0) - Dependency
+ * [Selenium Java](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/3.141.59/)
+ * [Cucumber Java](https://mvnrepository.com/artifact/io.cucumber/cucumber-java/6.2.0)
+ * [Cucumber Junit]( https://mvnrepository.com/artifact/io.cucumber/cucumber-junit/6.2.0)
+#### Drivers
+ * [Chrome Driver](https://chromedriver.chromium.org/downloads)
+ * [Firefox Driver](https://github.com/mozilla/geckodriver/releases)
+ * [Edge Driver]( https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
 
- * [Chrome Driver](https://chromedriver.chromium.org/downloads) – Driver
- * [Firefox Driver](https://github.com/mozilla/geckodriver/releases) – Driver
- * [Edge Driver]( https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) - Driver
+#### Tools
+* [Selenium IDE](https://www.selenium.dev/selenium-ide)
+* [Intellij]( https://www.jetbrains.com/idea)
+* [GitHub]( https://github.com/MahamudHub/Engineering-61-Final-Web-Project)
+
 
 ## Authors
 
@@ -188,5 +208,4 @@ Special Thanks to Darrell Grainger for supplying us with a method to see if the 
 Special Thanks to Manish Gadhvi for being a great scrum master and helping us whenever we needed it. 
 
 Special Thanks to Richard Gurney for giving us a live project to work on.
-
 
