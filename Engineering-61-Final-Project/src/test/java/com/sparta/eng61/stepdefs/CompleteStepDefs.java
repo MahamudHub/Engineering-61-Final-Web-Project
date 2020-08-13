@@ -10,13 +10,13 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class expiredStepdefs {
+public class CompleteStepDefs {
     WebDriver webDriver = new ChromeDriver();
     LoginPage loginPage = new LoginPage(webDriver);
     DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
 
-    @Given("A candidate has been sent a test {int} days ago")
-    public void aCandidateHasBeenSentATestDaysAgo(int arg0) {
+    @Given("A candidate has been sent a test")
+    public void aCandidateHasBeenSentATest() {
     }
 
     @When("The candidate has submitted the test")
@@ -26,18 +26,23 @@ public class expiredStepdefs {
     @When("The candidate has not submitted the test")
     public void theCandidateHasNotSubmittedTheTest() {
     }
-    @And("I go to the dispatches page")
-    public void iGoToTheDispatchesPage() {
+
+    @And("I go to Dispatches to see if test is complete")
+    public void iGoToDispatchesToSeeIfTestIsComplete() {
         loginPage.enterRightLoginCredentials();
         dispatchesPage.openDispatchesPage();
     }
-    @Then("I should see a No under Expired")
-    public void iShouldSeeANoUnderExpired() {
-        Assertions.assertEquals("No",dispatchesPage.getExpired());
+    @Then("I should see a Yes under Complete")
+    public void iShouldSeeAYesUnderComplete() {
+        Assertions.assertEquals("Yes",dispatchesPage.getComplete());
+
     }
 
-    @Then("I should see a Yes under Expired")
-    public void iShouldSeeAYesUnderExpired() {
-        Assertions.assertEquals("Yes",dispatchesPage.getExpired());
+    @Then("I should see a No under Complete")
+    public void iShouldSeeANoUnderComplete() {
+        Assertions.assertEquals("No",dispatchesPage.getComplete());
     }
+
+
+
 }

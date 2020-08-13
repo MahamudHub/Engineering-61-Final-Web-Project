@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class timesentStepdefs {
+public class TimesentStepdefs {
     WebDriver webDriver = new ChromeDriver();
     LoginPage loginPage = new LoginPage(webDriver);
     DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
@@ -17,16 +17,18 @@ public class timesentStepdefs {
     public void aTestWasSentToACandidate() {
     }
 
-    @When("I open the dispatches page")
-    public void iOpenTheDispatchesPage() {
+    @When("I go to the dispatches page to see time sent")
+    public void iGoToTheDispatchesPageToSeeTimeSent() {
         loginPage.enterRightLoginCredentials();
         dispatchesPage.openDispatchesPage();
     }
 
     @Then("I should see the time the test was sent")
     public void iShouldSeeTheTimeTheTestWasSent() {
-        iOpenTheDispatchesPage();
+        iGoToTheDispatchesPageToSeeTimeSent();
         Assertions.assertEquals("August 8th 2020, 4:46:38 pm",dispatchesPage.getTimeSent());
 
     }
+
+
 }

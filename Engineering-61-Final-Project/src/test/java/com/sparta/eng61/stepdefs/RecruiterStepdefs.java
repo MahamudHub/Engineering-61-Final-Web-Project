@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class recruiterStepdefs {
+public class RecruiterStepdefs {
     WebDriver webDriver = new ChromeDriver();
     LoginPage loginPage = new LoginPage(webDriver);
     DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
@@ -18,12 +18,12 @@ public class recruiterStepdefs {
     public void aRecruiterHasContactedACandidate() {
     }
 
-    @When("I go to the Dispatches page")
-    public void iGoToTheDispatchesPage() {
+    @When("I go to the dispatches page and see Recruiter")
+    public void iGoToTheDispatchesPageAndSeeRecruiter() {
         loginPage.enterRightLoginCredentials();
         dispatchesPage.openDispatchesPage();
-
     }
+
     @Then("I should see the recruiter's email")
     public void iShouldSeeTheRecruiterSEmail() {
         Assertions.assertEquals("engineeringsixtyone@gmail.com",dispatchesPage.getRecruiterEmail());
