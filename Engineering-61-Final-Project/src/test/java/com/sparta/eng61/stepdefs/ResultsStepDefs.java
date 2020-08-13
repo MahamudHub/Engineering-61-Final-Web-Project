@@ -16,9 +16,9 @@ public class ResultsStepDefs {
     DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
     PollsPage pollsPage = new PollsPage(webDriver);
 
-    @Given("The candidate has completed the assessment")
-    public void theCandidateHasCompletedTheAssessment() {
-    }
+//    @Given("The candidate has completed the assessment")
+//    public void theCandidateHasCompletedTheAssessment() {
+//    }
 
     @When("I am on the results page")
     public void iAmOnTheResultsPage() {

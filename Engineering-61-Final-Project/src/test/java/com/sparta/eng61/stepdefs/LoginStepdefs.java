@@ -18,15 +18,19 @@ public class LoginStepdefs {
 
     @Given("I enter the correct username")
     public void iEnterTheCorrectUsername() {
+        loginPage.openLoginPage();
         loginPage.enterUsername();
     }
+
     @Given("I enter the wrong username")
     public void iEnterTheWrongUsername() {
         loginPage.enterWrongUsername();
     }
+
     @Given("I do not enter my credentials")
     public void iDoNotEnterMyCredentials() {
     }
+
     @And("I enter the correct password")
     public void iEnterTheCorrectPassword() {
         loginPage.enterPassword();
@@ -35,13 +39,17 @@ public class LoginStepdefs {
     public void iEnterTheWrongPassword() {
         loginPage.enterWrongPassword();
     }
+
     @When("I click the LOGIN button")
     public void iClickTheLOGINButton() {
         loginPage.clickSubmitButton();
     }
+
+
     @Then("I will see the Send Assessment Page")
+
     public void iWillSeeTheSendAssessmentPage() {
-        //Assertions.assertEquals("https://eng61.spartaglobal.academy/",sendAssessmentPage.getURL());
+        Assertions.assertEquals("https://eng61.spartaglobal.academy/",sendAssessmentPage.getUrl());
     }
 
     @Then("I will see the Error message")
