@@ -162,7 +162,7 @@ public class CodingamePage {
         nextFourthQuestion();
         submitAnswers();
         confirmAnswers();
-        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
     }
     public void navigateToDispatcher(){
         webDriver.navigate().to("https://eng61.spartaglobal.academy/results");
