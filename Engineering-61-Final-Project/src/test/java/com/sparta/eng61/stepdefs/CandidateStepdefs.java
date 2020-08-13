@@ -20,22 +20,24 @@ public class CandidateStepdefs {
     //------Method needed from Mohamed's class
     public void aCandidateHasBeenContacted() {
     }
-
-    @When("I go to the dispatches page")
-    public void iGoToTheDispatchesPage() {
+    @When("I go to Dispatches to see Candidate details")
+    public void iGoToDispatchesToSeeCandidateDetails() {
         loginPage.enterRightLoginCredentials();
         dispatchesPage.openDispatchesPage();
     }
 
+
     @Then("I should see their name")
     public void iShouldSeeTheirName() {
-        iGoToTheDispatchesPage();
+        iGoToDispatchesToSeeCandidateDetails();
         Assertions.assertEquals(sendAssessmentPage.isSentInfoIncludeName(),dispatchesPage.getCandidateName());
     }
 
     @Then("I should see their email")
     public void iShouldSeeTheirEmail() {
-        iGoToTheDispatchesPage();
+        iGoToDispatchesToSeeCandidateDetails();
         Assertions.assertEquals(sendAssessmentPage.isSentInfoIncludeEmail(),dispatchesPage.getCandidateEmail());
     }
+
+
 }
