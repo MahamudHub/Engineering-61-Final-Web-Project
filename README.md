@@ -5,9 +5,8 @@ This framework has been built to test an application for the candidate assessmen
 
 ## Prerequisites
 
-Following the prerequisites below will allow you to work with the framework: 
+The first step in using this framework is to clone the repository. Then open the framework in your IDE. Following the prerequisites below will allow you to work with the framework: 
 
-The first step in using this framework is to clone the repository. Then open the framework in your IDE.
 
 ### Preparing Properties File
 
@@ -116,8 +115,8 @@ To contribute on this project, if you want to contribute to the project and make
 
 Project's contribution instructions. To follow
 
-- Create a personal fork of the project on Github.
-- Clone the fork on your local machine. Your remote repo on Github is called `origin`.
+- Create a personal fork of the project on GitHub.
+- Clone the fork on your local machine. Your remote repo on GitHub is called `origin`.
 - Add the original repository as a remote called `upstream`.
 - If you created your fork a while ago be sure to pull upstream changes into your local repository.
 - Create a new branch to work on! Branch from `dev` or `master`
@@ -125,7 +124,7 @@ Project's contribution instructions. To follow
 - Follow the code style of the project, including indentation & correct naming convention.
 - If the project has tests run them!
 - Write or adapt tests as needed.
-- Push your branch to your fork on Github, the remote `origin`.
+- Push your branch to your fork on GitHub, the remote `origin`.
 - From your fork open a pull request in the correct branch. Target the project's `develop` branch or go for `master`!
 - Once the pull request is approved and merged you can pull the changes from `upstream` to your local repo and delete
 your extra branch(es).
@@ -146,38 +145,40 @@ Bob-LoginPageErrorMessage-11082020.
 It is important that before creating methods for testing you create your own page object model. This ensures that none of the previously written methods are affected by any of your implementation. 
 
 The class should be placed within a package named after the page you are working on and placed within the pageobjects package. 
-The name of your pom should be the same as the name of the webpage it is interacting with plus “page”, using camel case. An example of the project structure and naming is given below:
+The name of your pom should be the same as the name of the webpage it is interacting with plus `page`, using camel case. An example of the project structure and naming is given below:
 
 ![ProjectStructure](Assets/ProjectStructureOfPOM.jpg)
 
-To create methods in the pageobject, use the ‘By’ command from Selenium to call the specific elements in a web page. It is advised to first try the following ‘By’ commands respectively:
+To create methods in the page object model, use the `By` command from Selenium to call the specific elements in the web page. It is advised to first try the following `By` commands respectively:
 ```java
-By elementClass = new By.ByClassName("class");
-By elementId = new By.ById("id");
-By elementName = new By.ByName("name");
-By elementLinkText = new By.ByLinkText("linkText");
-By elementPartialLinkText = new By.ByPartialLinkText("partialLinkText");
-By elementCssSelector = new By.ByCssSelector("cssSelector");
-By elementXpath = new By.ByXpath("xpath");
+By elementAction = new By.ByClassName("class");
+By elementAction = new By.ById("id");
+By elementAction = new By.ByName("name");
+By elementAction = new By.ByLinkText("linkText");
+By elementAction = new By.ByPartialLinkText("partialLinkText");
+By elementAction = new By.ByCssSelector("cssSelector");
+By elementAction = new By.ByXpath("xpath");
 ```
 
-If unable to figure out the syntax through inspect element, it is advised to use the tool “Selenium IDE” and record the clicks to be used for the By command.
+If you are unable to figure out the correct path through inspecting the element, you can use the tool `Selenium IDE` to record yourself using the webpage. It will then show you a list of the paths it used to access the element. Allowing them to be used for the `By` commands.
 
-Once the pageobject is populated:
+Once the page object model is populated:
 
-- Add the unit test at the ‘unittests’ package by creating a new class (WEBSITENAME+”tester”).
+- Add the unit test to the`unittests` package by creating a new class (WEBSITENAME+`tester`).
 - Create and Modify the Credential.properties from the resources package.
-- Use the resources package to create scenarios with Gherkin syntax in a new feature file(WEBSITENAME+”.feature”) for the pageobject.
-- Add the stepdef file (WEBSITENAME+”Stepdef”) in the stepdef package to call the gherkin syntax from the feature file to be called. 
+- Use the resources package to create scenarios with Gherkin syntax in a new feature file (WEBSITENAME+`.feature`) for the page object models.
+- Add the stepdef file (WEBSITENAME+`Stepdef`) in the stepdef package to call the gherkin syntax from the feature file to be called. 
+- Tag your scenarios so that they can be called within the test runner.
 
 The test runner then allows the user to run the specific test methods required.
 
 
-## Built With
-#### Dependencies
 
+
+## Built With
 * [Maven](https://maven.apache.org/) - Dependency Management
- * [Junit](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api/5.6.2) - Dependency
+#### Dependencies
+* [Junit](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api/5.6.2)
  * [Selenium Java](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/3.141.59/)
  * [Cucumber Java](https://mvnrepository.com/artifact/io.cucumber/cucumber-java/6.2.0)
  * [Cucumber Junit]( https://mvnrepository.com/artifact/io.cucumber/cucumber-junit/6.2.0)
@@ -204,8 +205,7 @@ The test runner then allows the user to run the specific test methods required.
 ## Acknowledgments
 
 Special Thanks to Darrell Grainger for supplying us with a method to see if the element has changed path. 
-
+ 
 Special Thanks to Manish Gadhvi for being a great scrum master and helping us whenever we needed it. 
-
+ 
 Special Thanks to Richard Gurney for giving us a live project to work on.
-
