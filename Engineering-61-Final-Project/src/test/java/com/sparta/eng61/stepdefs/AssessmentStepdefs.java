@@ -27,8 +27,8 @@ public class AssessmentStepdefs {
         Assertions.assertEquals(true, sendAssessmentPage.isSendPsychometricVisible());
     }
 
-    @When("I go to the Dispatches page")
-    public void iGoToTheDispatchesPage() {
+    @When("I go to Dispatches to see Assessment Type")
+    public void iGoToDispatchesToSeeAssessmentType() {
         loginPage.enterRightLoginCredentials();
         dispatchesPage.openDispatchesPage();
     }
@@ -58,4 +58,6 @@ public class AssessmentStepdefs {
         Assertions.assertEquals("Psychometric",dispatchesPage.getAssessmentType());
 
     }
+
+
 }

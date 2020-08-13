@@ -16,6 +16,7 @@ public class LoginPage {
     public LoginPage(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
+
     public LoginPage openLoginPage () {
         webDriver.manage().window();
         webDriver.get("https://eng61.spartaglobal.academy/login");
@@ -114,9 +115,10 @@ public class LoginPage {
         return new SendAssessmentPage(webDriver);
     }
     public LoginPage reopenLoginPage () {
+
         webDriver.manage().window();
         webDriver.get("https://eng61.spartaglobal.academy/login");
-        //webDriver.switchTo().alert().accept();
+        webDriver.switchTo().alert().accept();
         return this;
     }
     public SendAssessmentPage relogin(){

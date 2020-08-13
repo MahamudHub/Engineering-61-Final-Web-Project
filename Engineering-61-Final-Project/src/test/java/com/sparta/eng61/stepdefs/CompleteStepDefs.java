@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class completeStepDefs {
+public class CompleteStepDefs {
     WebDriver webDriver = new ChromeDriver();
     LoginPage loginPage = new LoginPage(webDriver);
     DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
@@ -19,20 +19,19 @@ public class completeStepDefs {
     public void aCandidateHasBeenSentATest() {
     }
 
-    @When("The candidate has submitted the test")
-    public void theCandidateHasSubmittedTheTest() {
+    @When("The candidate has finished the test")
+    public void theCandidateHasFinishedTheTest() {
     }
 
-    @When("The candidate has not submitted the test")
-    public void theCandidateHasNotSubmittedTheTest() {
+    @When("The candidate has not finished the test")
+    public void theCandidateHasNotFinishedTheTest() {
     }
 
-    @And("I go to the dispatches page")
-    public void iGoToTheDispatchesPage() {
+    @And("I go to Dispatches to see if test is complete")
+    public void iGoToDispatchesToSeeIfTestIsComplete() {
         loginPage.enterRightLoginCredentials();
         dispatchesPage.openDispatchesPage();
     }
-
     @Then("I should see a Yes under Complete")
     public void iShouldSeeAYesUnderComplete() {
         Assertions.assertEquals("Yes",dispatchesPage.getComplete());

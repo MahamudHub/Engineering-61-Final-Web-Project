@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class expiredStepdefs {
+public class ExpiredStepdefs {
     WebDriver webDriver = new ChromeDriver();
     LoginPage loginPage = new LoginPage(webDriver);
     DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
@@ -26,11 +26,12 @@ public class expiredStepdefs {
     @When("The candidate has not submitted the test")
     public void theCandidateHasNotSubmittedTheTest() {
     }
-    @And("I go to the dispatches page")
-    public void iGoToTheDispatchesPage() {
+    @And("I go to the dispatches page to see Expired")
+    public void iGoToTheDispatchesPageToSeeExpired() {
         loginPage.enterRightLoginCredentials();
         dispatchesPage.openDispatchesPage();
     }
+
     @Then("I should see a No under Expired")
     public void iShouldSeeANoUnderExpired() {
         Assertions.assertEquals("No",dispatchesPage.getExpired());
@@ -40,4 +41,5 @@ public class expiredStepdefs {
     public void iShouldSeeAYesUnderExpired() {
         Assertions.assertEquals("Yes",dispatchesPage.getExpired());
     }
+
 }

@@ -20,7 +20,7 @@ public class GmailStepdef {
 
     @Given("I have sent the candidate an assessment link email")
     public void iHaveSentTheCandidateAnAssessmentLinkEmail() {
-        sendAssessmentPage.enterFields();
+        sendAssessmentPage.openSendAssessmentPage().enterFields();
     }
 
     @When("they access their email")
