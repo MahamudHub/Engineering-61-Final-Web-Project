@@ -16,6 +16,7 @@ public class LoginPage {
     public LoginPage(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
+
     public LoginPage openLoginPage () {
         webDriver.manage().window();
         webDriver.get("https://eng61.spartaglobal.academy/login");
