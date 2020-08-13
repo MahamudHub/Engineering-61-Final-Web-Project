@@ -20,10 +20,10 @@ public class GmailTest {
         gmailLogin.accessCandidateEmail();
         Assertions.assertEquals(true, gmailLogin.openAssessmentLinkEmail());
     }
-
-    @Test
-    public void testingBooleanMethod(){
-        gmailLogin.accessingAssessmentLinkInEmail();
-        Assertions.assertEquals(true, gmailLogin.isCodinGameLinkInEmail());
-    }
+//
+//    @Test
+//    public void testingBooleanMethod(){
+//        gmailLogin.accessingAssessmentLinkInEmail();
+//        Assertions.assertEquals(true, gmailLogin.isCodinGameLinkInEmail());
+//    }
 }
