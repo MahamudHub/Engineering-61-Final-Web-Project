@@ -135,10 +135,14 @@ The name of your pom should be the same as the name of the webpage it is interac
 
 ![ProjectStructure](Assets/ProjectStructureOfPOM.jpg)
 
-Once the pageobject is populated, unit testing of each method should be carried out at the unittests package by creating a new class (WEBSITENAME+”tester”). 
+Once the pageobject is populated, unit testing of each method should be carried out at the unittests package by creating a new class (WEBSITENAME+”tester”).
+
 The name of the methods for testing is left under user digression, although industry practices such as using “Is”+METHODNAME+”correct” for booleans and METHODNAME+”test” for void is recommended.
-Credential.properties can be added and modified in the resources package. This package can be used to create scenarios in a new feature file (WEBSITENAME+”.feature”) for the pageobject. The feature file must be populated with Gherkin text.
-A stepdef file (WEBSITENAME+”Stepdef”) is to be added in the stepdef package and the gherkin text from the feature file to be called. 
+
+Credential.properties can be added and modified in the resources package. This package can be used to create scenarios in a new feature file (WEBSITENAME+”.feature”) for the pageobject. The feature file must be populated with Gherkin syntax.
+
+A stepdef file (WEBSITENAME+”Stepdef”) is to be added in the stepdef package and the gherkin syntax from the feature file to be called. 
+
 The test runner then allows the user to run the specific test methods required.
 
 
