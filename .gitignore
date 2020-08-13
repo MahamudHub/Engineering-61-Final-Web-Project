@@ -23,11 +23,10 @@
 hs_err_pid*
 /workspace.xml
 /shelf/
-*.exe
+
 .gitignore
 *.xml
 *.iml
 *.target
 *.properties
-*.exe
 
