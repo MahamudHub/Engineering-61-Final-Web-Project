@@ -19,12 +19,12 @@ public class CompleteStepDefs {
     public void aCandidateHasBeenSentATest() {
     }
 
-    @When("The candidate has submitted the test")
-    public void theCandidateHasSubmittedTheTest() {
+    @When("The candidate has finished the test")
+    public void theCandidateHasFinishedTheTest() {
     }
 
-    @When("The candidate has not submitted the test")
-    public void theCandidateHasNotSubmittedTheTest() {
+    @When("The candidate has not finished the test")
+    public void theCandidateHasNotFinishedTheTest() {
     }
 
     @And("I go to Dispatches to see if test is complete")
