@@ -168,6 +168,7 @@ public class CodingamePage {
         nextFourthQuestion();
         submitAnswers();
         confirmAnswers();
+
         doFeedback();
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
