@@ -1,16 +1,15 @@
-ReadMe
 # Engineering-61 Final Project
 
-This framework has been built to automate the testing for a candid
+This framework has been built to test an application for the candidate assessment process at Sparta Global. Using selenium to build this framework we have automated test execution and engineered a reusable framework for testers to use. 
 
-
-## Getting Started
-
-The first step in using this framework is to clone the repository. Once you open the framework in your IDE following the prerequisites below will allow you to work with the framework however you please. 
 
 ## Prerequisites
 
-### Prerequisites: Properties
+Following the prerequisites below will allow you to work with the framework: 
+
+The first step in using this framework is to clone the repository. Then open the framework in your IDE.
+
+### Preparing Properties File
 
 To use this framework, you will need to create a properties file in your resources folder to call all your credentials to login to the pages.
 
@@ -35,9 +34,15 @@ properties.getCandidateEmail();
 
  ```
 
-### Prerequisites: Web Driver
+### Preparing Web Driver
 
 In the project there is a class called WebDriverFactory in the helpers’ package, this class will handle the return of the Webdrivers for different browsers such as Chrome, Firefox and Edge browser.
+
+-  To use the web driver, you would need to download the driver for each browser, there is link to the driver in the section Built With.
+
+- Put the exe driver file in the Engineering-61-Final-Project folder shown highlighted in the image below
+
+![ Driver Location](Assets/DriverLocation.jpg)
 
 - The code below shows how to use the different web driver for each browser
 
@@ -49,12 +54,9 @@ WebDriver webDriver = WebDriverFactory.selectDriver(“Chrome”);
 WebDriver webDriver = WebDriverFactory.selectDriver(“Edge”);
  ```
 
-
-
-
 ## Using the Framework
 
-The test framework is very simple and will allow you to use methods already created to run your tests. Here are a few ways you could use the framework:
+The Assessment Dispatcher framework is very simple and will allow you to use methods already created to run your tests. Here are a few ways you could use the framework:
 
 ### Unit Testing
 
@@ -68,47 +70,27 @@ public void loginErrorMessageTest(){
 Assertions.assertTrue(true, loginPage.isTokenErrorMessageCorrect);
 }
 ```
-Each webpage has its own Page Object Model, which contains methods that can be used to test components of the webpage.
+Each webpage has its own Page Object Model, which contains methods that can be used to test components of the webpage. Any test classes created for unit testing should be placed in the ‘unittesting’ package.
+
+*Unit testing package picture.
+
+![Unit Test Location](Assets/UnitTestLocation.jpg)
 
 
 
+### Using Test Runner
 
-## Testing
+Another feature of this framework is the ability to use Cucumber and BDD. By using the correct tags within the test runner class, you can decide what features and scenarios you would like to test. For example, if you would like to test if the update button clicks on the results page.
 
-A step by step series of examples that tell you how to get a development env running 
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+To do this ordinarily you would need to load each method that allows you to get to the point of running the test, but with the correct tag you can just run the correct scenario and it the framework will do the rest. 
 
 ```
-until finished
+Example of tags being used in test runner. (Image)
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-## Running the tests
+### Round Trip
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+The framework is also capable of running a full cycle trip. This means that the program will go onto the Dispatcher webs
 
 ## Contributing
 
@@ -132,7 +114,7 @@ Project's contribution instructions. To follow
 - Once the pull request is approved and merged you can pull the changes from `upstream` to your local repo and delete
 your extra branch(es).
 
-And last but not least: Always write your commit messages in the present tense. 
+And finally: Always write your commit messages in the present tense. 
 Your commit message should describe what the commit, when applied, does to the code – not what you did to the code.
 
 #### Correct naming convention
@@ -145,19 +127,19 @@ Bob-LoginPageErrorMessage-11082020.
 ```
 
 
-## Creating A New Page Object Model (POM)
+## Creating A New Page Object Model (POM) for testing
 It is important that before creating methods for testing you create your own page object model. This ensures that none of the previously written methods are affected by any of your implementation. 
 
 The class should be placed within a package named after the page you are working on and placed within the pageobjects package. 
-
-The name of your pom should be the same as the name of the webpage it is interacting with. An example of the project structure and naming is given below:
+The name of your pom should be the same as the name of the webpage it is interacting with plus “page”, using camel case. An example of the project structure and naming is given below:
 
 ![ProjectStructure](Assets/ProjectStructureOfPOM.jpg)
-### Testing:
-During the development of this framework there were mainly 3 stages of testing. These 3 stages can also be followed when you further develop the framework and create your own methods. 
 
-#### Stage 1: Unit Testing
-The idea behind unit testing is to test each component of the system in isolation. For example, checking if you can click a link. The first step to doing this is to create a method that actually performs the action that you 
+Once the pageobject is populated, unit testing of each method should be carried out at the unittests package by creating a new class (WEBSITENAME+”tester”). 
+The name of the methods for testing is left under user digression, although industry practices such as using “Is”+METHODNAME+”correct” for booleans and METHODNAME+”test” for void is recommended.
+Credential.properties can be added and modified in the resources package. This package can be used to create scenarios in a new feature file (WEBSITENAME+”.feature”) for the pageobject. The feature file must be populated with Gherkin text.
+A stepdef file (WEBSITENAME+”Stepdef”) is to be added in the stepdef package and the gherkin text from the feature file to be called. 
+The test runner then allows the user to run the specific test methods required.
 
 
 ## Built With
@@ -182,7 +164,5 @@ See also the list of [contributors](https://github.com/MahamudHub/project/contri
 ## Acknowledgments
 
 * Hat tip to anyone whose code was used (Darrell Grainger)
-* Inspiration
-* etc
 
 
