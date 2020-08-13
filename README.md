@@ -261,4 +261,3 @@ Special Thanks to Darrell Grainger for supplying us with a method to see if the 
 Special Thanks to Manish Gadhvi for being a great scrum master and helping us whenever we needed it. 
  
 Special Thanks to Richard Gurney for giving us a live project to work on.
-
