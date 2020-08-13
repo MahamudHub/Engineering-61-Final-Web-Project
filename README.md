@@ -70,7 +70,7 @@ public void loginErrorMessageTest(){
 Assertions.assertTrue(true, loginPage.isTokenErrorMessageCorrect);
 }
 ```
-Each webpage has its own Page Object Model, which contains methods that can be used to test components of the webpage. Any test classes created for unit testing should be placed in the ‘unittesting’ package.
+Each webpage has its own Page Object Model, which contains methods that can be used to test components of the webpage. Any test classes created for unit testing should be placed in the ‘unittesting' package.
 
 *Unit testing package picture.
 
@@ -80,12 +80,26 @@ Each webpage has its own Page Object Model, which contains methods that can be u
 
 ### Using Test Runner
 
-Another feature of this framework is the ability to use Cucumber and BDD. By using the correct tags within the test runner class, you can decide what features and scenarios you would like to test. For example, if you would like to test if the update button clicks on the results page.
+Another feature of this framework is the ability to use Cucumber and BDD. By using the correct tags within the test runner class, you can decide what features and scenarios you would like to test. 
 
-To do this ordinarily you would need to load each method that allows you to get to the point of running the test, but with the correct tag you can just run the correct scenario and it the framework will do the rest. 
+To do this ordinarily you would need to load each method that allows you to get to the point of running the test, but with the correct tag you can run the correct scenario and the framework will do the rest. 
 
-```
-Example of tags being used in test runner. (Image)
+For example, if you would like to test if the update button clicks on the results page. You can use the @... tag.
+
+```java
+@RunWith(Cucumber.class)
+@CucumberOptions(
+        plugin = {"pretty",
+                "html:target/reporting/report.html",
+                "json:target/reporting/report.json",
+                "junit:target/reporting/report.xml"},
+        tags = "",
+        stepNotifications = true,
+        dryRun = false
+)
+public class TestRunner {
+
+}
 ```
 
 ### Round Trip
@@ -135,13 +149,13 @@ The name of your pom should be the same as the name of the webpage it is interac
 
 ![ProjectStructure](Assets/ProjectStructureOfPOM.jpg)
 
-Once the pageobject is populated, unit testing of each method should be carried out at the unittests package by creating a new class (WEBSITENAME+”tester”).
+Once the pageobject is populated, unit testing of each method should be carried out at the unittests package by creating a new class (WEBSITENAME+”tester”). 
 
 The name of the methods for testing is left under user digression, although industry practices such as using “Is”+METHODNAME+”correct” for booleans and METHODNAME+”test” for void is recommended.
 
 Credential.properties can be added and modified in the resources package. This package can be used to create scenarios in a new feature file (WEBSITENAME+”.feature”) for the pageobject. The feature file must be populated with Gherkin syntax.
 
-A stepdef file (WEBSITENAME+”Stepdef”) is to be added in the stepdef package and the gherkin syntax from the feature file to be called. 
+A stepdef file (WEBSITENAME+”Stepdef”) is to be added in the stepdef package and the gherkin text from the feature file to be called. 
 
 The test runner then allows the user to run the specific test methods required.
 
@@ -160,13 +174,19 @@ The test runner then allows the user to run the specific test methods required.
 
 ## Authors
 
+* **Arunabha Roy Chowdhury** - [ArunabhaRC]( https://github.com/ArunabhaRC)
+* **Elizabeth Edge** - [lizzieedge21]( https://github.com/lizzieedge21)
 * **Mohamed Mahamud** - [MahamudHub]( https://github.com/MahamudHub)
-
-See also the list of [contributors](https://github.com/MahamudHub/project/contributors) who participated in this project.
+* **Shariar Halim** - [HalimSh]( https://github.com/HalimSh)
+* **Sumaya Mahamed** - [S-Mahamed]( https://github.com/S-Mahamed)
 
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used (Darrell Grainger)
+Special Thanks to Darrell Grainger for supplying us with a method to see if the element has changed path. 
+
+Special Thanks to Manish Gadhvi for being a great scrum master and helping us whenever we needed it. 
+
+Special Thanks to Richard Gurney for giving us a live project to work on.
 
 
