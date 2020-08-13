@@ -49,7 +49,7 @@ public class LoginStepdefs {
     @Then("I will see the Send Assessment Page")
 
     public void iWillSeeTheSendAssessmentPage() {
-        Assertions.assertEquals("https://eng61.spartaglobal.academy/",sendAssessmentPage.openSendAssessmentPage());
+        Assertions.assertEquals("https://eng61.spartaglobal.academy/",sendAssessmentPage.getUrl());
     }
 
     @Then("I will see the Error message")
