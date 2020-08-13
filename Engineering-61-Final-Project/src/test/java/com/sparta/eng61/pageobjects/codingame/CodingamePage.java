@@ -47,25 +47,25 @@ public class CodingamePage {
 
     By confirmSubmit = new By.ByXPath("//button[2]");
 
+    By starRating = new By.ByCssSelector("span:nth-child(5) > span > img");
+
+    By giveFeedback = new By.ByName("comment");
+
+    By submitFeedback = new By.ByXPath("//button[@type='submit']");
+
+
     public CodingamePage(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
 
-
     public CodingamePage goToStartPage() {
-        //gmailPage.accessAssessmentLinkFromEmail();
-        webDriver.manage().window().maximize();
-        webDriver.get(" https://www.codingame.com/evaluate/?id=3947363c706360530d52c981bdf27c794a47bac");
+        gmailPage.accessAssessmentLinkFromEmail();
         return this;
     }
 
     public void clickStartButton() {
         webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         webDriver.findElement(startButton).click();
-    }
-
-    public String getCodingameURL(){
-        return webDriver.getCurrentUrl();
     }
 
     public void clickTermsBox() {
@@ -143,8 +143,14 @@ public class CodingamePage {
         webDriver.findElement(confirmSubmit).click();
     }
 
+    public void doFeedback() {
+        webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
+        webDriver.findElement(starRating).click();
+        webDriver.findElement(giveFeedback).sendKeys("Looking forward to the results :)");
+        webDriver.findElement(submitFeedback).click();
+    }
+
     public void doTest() {
-        //goToStartPage();
         clickStartButton();
         clickTermsBox();
         confirmStartTest();
@@ -162,6 +168,7 @@ public class CodingamePage {
         nextFourthQuestion();
         submitAnswers();
         confirmAnswers();
+        doFeedback();
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
     public void navigateToDispatcher(){
