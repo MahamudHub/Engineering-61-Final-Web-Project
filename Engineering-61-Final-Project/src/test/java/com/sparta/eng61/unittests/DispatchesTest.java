@@ -15,73 +15,100 @@ public class DispatchesTest {
     public void openDispatches(){
         //loginPage.enterRightLoginCredentials();
         dispatchesPage.openDispatchesPage();
+        webDriver.close();
     }
 
     @Test
     public void openandLogoutDispatches(){
         openDispatches();
         dispatchesPage.loggingOut();
+        webDriver.close();
+
     }
     @Test
     public void clickDispatchesLink(){
         openDispatches();
         dispatchesPage.clickOnDispatchesPage();
+        webDriver.close();
+
     }
     @Test
     public void clickResultsLink(){
         openDispatches();
         dispatchesPage.clickOnResultsPage();
+        webDriver.close();
+
     }
     @Test
     public void clickPollsLink(){
         openDispatches();
         dispatchesPage.clickOnPollsPage();
+        webDriver.close();
+
     }
     @Test
     public void clickLogoLink(){
         openDispatches();
         dispatchesPage.clickOnLogo();
+        webDriver.close();
+
     }
     @Test
     public void fieldHeaders(){
         openDispatches();
         Assertions.assertEquals(true, dispatchesPage.fieldHeaders());
+        webDriver.close();
 
     }
     @Test
     public void candidateName(){
         openDispatches();
         Assertions.assertEquals("Sam",dispatchesPage.getCandidateName());
+        webDriver.close();
+
     }
     @Test
     public void candidateEmail(){
         openDispatches();
         Assertions.assertEquals("engcandidate61@gmail.com",dispatchesPage.getCandidateEmail());
-    }@Test
-
+        webDriver.close();
+    }
+    @Test
     public void recruiteremail(){
         openDispatches();
         Assertions.assertEquals("engineeringsixtyone@gmail.com",dispatchesPage.getRecruiterEmail());
-    }@Test
+        webDriver.close();
+    }
+    @Test
     public void assessment(){
         openDispatches();
         Assertions.assertEquals("java",dispatchesPage.getAssessmentType());
-    }@Test
+        webDriver.close();
+    }
+    @Test
     public void testid(){
         openDispatches();
         Assertions.assertEquals("3944770",dispatchesPage.getTestId());
-    }@Test
+        webDriver.close();
+    }
+    @Test
     public void timesent(){
         openDispatches();
         Assertions.assertEquals("August 5th 2020, 4:46:38 pm",dispatchesPage.getTimeSent());
-    }@Test
+        webDriver.close();
+    }
+    @Test
     public void Complete(){
         openDispatches();
         Assertions.assertEquals("No",dispatchesPage.getComplete());
+        webDriver.close();
+
     }@Test
     public void Expired(){
         openDispatches();
         Assertions.assertEquals("No",dispatchesPage.getExpired());
+        webDriver.close();
+
     }
 
 }
