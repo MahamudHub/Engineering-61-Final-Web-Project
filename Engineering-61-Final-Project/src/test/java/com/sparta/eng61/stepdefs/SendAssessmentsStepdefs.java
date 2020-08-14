@@ -1,5 +1,7 @@
 package com.sparta.eng61.stepdefs;
 
+import com.sparta.eng61.helpers.WebDriverFactory;
+import com.sparta.eng61.pageobjects.dispatcher.LoginPage;
 import com.sparta.eng61.pageobjects.dispatcher.SendAssessmentPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,8 +11,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SendAssessmentsStepdefs {
-    WebDriver webDriver = new ChromeDriver();
+    WebDriver webDriver = WebDriverFactory.SelectDriver("Edge");
     SendAssessmentPage sendAssessmentPage = new SendAssessmentPage(webDriver);
+    LoginPage loginPage = new LoginPage(webDriver);
 
     @Given("I have to contact a candidate to send an assessment")
     public void iHaveToContactACandidateToSendAnAssessment() {
@@ -92,5 +95,15 @@ public class SendAssessmentsStepdefs {
     @Then("i click submit i will see candidate email on Assessment Sent")
     public void iClickSubmitIWillSeeCandidateEmailOnAssessmentSent() {
         Assertions.assertEquals(true,sendAssessmentPage.isSentInfoIncludeEmail());
+    }
+
+    @When("I entered candidate details")
+    public void iEnteredCandidateDetails() {
+        loginPage.login();
+        sendAssessmentPage.enterFieldsToSendAssessment();
+    }
+    @Then("i click submit i will send the candidate an Assessment")
+    public void iClickSubmitIWillSendTheCandidateAnAssessment() {
+        Assertions.assertEquals("Assessment Sent", sendAssessmentPage.getPageHeader());
     }
 }
