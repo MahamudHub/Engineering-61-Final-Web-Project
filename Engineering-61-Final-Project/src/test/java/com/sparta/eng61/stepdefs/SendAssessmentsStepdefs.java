@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SendAssessmentsStepdefs {
-    WebDriver webDriver = WebDriverFactory.SelectDriver("Edge");
+    WebDriver webDriver = WebDriverFactory.SelectDriver("Chrome");
     SendAssessmentPage sendAssessmentPage = new SendAssessmentPage(webDriver);
     LoginPage loginPage = new LoginPage(webDriver);
 
