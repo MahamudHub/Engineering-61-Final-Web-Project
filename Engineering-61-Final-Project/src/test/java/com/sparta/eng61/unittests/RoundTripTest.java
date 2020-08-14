@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class RoundTripTest {
-    WebDriver webDriver = WebDriverFactory.SelectDriver("Firefox");
+    WebDriver webDriver = WebDriverFactory.SelectDriver("Edge");
     LoginPage loginPage = new LoginPage(webDriver);
     DispatchesPage dispatchesPage = new DispatchesPage(webDriver);
     ResultsPage resultsPage = new ResultsPage(webDriver);

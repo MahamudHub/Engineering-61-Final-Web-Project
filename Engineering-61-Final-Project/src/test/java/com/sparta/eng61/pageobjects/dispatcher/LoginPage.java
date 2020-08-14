@@ -118,7 +118,7 @@ public class LoginPage {
 
         webDriver.manage().window();
         webDriver.get("https://eng61.spartaglobal.academy/login");
-        webDriver.switchTo().alert().accept();
+        //webDriver.switchTo().alert().accept();
         return this;
     }
     public SendAssessmentPage relogin(){
