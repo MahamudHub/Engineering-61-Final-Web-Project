@@ -71,7 +71,7 @@ public class ResultsTest {
     @Test
     public void updateTextTest() {
         openLoginPage();
-        Assertions.assertEquals("Update", resultsPage.getUpdateButtonTest());
+        Assertions.assertEquals("UPDATE", resultsPage.getUpdateButtonTest());
         webDriver.close();
     }
 

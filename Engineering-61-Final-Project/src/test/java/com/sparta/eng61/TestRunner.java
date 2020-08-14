@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
                 "html:target/reporting/report.html",
                 "json:target/reporting/report.json",
                 "junit:target/reporting/report.xml"},
-        tags = "@RecruiterEmailPresent",
+        tags = "@SendAssessmentToCandidate",
         features = "src/test/resources/features",
         stepNotifications = true,
         dryRun = false

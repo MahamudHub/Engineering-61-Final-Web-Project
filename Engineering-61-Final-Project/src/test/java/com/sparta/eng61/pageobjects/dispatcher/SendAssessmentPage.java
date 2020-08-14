@@ -188,4 +188,12 @@ public class SendAssessmentPage {
         clickRandomSpace();
         clickSubmit();
     }
+
+    public void enterFieldsToSendAssessment() {
+        selectPsychometricAssessment();
+        enterCandidateName();
+        enterCandidateEmail();
+        enterRecruiterEmail();
+        clickSubmit();
+    }
 }

@@ -48,3 +48,8 @@ Feature: As a user I want send an assessment to a candidate
     When I entered candidate email
     Then i click submit i will see candidate email on Assessment Sent
 
+  @SendAssessmentToCandidate
+  Scenario: Assessment sent will include email
+    Given I have to contact a candidate to send an assessment
+    When I entered candidate details
+    Then i click submit i will send the candidate an Assessment
